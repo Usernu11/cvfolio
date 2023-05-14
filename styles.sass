@@ -1,0 +1,71 @@
+@import _mixins.sass
+
+body
+    margin: 0
+
+.first-about
+    outline: 2px solid red
+    width: 100%
+    // height: auto
+    margin-top: 30px
+
+.container
+    width: 80%
+    outline: 2px dashed blue
+    margin: 0 auto
+
+// .wrapper
+
+.main-info
+    // outline: 2px dashed yellow
+    background-color: white
+    width: 30%
+    // height: 500px
+    border-radius: 25px
+    margin-left: -200px
+    padding: 40px
+    // text-align: 
+    padding-left: 200px
+    background: rgb(108,104,255)
+    background: -moz-linear-gradient(270deg, rgba(108,104,255,1) 0%, rgba(105,221,255,1) 50%, rgba(255,163,32,1) 100%)
+    background: -webkit-linear-gradient(270deg, rgba(108,104,255,1) 0%, rgba(105,221,255,1) 50%, rgba(255,163,32,1) 100%)
+    background: linear-gradient(270deg, rgba(108,104,255,1) 0%, rgba(105,221,255,1) 50%, rgba(255,163,32,1) 100%)
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#6c68ff",endColorstr="#ffa320",GradientType=1)
+    &__name
+        font-size: 70px
+        // outline: 3px solid black
+        // border: 2px solid black
+        // word-break: break-all
+        // width: 10px
+        // padding: 10px  
+    &__contacts
+        font-size: 20px
+        // text-decoration: none
+        list-style-type: none
+        padding: 0
+    &__contact
+        margin: 10px 0
+        &--phone::before
+            @include iconStyle($bgi: url('img/phone-call.png'))
+        &--email::before
+            @include iconStyle($bgi: url('img/email.png'))
+        &--geo::before
+            @include iconStyle($bgi: url('img/placeholder.png'))
+        &--ln::before
+            @include iconStyle($bgi: url('img/linkedin.png'))
+        &--tg::before
+            @include iconStyle($bgi: url('img/telegram.png'))
+        &--gh::before
+            @include iconStyle($bgi: url('img/github.png'))
+
+.link
+    text-decoration: none
+    color: black
+    cursor: pointer
+    display: flex
+    &:hover
+        background: -webkit-linear-gradient(#ff8c00, #000000)
+        -webkit-background-clip: text
+        -webkit-text-fill-color: transparent
+
+// make mobile v
