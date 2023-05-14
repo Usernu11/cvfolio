@@ -1,22 +1,26 @@
 body {
   margin: 0;
+  overflow-x: hidden;
 }
 
 .first-about {
-  outline: 2px solid red;
   width: 100%;
   margin-top: 30px;
 }
 
 .container {
   width: 80%;
-  outline: 2px dashed blue;
   margin: 0 auto;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
 }
 
 .main-info {
   background-color: white;
-  width: 30%;
+  width: 40%;
   border-radius: 25px;
   margin-left: -200px;
   padding: 40px;
@@ -39,7 +43,7 @@ body {
   margin: 10px 0;
 }
 .main-info__contact--phone::before {
-  background-image: url("img/phone-call.png");
+  background-image: url("img/icons/phone-call.png");
   display: block;
   width: 20px;
   height: 20px;
@@ -48,7 +52,7 @@ body {
   margin-right: 15px;
 }
 .main-info__contact--email::before {
-  background-image: url("img/email.png");
+  background-image: url("img/icons/email.png");
   display: block;
   width: 20px;
   height: 20px;
@@ -56,8 +60,8 @@ body {
   background-size: contain;
   margin-right: 15px;
 }
-.main-info__contact--geo::before {
-  background-image: url("img/placeholder.png");
+.main-info__contact--geo::beforew {
+  background-image: url("img/icons/placeholder.png");
   display: block;
   width: 20px;
   height: 20px;
@@ -66,7 +70,7 @@ body {
   margin-right: 15px;
 }
 .main-info__contact--ln::before {
-  background-image: url("img/linkedin.png");
+  background-image: url("img/icons/linkedin.png");
   display: block;
   width: 20px;
   height: 20px;
@@ -75,7 +79,7 @@ body {
   margin-right: 15px;
 }
 .main-info__contact--tg::before {
-  background-image: url("img/telegram.png");
+  background-image: url("img/icons/telegram.png");
   display: block;
   width: 20px;
   height: 20px;
@@ -84,7 +88,7 @@ body {
   margin-right: 15px;
 }
 .main-info__contact--gh::before {
-  background-image: url("img/github.png");
+  background-image: url("img/icons/github.png");
   display: block;
   width: 20px;
   height: 20px;
@@ -103,6 +107,108 @@ body {
   background: -webkit-linear-gradient(#ff8c00, #000000);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.about {
+  width: 50%;
+}
+.about__langs {
+  width: fit-content;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column-reverse;
+  border-radius: 25px;
+  padding: 15px;
+  margin: -50px 0 0 340px;
+  background: rgb(108, 104, 255);
+  background: -moz-linear-gradient(0deg, rgb(108, 104, 255) 25%, rgb(255, 163, 32) 100%);
+  background: -webkit-linear-gradient(0deg, rgb(108, 104, 255) 25%, rgb(255, 163, 32) 100%);
+  background: linear-gradient(0deg, rgb(108, 104, 255) 25%, rgb(255, 163, 32) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#6c68ff",endColorstr="#ffa320",GradientType=1);
+}
+.about__langs--list {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.about__langs--de {
+  background-image: url("img/langs/german.png");
+  background-size: contain;
+}
+.about__langs--it {
+  background-image: url("img/langs/italy.png");
+  background-size: contain;
+}
+.about__langs--fr {
+  background-image: url("img/langs/france.png");
+  background-size: contain;
+}
+.about__langs--en {
+  background-image: url("img/langs/united-states-of-america.png");
+  background-size: contain;
+}
+.about__langs--ua {
+  background-image: url("img/langs/ukraine.png");
+  background-size: contain;
+}
+.about__langs--ru {
+  background-image: url("img/langs/russia.png");
+  background-size: contain;
+}
+.about__story {
+  width: 100%;
+  border-radius: 25px;
+  padding: 40px;
+  margin: 20px 0px 0 113px;
+  background: rgb(108, 104, 255);
+  background: -moz-linear-gradient(90deg, rgb(108, 104, 255) 0%, rgb(105, 221, 255) 50%, rgb(255, 163, 32) 100%);
+  background: -webkit-linear-gradient(90deg, rgb(108, 104, 255) 0%, rgb(105, 221, 255) 50%, rgb(255, 163, 32) 100%);
+  background: linear-gradient(90deg, rgb(108, 104, 255) 0%, rgb(105, 221, 255) 50%, rgb(255, 163, 32) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#6c68ff",endColorstr="#ffa320",GradientType=1);
+}
+.about__story--spec {
+  font-size: 30px;
+}
+.about__story--tell {
+  font-size: 20px;
+  width: 75%;
+  text-align: justify;
+}
+.about__skills {
+  margin: 30px 0 0 80px;
+  width: 40%;
+}
+.about__skills--list {
+  list-style-type: none;
+  padding: 0;
+}
+.about__skills--skill {
+  margin: 10px 0;
+  font-size: 20px;
+  cursor: pointer;
+}
+.about__skills--level {
+  width: 80%;
+  height: 10px;
+  margin-top: -5px;
+  background-color: rgba(108, 104, 255, 0.7);
+  border-radius: 25px;
+}
+
+.list-point {
+  width: 20px;
+  height: 20px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.subtitle {
+  font-size: 40px;
+  background-color: rgb(108, 104, 255);
+  padding: 0 15px;
+  border-radius: 25px;
 }
 
 /*# sourceMappingURL=styles.css.map */
