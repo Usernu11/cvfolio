@@ -18,9 +18,14 @@ body {
   justify-content: space-between;
 }
 
+.wrapper-edu {
+  justify-content: space-around;
+}
+
 .main-info {
   background-color: white;
   width: 40%;
+  height: fit-content;
   border-radius: 25px;
   margin-left: -200px;
   padding: 40px;
@@ -97,16 +102,36 @@ body {
   margin-right: 15px;
 }
 
+.more {
+  outline: none;
+  border: none;
+  background-color: black;
+  color: white;
+  width: fit-content;
+  padding: 5px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-family: "Iceland";
+  font-size: 20px;
+  display: block;
+  margin-left: auto;
+}
+
 .link {
   text-decoration: none;
   color: black;
   cursor: pointer;
   display: flex;
+  outline: none;
 }
 .link:hover {
   background: -webkit-linear-gradient(#ff8c00, #000000);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.second-about {
+  margin-top: 50px;
 }
 
 .about {
@@ -193,7 +218,7 @@ body {
   width: 80%;
   height: 10px;
   margin-top: -5px;
-  background-color: rgba(108, 104, 255, 0.7);
+  background-color: rgba(108, 104, 255, 0.8);
   border-radius: 25px;
 }
 
@@ -209,6 +234,54 @@ body {
   background-color: rgb(108, 104, 255);
   padding: 0 15px;
   border-radius: 25px;
+}
+
+.second-about {
+  margin: 50px 0;
+}
+
+.edu {
+  width: 30%;
+}
+.edu__block {
+  padding: 0 15px;
+}
+.edu__year {
+  margin: 5px 0;
+  display: block;
+  font-size: 20px;
+}
+.edu__place {
+  display: block;
+  font-size: 20px;
+}
+.edu__degree {
+  font-size: 18px;
+}
+.edu__degree--point {
+  margin: 10px 0 10px 28px;
+}
+
+.exp {
+  width: 30%;
+}
+.exp__block {
+  padding: 0 15px;
+}
+.exp__year {
+  margin: 5px 0;
+  display: block;
+  font-size: 20px;
+}
+.exp__place {
+  display: block;
+  font-size: 20px;
+}
+.exp__history {
+  font-size: 18px;
+}
+.exp__history--done {
+  margin: 10px 0 10px 28px;
 }
 
 /*# sourceMappingURL=styles.css.map */

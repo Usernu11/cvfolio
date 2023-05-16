@@ -20,12 +20,15 @@ body
     display: flex
     justify-content: space-between
 
+.wrapper-edu
+    justify-content: space-around
+
 // Main Info Block
 .main-info
     // outline: 2px dashed yellow
     background-color: white
     width: 40%
-    // height: 500px
+    height: fit-content
     border-radius: 25px
     margin-left: -200px
     padding: 40px
@@ -63,17 +66,36 @@ body
         &--gh::before
             @include iconStyle($bgi: url('img/icons/github.png'))
 
+.more
+    outline: none
+    border: none
+    background-color: black
+    color: white
+    width: fit-content
+    padding: 5px 20px
+    border-radius: 25px
+    cursor: pointer
+    font-family: 'Iceland'
+    font-size: 20px
+    display: block
+    margin-left: auto
+    // outline: 2px solid red
+
 .link
     text-decoration: none
     color: black
     cursor: pointer
     display: flex
+    outline: none
     &:hover
         background: -webkit-linear-gradient(#ff8c00, #000000)
         -webkit-background-clip: text
         -webkit-text-fill-color: transparent
 
 // About Block
+.second-about
+    margin-top: 50px
+
 .about
     // outline: 2px solid red
     width: 50%
@@ -125,7 +147,7 @@ body
             font-size: 30px
         &--tell
             font-size: 20px
-            width: 75%  
+            width: 75%
             // outline: 2px solid red
             text-align: justify
     &__skills
@@ -144,7 +166,7 @@ body
             height: 10px
             // outline: 2px solid red
             margin-top: -5px
-            background-color: rgba(108,104,255,.7)
+            background-color: rgba(108,104,255,.8)
             border-radius: 25px
 
 .list-point
@@ -160,7 +182,40 @@ body
     padding: 0 15px
     border-radius: 25px
 
+.second-about
+    margin: 50px 0
 
+.edu
+    // outline: 2px solid red
+    width: 30%
+    &__block
+        padding: 0 15px
+    &__year
+        // outline: 2px dashed black
+        margin: 5px 0
+        @include eduStyle
+    &__place
+        @include eduStyle
+    &__degree
+        font-size: 18px
+        &--point
+            margin: 10px 0 10px 28px
+
+.exp
+    width: 30%
+    &__block
+        padding: 0 15px
+    &__year
+        // outline: 2px dashed black
+        margin: 5px 0
+        @include eduStyle
+    &__place
+        @include eduStyle
+    &__history
+        font-size: 18px
+        &--done
+            margin: 10px 0 10px 28px
+    
 // ideas 💡
 // make mobile v
 // make comment marks for blocks
