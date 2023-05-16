@@ -15,11 +15,15 @@ body {
 
 .wrapper {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .wrapper-edu {
   justify-content: space-around;
+}
+
+.hidden {
+  display: none;
 }
 
 .main-info {
@@ -55,6 +59,7 @@ body {
   content: "";
   background-size: contain;
   margin-right: 15px;
+  background-repeat: no-repeat;
 }
 .main-info__contact--email::before {
   background-image: url("img/icons/email.png");
@@ -64,8 +69,9 @@ body {
   content: "";
   background-size: contain;
   margin-right: 15px;
+  background-repeat: no-repeat;
 }
-.main-info__contact--geo::beforew {
+.main-info__contact--geo::before {
   background-image: url("img/icons/placeholder.png");
   display: block;
   width: 20px;
@@ -73,6 +79,7 @@ body {
   content: "";
   background-size: contain;
   margin-right: 15px;
+  background-repeat: no-repeat;
 }
 .main-info__contact--ln::before {
   background-image: url("img/icons/linkedin.png");
@@ -82,6 +89,7 @@ body {
   content: "";
   background-size: contain;
   margin-right: 15px;
+  background-repeat: no-repeat;
 }
 .main-info__contact--tg::before {
   background-image: url("img/icons/telegram.png");
@@ -91,6 +99,7 @@ body {
   content: "";
   background-size: contain;
   margin-right: 15px;
+  background-repeat: no-repeat;
 }
 .main-info__contact--gh::before {
   background-image: url("img/icons/github.png");
@@ -100,6 +109,7 @@ body {
   content: "";
   background-size: contain;
   margin-right: 15px;
+  background-repeat: no-repeat;
 }
 
 .more {
@@ -114,7 +124,7 @@ body {
   font-family: "Iceland";
   font-size: 20px;
   display: block;
-  margin-left: auto;
+  margin: 15px 0 0 auto;
 }
 
 .link {
@@ -202,12 +212,16 @@ body {
   text-align: justify;
 }
 .about__skills {
+  display: flex;
+  justify-content: space-between;
   margin: 30px 0 0 80px;
-  width: 40%;
+  width: 100%;
 }
 .about__skills--list {
   list-style-type: none;
   padding: 0;
+  width: 100%;
+  margin: 0;
 }
 .about__skills--skill {
   margin: 10px 0;
@@ -221,6 +235,19 @@ body {
   background-color: rgba(108, 104, 255, 0.8);
   border-radius: 25px;
 }
+.about__skills--wrapper {
+  width: 40%;
+}
+.about__skills--sec-wrap {
+  height: 400px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.about__skills--skills {
+  width: 100%;
+}
 
 .list-point {
   width: 20px;
@@ -232,8 +259,11 @@ body {
 .subtitle {
   font-size: 40px;
   background-color: rgb(108, 104, 255);
-  padding: 0 15px;
+  padding: 5px 15px;
   border-radius: 25px;
+  margin: 15px 0;
+  display: block;
+  width: fit-content;
 }
 
 .second-about {
@@ -263,13 +293,13 @@ body {
 }
 
 .exp {
-  width: 30%;
+  width: 40%;
 }
 .exp__block {
   padding: 0 15px;
 }
 .exp__year {
-  margin: 5px 0;
+  margin: 10px 0;
   display: block;
   font-size: 20px;
 }
@@ -282,6 +312,163 @@ body {
 }
 .exp__history--done {
   margin: 10px 0 10px 28px;
+}
+
+.hobbies {
+  height: 250px;
+}
+.hobbies__activity {
+  width: 200px;
+  height: 150px;
+  margin: 20px 0;
+  border-radius: 25px;
+}
+.hobbies__activity--volley {
+  background-image: url("img/hobbies/volley.gif");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.hobbies__activity--b-volley {
+  background-image: url("img/hobbies/beach-volley.gif");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.hobbies__activity--coding {
+  background-image: url("img/hobbies/coding.gif");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.hobbies__activity--drawing {
+  background-image: url("img/hobbies/drawing.gif");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.hobbies__activity--reading {
+  background-image: url("img/hobbies/reading.gif");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.hobbies__activity--traveling {
+  background-image: url("img/hobbies/travel.gif");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.awards {
+  height: 150px;
+}
+.awards__point {
+  width: 200px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 20px;
+  text-align: center;
+  background-color: navy;
+  padding: 15px 5px;
+  color: white;
+}
+.awards__point--ps::before {
+  display: block;
+  content: "";
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+  background-position: center;
+  background-size: cover;
+  background-image: url("img/awards/protest.png");
+}
+.awards__point--u::before {
+  display: block;
+  content: "";
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+  background-position: center;
+  background-size: cover;
+  background-image: url("img/awards/graduation.png");
+}
+.awards__point--it::before {
+  display: block;
+  content: "";
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+  background-position: center;
+  background-size: cover;
+  background-image: url("img/awards/coding.png");
+}
+.awards__point--d::before {
+  display: block;
+  content: "";
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+  background-position: center;
+  background-size: cover;
+  background-image: url("img/awards/atom.png");
+}
+.awards__point--ds::before {
+  display: block;
+  content: "";
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+  background-position: center;
+  background-size: cover;
+  background-image: url("img/awards/certificate (3).png");
+}
+.awards__point--dr::before {
+  display: block;
+  content: "";
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+  background-position: center;
+  background-size: cover;
+  background-image: url("img/awards/kitty.png");
+}
+.awards__point--c::before {
+  display: block;
+  content: "";
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+  background-position: center;
+  background-size: cover;
+  background-image: url("img/awards/team-management.png");
+}
+.awards__point--m::before {
+  display: block;
+  content: "";
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+  background-position: center;
+  background-size: cover;
+  background-image: url("img/awards/magazine.png");
+}
+.awards__point--js::before {
+  display: block;
+  content: "";
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+  background-position: center;
+  background-size: cover;
+  background-image: url("img/awards/js.png");
+}
+
+.connect {
+  height: 200px;
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -6,6 +6,7 @@
     content: ''
     background-size: contain
     margin-right: 15px
+    background-repeat: no-repeat
 
 @mixin langStyle($bgi: red)
     background-image: $bgi
@@ -14,3 +15,17 @@
 @mixin eduStyle()
     display: block
     font-size: 20px
+
+@mixin bgHobbies()
+    background-position: center
+    background-repeat: no-repeat
+    background-size: cover
+
+@mixin avardIcon()
+    display: block
+    content: ''
+    width: 50px
+    height: 50px
+    margin-bottom: 10px
+    background-position: center
+    background-size: cover

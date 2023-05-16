@@ -18,10 +18,13 @@ body
 
 .wrapper
     display: flex
-    justify-content: space-between
+    justify-content: space-evenly
 
 .wrapper-edu
     justify-content: space-around
+
+.hidden
+    display: none
 
 // Main Info Block
 .main-info
@@ -57,7 +60,7 @@ body
             @include iconStyle($bgi: url('img/icons/phone-call.png'))
         &--email::before
             @include iconStyle($bgi: url('img/icons/email.png'))
-        &--geo::beforew
+        &--geo::before
             @include iconStyle($bgi: url('img/icons/placeholder.png'))
         &--ln::before
             @include iconStyle($bgi: url('img/icons/linkedin.png'))
@@ -78,7 +81,8 @@ body
     font-family: 'Iceland'
     font-size: 20px
     display: block
-    margin-left: auto
+    // margin-left: auto
+    margin: 15px 0 0 auto
     // outline: 2px solid red
 
 .link
@@ -152,11 +156,15 @@ body
             text-align: justify
     &__skills
         // outline: 3px dashed black
+        display: flex
+        justify-content: space-between
         margin: 30px 0 0 80px
-        width: 40%
+        width: 100%
         &--list
             list-style-type: none
             padding: 0
+            width: 100%
+            margin: 0
         &--skill
             margin: 10px 0
             font-size: 20px
@@ -164,10 +172,20 @@ body
         &--level
             width: 80%
             height: 10px
-            // outline: 2px solid red
             margin-top: -5px
             background-color: rgba(108,104,255,.8)
             border-radius: 25px
+        &--wrapper
+            width: 40%
+        &--sec-wrap
+            // outline: 2px solid red
+            height: 400px
+            width: 50% // 100%
+            display: flex
+            flex-direction: column
+            flex-wrap: wrap
+        &--skills
+            width: 100%
 
 .list-point
     // outline: 2px solid black
@@ -179,12 +197,16 @@ body
 .subtitle
     font-size: 40px
     background-color: rgba(108,104,255,1)
-    padding: 0 15px
+    padding: 5px 15px
     border-radius: 25px
+    margin: 15px 0
+    display: block
+    width: fit-content
 
 .second-about
     margin: 50px 0
 
+// Education block
 .edu
     // outline: 2px solid red
     width: 30%
@@ -201,13 +223,14 @@ body
         &--point
             margin: 10px 0 10px 28px
 
+// Experience block
 .exp
-    width: 30%
+    width: 40%
     &__block
         padding: 0 15px
     &__year
         // outline: 2px dashed black
-        margin: 5px 0
+        margin: 10px 0
         @include eduStyle
     &__place
         @include eduStyle
@@ -215,7 +238,84 @@ body
         font-size: 18px
         &--done
             margin: 10px 0 10px 28px
-    
+
+// Footer block
+.hobbies
+    // outline: 2px solid red
+    height: 250px
+    // margin: 20px
+    &__activity
+        // outline: 2px solid red
+        width: 200px
+        height: 150px
+        margin: 20px 0
+        border-radius: 25px
+        &--volley
+            background-image: url('img/hobbies/volley.gif')
+            @include bgHobbies
+        &--b-volley
+            background-image: url('img/hobbies/beach-volley.gif')
+            @include bgHobbies
+        &--coding
+            background-image: url('img/hobbies/coding.gif')
+            @include bgHobbies
+        &--drawing
+            background-image: url('img/hobbies/drawing.gif')
+            @include bgHobbies
+        &--reading
+            background-image: url('img/hobbies/reading.gif')
+            @include bgHobbies
+        &--traveling
+            background-image: url('img/hobbies/travel.gif')
+            @include bgHobbies
+
+.awards
+    // outline: 2px solid blue
+    height: 150px
+    &__point
+        // outline: 2px solid blue
+        width: 200px
+        height: 150px
+        display: flex
+        flex-direction: column
+        justify-content: flex-start
+        align-items: center
+        font-size: 20px
+        text-align: center
+        background-color: navy
+        padding: 15px 5px
+        color: white
+        &--ps::before
+            @include avardIcon
+            background-image: url('img/awards/protest.png')
+        &--u::before
+            @include avardIcon
+            background-image: url('img/awards/graduation.png')
+        &--it::before
+            @include avardIcon
+            background-image: url('img/awards/coding.png')
+        &--d::before
+            @include avardIcon
+            background-image: url('img/awards/atom.png')
+        &--ds::before
+            @include avardIcon
+            background-image: url('img/awards/certificate (3).png')
+        &--dr::before
+            @include avardIcon
+            background-image: url('img/awards/kitty.png')
+        &--c::before
+            @include avardIcon
+            background-image: url('img/awards/team-management.png')
+        &--m::before
+            @include avardIcon
+            background-image: url('img/awards/magazine.png')
+        &--js::before
+            @include avardIcon
+            background-image: url('img/awards/js.png')
+
+.connect
+    height: 200px
+
 // ideas 💡
 // make mobile v
 // make comment marks for blocks

@@ -87,22 +87,59 @@
                     </div>
 
                     <div class="about__skills">
-                        <span class="subtitle">Skills</span>
-                        <ul class="about__skills--list">
-                            <li class="about__skills--skill">JavaScript (ES6)</li>
-                            <li class="about__skills--level js"></li>
-                            <!-- show that you passed the chalenge -->
-                            <!-- make each skill interactive with dialogue chat window where a client can see how you describe the level -->
-                            <li class="about__skills--skill">HTML5/CSS3</li>
-                            <li class="about__skills--level htmlcss"></li>
-                            <li class="about__skills--skill">Sass/Scss</li>
-                            <li class="about__skills--level sass"></li>
-                            <li class="about__skills--skill">MySQL</li>
-                            <li class="about__skills--level mysql"></li>
-                            <li class="about__skills--skill">Git</li>
-                            <li class="about__skills--level git"></li>
-                        </ul>
-                        <button class="more">More skills</button>
+                        <div class="about__skills--wrapper about__skills--skills">
+                            <span class="subtitle">Skills</span>
+                            <div class="about__skills--sec-wrap">
+                                <ul class="about__skills--list">
+                                    <li class="about__skills--skill">JavaScript (ES6)</li>
+                                    <li class="about__skills--level js"></li>
+                                    <!-- show that you passed the challenge -->
+                                    <!-- make each skill interactive with dialogue chat window where a client can see how you describe the level -->
+                                    <li class="about__skills--skill">HTML5/CSS3</li>
+                                    <li class="about__skills--level htmlcss"></li>
+                                    <li class="about__skills--skill">Sass/Scss</li>
+                                    <li class="about__skills--level sass"></li>
+                                    <li class="about__skills--skill">MySQL</li>
+                                    <li class="about__skills--level mysql"></li>
+                                    <li class="about__skills--skill">Git</li>
+                                    <li class="about__skills--level git"></li>
+                                </ul>
+
+                                <ul class="about__skills--list hidden">
+                                    <li class="about__skills--skill">jQuery</li>
+                                    <li class="about__skills--level"></li>
+                                    <li class="about__skills--skill">PHP</li>
+                                    <li class="about__skills--level"></li>
+                                    <li class="about__skills--skill">Responsive Design</li>
+                                    <li class="about__skills--level"></li>
+                                    <li class="about__skills--skill">Photoshop</li>
+                                    <li class="about__skills--level "></li>
+                                    <li class="about__skills--skill">FTP</li>
+                                    <li class="about__skills--level"></li>
+                                    <li class="about__skills--skill">Bootstrap</li>
+                                    <li class="about__skills--level"></li>
+                                    <li class="about__skills--skill soon">React.js</li>
+                                    <li class="about__skills--level"></li>
+                                </ul>
+
+                                <button class="more">More skills</button>
+                            </div>
+                        </div>
+
+                        <div class="about__skills--wrapper">
+                            <span class="subtitle">Languages</span>
+                            <ul class="about__skills--list">
+                                <li class="about__skills--skill">Deutsch</li>
+                                <li class="about__skills--level de"></li>
+                                <li class="about__skills--skill">English</li>
+                                <li class="about__skills--level en"></li>
+                                <li class="about__skills--skill">Ukrainian</li>
+                                <li class="about__skills--level ua"></li>
+                                <li class="about__skills--skill">Russian</li>
+                                <li class="about__skills--level ru"></li>
+                            </ul>
+                            <button class="more">Coming soon</button>
+                        </div>
                         <!-- ul using js ...  -->
                         <!-- comming soon skills like React, Vue, docker, Node.js -->
                     </div>
@@ -138,6 +175,38 @@
                         </ul>
                     </div>
 
+                    <div class="edu__block hidden">
+                        <!-- add bg colors for each block easy read -->
+                        <span class="edu__year">Sep 2013 – July 2015</span>
+                        <!-- add calculating using js (Sep 2019 - Dec 2020 (1.5 year)) -->
+                        <span class="edu__place">Technical school №4</span>
+                        <ul class="edu__degree">📚 'A' Class
+                            <li class="edu__degree--point">In-depth study of mathematics, physics and the Ukrainian
+                                language.</li>
+                        </ul>
+                    </div>
+
+                    <div class="edu__block hidden">
+                        <!-- add bg colors for each block easy read -->
+                        <span class="edu__year">Sep 2010 – June 2013</span>
+                        <!-- add calculating using js (Sep 2019 - Dec 2020 (1.5 year)) -->
+                        <span class="edu__place">Technical school №4</span>
+                        <ul class="edu__degree">📚 'V' Class
+                            <li class="edu__degree--point">General education, moderated</li>
+                        </ul>
+                    </div>
+
+                    <div class="edu__block hidden">
+                        <!-- add bg colors for each block easy read -->
+                        <span class="edu__year">Sep 2003 – June 2010</span>
+                        <!-- add calculating using js (Sep 2019 - Dec 2020 (1.5 year)) -->
+                        <span class="edu__place">Technical school №4</span>
+                        <ul class="edu__degree">📚 'A' Class
+                            <li class="edu__degree--point">In-depth study of mathematics, physics and the Ukrainian
+                                language</li>
+                        </ul>
+                    </div>
+
                     <button class="more">More about education</button>
                     <!-- using js create other schools edu blocks slowly -->
                 </div>
@@ -147,26 +216,96 @@
                     <div class="exp__block">
                         <div class="exp__year">Feb 2019 - Nov 2022</div>
                         <div class="exp__place">For Dog Trainers (FDT)</div>
+                        <!-- add logo of company -->
                         <ul class="exp__history">👨‍💻 Junior Front-End Developer
-                            <li class="exp__history--done">Managed 200+ sites which increased my multitasking, responsibility and discipline. In this way, I helped the company to save on new hires and contributed to growth.</li>
-                            <li class="exp__history--done">Fixed various bugs on the websites, increased the performance and attractiveness of the websites, which led to an increase in traffic and sales on some websites by 16%.</li>
+                            <li class="exp__history--done">Managed 200+ sites which increased my multitasking,
+                                responsibility and discipline. In this way, I helped the company to save on new hires
+                                and contributed to growth.</li>
+                            <li class="exp__history--done">Fixed various bugs on the websites, increased the performance
+                                and attractiveness of the websites, which led to an increase in traffic and sales on
+                                some websites by 16%.</li>
                             <!-- make digits colors -->
-                            <li class="exp__history--done">Implemented information to increase sales, traffic and improve the websites (SEO).</li>
-                            <li class="exp__history--done">Improved website speed and functionality, which increased sales of some websites by 11%.</li>
-                            <li class="exp__history--done">Decreased website loading time, which increases the convenience of website visitors.</li>
-                            <li class="exp__history--done">Worked with "mySQL" databases while fixing many bugs on the website, saving the company time.</li>
-                            <li class="exp__history--done">Tracked Google news, introduced advanced front-end technologies on the website thereby increasing traffic and sales.</li>
+                            <li class="exp__history--done">Implemented information to increase sales, traffic and
+                                improve the websites (SEO).</li>
+                            <li class="exp__history--done">Improved website speed and functionality, which increased
+                                sales of some websites by 11%.</li>
+                            <li class="exp__history--done">Decreased website loading time, which increases the
+                                convenience of website visitors.</li>
+                            <li class="exp__history--done">Worked with "mySQL" databases while fixing many bugs on the
+                                website, saving the company time.</li>
+                            <li class="exp__history--done">Tracked Google news, introduced advanced front-end
+                                technologies on the website thereby increasing traffic and sales.</li>
                         </ul>
-                        <button class="more">More about experience</button>
                     </div>
+
+                    <div class="exp__block hidden">
+                        <div class="exp__year">Sep 2018 – Dec 2018</div>
+                        <div class="exp__place">Japan Tabacco International (JTI)</div>
+                        <!-- add logo of company -->
+                        <ul class="exp__history">👥 Tobacco Advisor
+                            <li class="exp__history--done">Temporary job while studying at the university</li>
+                        </ul>
+                    </div>
+                    <button class="more">More about experience</button>
                 </div>
             </div>
         </div>
     </div>
 
+    <div class="projects">
+        <div class="container">
+            MY PROJECTS
+            <br> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic quaerat debitis perferendis explicabo
+        consequatur excepturi doloribus saepe? Quis nemo inventore tenetur laudantium excepturi. Perspiciatis vel totam
+        odit quaerat odio praesentium. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga, quia atque?
+        Eveniet, veritatis maiores et dolorum facere magnam illum quia Lorem ipsum dolor sit, amet consectetur
+        adipisicing elit. Adipisci delectus harum, distinctio velit, illum obcaecati dolorem commodi eligendi qui sint a
+        tempore ipsum. Laborum earum ullam ratione mollitia magnam tempora, similique temporibus deleniti animi corporis
+        officia optio rerum veniam, hic sunt inventore consectetur a repellat nobis et. Quia, officiis optio?
+        <br>
+        <br>
+        </div>
+    </div>
+
     <footer>
-        <!-- activities or hoobies -->
+        <div class="hobbies">
+            <div class="container">
+                <span class="subtitle">Activities & Awards</span>
+            </div>
+            <div class="wrapper">
+                <div class="hobbies__activity hobbies__activity--volley"></div>
+                <div class="hobbies__activity hobbies__activity--coding"></div>
+                <div class="hobbies__activity hobbies__activity--b-volley"></div>
+                <div class="hobbies__activity hobbies__activity--drawing"></div>
+                <div class="hobbies__activity hobbies__activity--traveling"></div>
+                <div class="hobbies__activity hobbies__activity--reading"></div>
+            </div>
+            <!-- add a button which can dissable gifs and change to images -->
+        </div>
+
+        <div class="awards">
+            <div class="wrapper">
+                <div class="awards__point awards__point--ps">Made 10 000 pushups</div>
+                <div class="awards__point awards__point--u">Finished University with distinction</div>
+                <div class="awards__point awards__point--it">Finished Beetroot Academy with distinction</div>
+                <div class="awards__point awards__point--d">II level diploma 'Science First Steps'</div>
+                <div class="awards__point awards__point--ds">II place diploma for best report</div>
+                <div class="awards__point awards__point--dr">I place in a regional drawing competition</div>
+                <div class="awards__point awards__point--c">Charter the best group for the six study years</div>
+                <div class="awards__point awards__point--m">Named Time Magazine's Person of the Year</div>
+                <div class="awards__point awards__point--js">Finished '30DaysOfJavaScript' challenge</div>
+            </div>
+        </div>
+
+        <div class="connect">
+            <div class="container">
+                <span class="subtitle"></span>
+                <input type="text" class="connect__text">
+                <button class="connect__button" type="submit" value="Submit">Send</button>
+            </div>
+        </div>
         <!-- check out folio in W3C -->
+        <!-- <a href="https://www.flaticon.com/free-icons/js" title="js icons">Js icons created by Freepik - Flaticon</a> -->
     </footer>
 
     <script src="stopwatch.js"></script>
