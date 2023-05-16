@@ -239,7 +239,7 @@ body {
   width: 40%;
 }
 .about__skills--sec-wrap {
-  height: 400px;
+  height: auto;
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -257,7 +257,7 @@ body {
 }
 
 .subtitle {
-  font-size: 40px;
+  font-size: 35px;
   background-color: rgb(108, 104, 255);
   padding: 5px 15px;
   border-radius: 25px;
@@ -267,7 +267,7 @@ body {
 }
 
 .second-about {
-  margin: 50px 0;
+  margin: 30px 0;
 }
 
 .edu {
@@ -360,9 +360,6 @@ body {
   background-size: cover;
 }
 
-.awards {
-  height: 150px;
-}
 .awards__point {
   width: 200px;
   height: 150px;
@@ -373,7 +370,7 @@ body {
   font-size: 20px;
   text-align: center;
   background-color: navy;
-  padding: 15px 5px;
+  padding: 20px 5px 0 5px;
   color: white;
 }
 .awards__point--ps::before {
@@ -469,6 +466,38 @@ body {
 
 .connect {
   height: 200px;
+  margin: 40px 0;
+}
+.connect__wrapper {
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+}
+.connect__text {
+  width: 700px;
+  height: 100px;
+  margin: 0 30px 0 -100px;
+  border-radius: 25px;
+  outline: none;
+  padding: 15px 15px 15px 115px;
+  resize: none;
+  border-color: red;
+  background-color: gold;
+}
+.connect__button {
+  height: 80px;
+  font-size: 30px;
+  border-radius: 25px 25px 0 0;
+  width: fit-content;
+  padding: 5px 15px;
+  cursor: pointer;
+  margin-bottom: -50px;
+  background-color: #fff;
+  display: flex;
+  color: orange;
+  background-color: navy;
+  border-color: red;
+  border-bottom: none;
 }
 
 /*# sourceMappingURL=styles.css.map */

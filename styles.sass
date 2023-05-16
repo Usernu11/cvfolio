@@ -4,6 +4,7 @@
 body
     margin: 0
     overflow-x: hidden
+    // height: 
 
 .first-about
     // outline: 2px solid red
@@ -179,7 +180,7 @@ body
             width: 40%
         &--sec-wrap
             // outline: 2px solid red
-            height: 400px
+            height: auto
             width: 50% // 100%
             display: flex
             flex-direction: column
@@ -195,16 +196,17 @@ body
     cursor: pointer
 
 .subtitle
-    font-size: 40px
+    font-size: 35px
     background-color: rgba(108,104,255,1)
     padding: 5px 15px
     border-radius: 25px
     margin: 15px 0
     display: block
     width: fit-content
+    // height: 80px
 
 .second-about
-    margin: 50px 0
+    margin: 30px 0
 
 // Education block
 .edu
@@ -240,8 +242,11 @@ body
             margin: 10px 0 10px 28px
 
 // Footer block
+// footer
+//     height: auto
+//     outline: 2px solid red
+
 .hobbies
-    // outline: 2px solid red
     height: 250px
     // margin: 20px
     &__activity
@@ -271,7 +276,8 @@ body
 
 .awards
     // outline: 2px solid blue
-    height: 150px
+    // height: 180px
+    // padding: 10px 0
     &__point
         // outline: 2px solid blue
         width: 200px
@@ -283,7 +289,7 @@ body
         font-size: 20px
         text-align: center
         background-color: navy
-        padding: 15px 5px
+        padding: 20px 5px 0 5px
         color: white
         &--ps::before
             @include avardIcon
@@ -315,6 +321,47 @@ body
 
 .connect
     height: 200px
+    margin: 40px 0
+    // outline: 2px solid red
+    &__wrapper
+        display: flex
+        align-items: flex-end
+        position: relative
+    &__text
+        width: 700px
+        height: 100px
+        margin: 0 30px 0 -100px
+        // display: block
+        border-radius: 25px
+        outline: none
+        // text-align: top
+        // display: flex
+        // justify-content: flex-start
+        // align-items: flex-start
+        // border: none
+        padding: 15px 15px 15px 115px
+        resize: none
+        border-color: red
+        background-color: gold
+    &__button
+        height: 80px
+        font-size: 30px
+        border-radius: 25px 25px 0 0
+        width: fit-content
+        padding: 5px 15px
+        cursor: pointer
+        margin-bottom: -50px
+        background-color: #fff
+        display: flex
+        color: orange
+        background-color: navy
+        border-color: red
+        border-bottom: none
+        // position: absolute
+        // bottom: -150%
+        // left: 50%
+
+    
 
 // ideas 💡
 // make mobile v
