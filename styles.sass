@@ -27,6 +27,7 @@ body
     width: 80%
     // outline: 2px dashed blue
     margin: 0 auto
+    // height: 200px
 
 .wrapper
     display: flex
@@ -254,18 +255,30 @@ body
 
 .projects
     // outline: 2px solid red
-    height: 200px
+    height: auto
+    margin: 50px 0 100px 0
+    &__subtitle
+        margin: 10px auto
     &__wrapper
-        height: 200px
+        height: auto
         // outline: 2px solid black
+        display: flex
+        flex-wrap: wrap
+        align-items: center
+        justify-content: center
+        // gap: 5px
     &__project
         outline: 2px solid black
-        margin: 0
+        margin: 10px
         padding: 0
-        width: 200px
+        width: 300px
         height: 200px
         display: block
+        filter: blur(1px)
+        -webkit-filter: blur(1px)
+        transition: scale 1s, box-shadow .5s, filter 1s
         &--pss
+            border-radius: 25px 0 0 0
             background-image: url('img/projects/pss.jpg')
             @include bgHobbies
         &--pwcdv
@@ -274,7 +287,31 @@ body
         &--psc
             background-image: url('img/projects/psc.jpg')
             @include bgHobbies
-
+            border-radius: 0 25px 0 0
+        &--law
+            background-image: url('img/projects/law.jpg')
+            @include bgHobbies
+        &--ga
+            background-image: url('img/projects/gamaun.jpg')
+            @include bgHobbies
+        &--vim
+            background-image: url('img/projects/vimarko.jpg')
+            @include bgHobbies
+        &--mo
+            background-image: url('img/projects/monticello.jpg')
+            @include bgHobbies
+            border-radius: 0 0 0 25px
+        &--pri
+            background-image: url('img/projects/printe.jpg')
+            @include bgHobbies
+        &--dgp
+            background-image: url('img/projects/digital.jpg')
+            @include bgHobbies
+            border-radius: 0 0 25px 0
+    &__project:hover
+        scale: (1.2)
+        box-shadow: inset 0px 0px 14px 5px #FFD900
+        filter: blur(0px)
 
 .hobbies
     height: 250px
@@ -391,8 +428,6 @@ body
         // position: absolute
         // bottom: -150%
         // left: 50%
-
-    
 
 // ideas 💡
 // make mobile v

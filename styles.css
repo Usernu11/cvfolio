@@ -325,20 +325,32 @@ body {
 }
 
 .projects {
-  height: 200px;
+  height: auto;
+  margin: 50px 0 100px 0;
+}
+.projects__subtitle {
+  margin: 10px auto;
 }
 .projects__wrapper {
-  height: 200px;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 .projects__project {
   outline: 2px solid black;
-  margin: 0;
+  margin: 10px;
   padding: 0;
-  width: 200px;
+  width: 300px;
   height: 200px;
   display: block;
+  filter: blur(1px);
+  -webkit-filter: blur(1px);
+  transition: scale 1s, box-shadow 0.5s, filter 1s;
 }
 .projects__project--pss {
+  border-radius: 25px 0 0 0;
   background-image: url("img/projects/pss.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -355,6 +367,50 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  border-radius: 0 25px 0 0;
+}
+.projects__project--law {
+  background-image: url("img/projects/law.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.projects__project--ga {
+  background-image: url("img/projects/gamaun.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.projects__project--vim {
+  background-image: url("img/projects/vimarko.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.projects__project--mo {
+  background-image: url("img/projects/monticello.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 0 0 0 25px;
+}
+.projects__project--pri {
+  background-image: url("img/projects/printe.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.projects__project--dgp {
+  background-image: url("img/projects/digital.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 0 0 25px 0;
+}
+.projects__project:hover {
+  scale: 1.2;
+  box-shadow: inset 0px 0px 14px 5px #FFD900;
+  filter: blur(0px);
 }
 
 .hobbies {
