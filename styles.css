@@ -3,6 +3,16 @@ body {
   overflow-x: hidden;
 }
 
+.up {
+  position: fixed;
+  bottom: 5%;
+  right: 1%;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
 .first-about {
   width: 100%;
   margin-top: 30px;
@@ -314,6 +324,39 @@ body {
   margin: 10px 0 10px 28px;
 }
 
+.projects {
+  height: 200px;
+}
+.projects__wrapper {
+  height: 200px;
+}
+.projects__project {
+  outline: 2px solid black;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  height: 200px;
+  display: block;
+}
+.projects__project--pss {
+  background-image: url("img/projects/pss.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.projects__project--pwcdv {
+  background-image: url("img/projects/pwcdv.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.projects__project--psc {
+  background-image: url("img/projects/psc.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .hobbies {
   height: 250px;
 }
@@ -486,10 +529,11 @@ body {
 }
 .connect__button {
   height: 80px;
-  font-size: 30px;
+  font-size: 50px;
   border-radius: 25px 25px 0 0;
   width: fit-content;
-  padding: 5px 15px;
+  padding: 10px 40px;
+  font-family: Iceland;
   cursor: pointer;
   margin-bottom: -50px;
   background-color: #fff;

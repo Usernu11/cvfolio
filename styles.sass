@@ -1,10 +1,21 @@
 @import _mixins.sass
 
 // General styles
+// 6. Lemon Meringue + Prussian Blue Color Palette
+
 body
     margin: 0
     overflow-x: hidden
     // height: 
+
+.up
+    position: fixed
+    bottom: 5%
+    right: 1%
+    width: 50px
+    height: 50px
+    border-radius: 50%
+    cursor: pointer
 
 .first-about
     // outline: 2px solid red
@@ -241,10 +252,29 @@ body
         &--done
             margin: 10px 0 10px 28px
 
-// Footer block
-// footer
-//     height: auto
-//     outline: 2px solid red
+.projects
+    // outline: 2px solid red
+    height: 200px
+    &__wrapper
+        height: 200px
+        // outline: 2px solid black
+    &__project
+        outline: 2px solid black
+        margin: 0
+        padding: 0
+        width: 200px
+        height: 200px
+        display: block
+        &--pss
+            background-image: url('img/projects/pss.jpg')
+            @include bgHobbies
+        &--pwcdv
+            background-image: url('img/projects/pwcdv.jpg')
+            @include bgHobbies
+        &--psc
+            background-image: url('img/projects/psc.jpg')
+            @include bgHobbies
+
 
 .hobbies
     height: 250px
@@ -345,10 +375,11 @@ body
         background-color: gold
     &__button
         height: 80px
-        font-size: 30px
+        font-size: 50px
         border-radius: 25px 25px 0 0
         width: fit-content
-        padding: 5px 15px
+        padding: 10px 40px
+        font-family: Iceland
         cursor: pointer
         margin-bottom: -50px
         background-color: #fff
