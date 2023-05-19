@@ -156,6 +156,29 @@ $sec-font: 'Roboto Mono',
         background-color: $secondary-color
         border-radius: 10px
 
+.exp
+    // outline: 2px solid red
+    width: 50%
+    // height: 500px
+    @include bgGrad
+    padding: 15px 30px
+    &__block
+        border-top: 1px solid $fourth-color
+    &__subtitle
+        @include title()
+    &__year
+        font-size: 20px
+        margin-top: 15px
+    &__place
+        font-size: 28px
+    &__list
+        // list-style-type: none
+        font-size: 20px
+        &--done
+            margin: 10px 0
+
+        
+
 .hidden
     display: none
 
