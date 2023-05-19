@@ -211,6 +211,61 @@
 .exp__list--done {
   margin: 10px 0;
 }
+.exp__more {
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 25px;
+  font-family: "Iceland";
+  outline: none;
+  border: none;
+  border-bottom: 1px solid red;
+  color: #eae2b7;
+  background-color: #003049;
+  padding: 5px 20px;
+  margin-top: 30px;
+}
+
+.edu {
+  width: 50%;
+  background-image: linear-gradient(45deg, hsl(31, 100%, 48%) 0%, hsl(36, 96%, 59%) 33%, hsl(43, 85%, 69%) 67%, hsl(51, 55%, 82%) 100%);
+  border-bottom: 2px solid #d62828;
+  border-left: 2px solid #d62828;
+  border-radius: 25px;
+  padding: 15px 30px;
+}
+.edu__block {
+  border-top: 1px solid #d62828;
+}
+.edu__subtitle {
+  margin: 10px 0;
+  font-size: 45px;
+}
+.edu__year {
+  font-size: 20px;
+  margin-top: 15px;
+}
+.edu__place {
+  font-size: 28px;
+}
+.edu__degree {
+  font-size: 20px;
+}
+.edu__degree--point {
+  margin: 10px 0;
+}
+.edu__more {
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 25px;
+  font-family: "Iceland";
+  outline: none;
+  border: none;
+  border-bottom: 1px solid red;
+  color: #eae2b7;
+  background-color: #003049;
+  padding: 5px 20px;
+  margin-top: 30px;
+}
 
 .hidden {
   display: none;
