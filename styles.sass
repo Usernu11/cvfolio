@@ -32,6 +32,7 @@ $sec-font: 'Roboto Mono',
 
 .wrapper
     height: 100%
+    display: flex
 
 .menu
     width: 20%
@@ -55,6 +56,9 @@ $sec-font: 'Roboto Mono',
     border-bottom: 2px solid $third-color
     width: 80%
 
+.hidden
+    display: none
+
 .display
     // outline: 2px solid yellow
     width: 80%
@@ -66,7 +70,6 @@ $sec-font: 'Roboto Mono',
     // outline: 2px solid red
     @include bgGrad
     padding: 10px 50px
-    border-radius: 25px
     &__title
         font-size: 50px
         margin: 15px 0
@@ -77,427 +80,44 @@ $sec-font: 'Roboto Mono',
         font-size: 25px
         text-align: justify
 
-// old styles
-.up
-    position: fixed
-    bottom: 5%
-    right: 1%
-    width: 50px
-    height: 50px
-    border-radius: 50%
-    cursor: pointer
-
-.first-about
+.skills
     // outline: 2px solid red
-    width: 100%
-    // height: auto
-    margin-top: 30px
-
-.container
-    width: 80%
-    // outline: 2px dashed blue
-    margin: 0 auto
-    // height: 200px
-
-.wrapper
     display: flex
-    justify-content: space-evenly
-
-.wrapper-edu
-    justify-content: space-around
-
-.hidden
-    display: none
-
-// Main Info Block
-.main-info
-    // outline: 2px dashed yellow
-    background-color: white
     width: 40%
-    height: fit-content
-    border-radius: 25px
-    margin-left: -200px
-    padding: 40px
-    // text-align: 
-    padding-left: 200px
-    background: rgb(108,104,255)
-    background: -moz-linear-gradient(270deg, rgba(108,104,255,1) 0%, rgba(105,221,255,1) 50%, rgba(255,163,32,1) 100%)
-    background: -webkit-linear-gradient(270deg, rgba(108,104,255,1) 0%, rgba(105,221,255,1) 50%, rgba(255,163,32,1) 100%)
-    background: linear-gradient(270deg, rgba(108,104,255,1) 0%, rgba(105,221,255,1) 50%, rgba(255,163,32,1) 100%)
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#6c68ff",endColorstr="#ffa320",GradientType=1)
-    &__name
-        font-size: 70px
-        // outline: 3px solid black
-        // border: 2px solid black
-        // word-break: break-all
-        // width: 10px
-        // padding: 10px  
-    &__contacts
-        font-size: 20px
-        // text-decoration: none
-        list-style-type: none
-        padding: 0
-    &__contact
+    justify-content: space-between
+    flex-wrap: wrap
+    padding: 30px
+    @include bgGrad
+    &__type
         margin: 10px 0
-        &--phone::before
-            @include iconStyle($bgi: url('img/icons/phone-call.png'))
-        &--email::before
-            @include iconStyle($bgi: url('img/icons/email.png'))
-        &--geo::before
-            @include iconStyle($bgi: url('img/icons/placeholder.png'))
-        &--ln::before
-            @include iconStyle($bgi: url('img/icons/linkedin.png'))
-        &--tg::before
-            @include iconStyle($bgi: url('img/icons/telegram.png'))
-        &--gh::before
-            @include iconStyle($bgi: url('img/icons/github.png'))
-
-.more
-    outline: none
-    border: none
-    background-color: black
-    color: white
-    width: fit-content
-    padding: 5px 20px
-    border-radius: 25px
-    cursor: pointer
-    font-family: 'Iceland'
-    font-size: 20px
-    display: block
-    // margin-left: auto
-    margin: 15px 0 0 auto
-    // outline: 2px solid red
-
-.link
-    text-decoration: none
-    color: black
-    cursor: pointer
-    display: flex
-    outline: none
-    &:hover
-        background: -webkit-linear-gradient(#ff8c00, #000000)
-        -webkit-background-clip: text
-        -webkit-text-fill-color: transparent
-
-// About Block
-.second-about
-    margin-top: 50px
-
-.about
-    // outline: 2px solid red
-    width: 50%
-    &__langs
-        // outline: 2px solid black
-        width: fit-content
-        height: 60px
-        display: flex
-        justify-content: space-between
-        flex-direction: column-reverse
-        border-radius: 25px
-        padding: 15px
-        margin: -50px 0 0 340px
-        background: rgb(108,104,255)
-        background: -moz-linear-gradient(0deg, rgba(108,104,255,1) 25%, rgba(255,163,32,1) 100%)
-        background: -webkit-linear-gradient(0deg, rgba(108,104,255,1) 25%, rgba(255,163,32,1) 100%)
-        background: linear-gradient(0deg, rgba(108,104,255,1) 25%, rgba(255,163,32,1) 100%)
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#6c68ff",endColorstr="#ffa320",GradientType=1)
-        &--list
-            display: flex
-            list-style-type: none
-            padding: 0
-            margin: 0
-        &--de
-            @include langStyle($bgi: url('img/langs/german.png'))
-        &--it
-            @include langStyle($bgi: url('img/langs/italy.png'))
-        &--fr
-            @include langStyle($bgi: url('img/langs/france.png'))
-        &--en
-            @include langStyle($bgi: url('img/langs/united-states-of-america.png'))
-        &--ua
-            @include langStyle($bgi: url('img/langs/ukraine.png'))
-        &--ru
-            @include langStyle($bgi: url('img/langs/russia.png'))
-    &__story
-        // outline: 2px dotted white
+        font-size: 45px
+    &__item
+        font-size: 23px
+    &__level
         width: 100%
-        // height: 100px
-        border-radius: 25px
-        padding: 40px
-        margin: 20px 0px 0 113px
-        background: rgb(108,104,255)
-        background: -moz-linear-gradient(90deg, rgba(108,104,255,1) 0%, rgba(105,221,255,1) 50%, rgba(255,163,32,1) 100%)
-        background: -webkit-linear-gradient(90deg, rgba(108,104,255,1) 0%, rgba(105,221,255,1) 50%, rgba(255,163,32,1) 100%)
-        background: linear-gradient(90deg, rgba(108,104,255,1) 0%, rgba(105,221,255,1) 50%, rgba(255,163,32,1) 100%)
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#6c68ff",endColorstr="#ffa320",GradientType=1)
-        &--spec
-            font-size: 30px
-        &--tell
-            font-size: 20px
-            width: 75%
-            // outline: 2px solid red
-            text-align: justify
-    &__skills
-        // outline: 3px dashed black
-        display: flex
-        justify-content: space-between
-        margin: 30px 0 0 80px
+        height: 14px
+        border: 1px solid red
+        margin: 4px 0 10px 0
+        border-radius: 10px
+    &__first
+        width: 40%
+    &__sec
+        width: 40%
+    &__more
         width: 100%
-        &--list
-            list-style-type: none
-            padding: 0
-            width: 100%
-            margin: 0
-        &--skill
-            margin: 10px 0
-            font-size: 20px
-            cursor: pointer
-        &--level
-            width: 80%
-            height: 10px
-            margin-top: -5px
-            background-color: rgba(108,104,255,.8)
-            border-radius: 25px
-        &--wrapper
-            width: 40%
-        &--sec-wrap
-            // outline: 2px solid red
-            height: auto
-            width: 50% // 100%
-            display: flex
-            flex-direction: column
-            flex-wrap: wrap
-        &--skills
-            width: 100%
-
-.list-point
-    // outline: 2px solid black
-    width: 20px
-    height: 20px
-    margin: 0 10px
-    cursor: pointer
-
-.subtitle
-    font-size: 35px
-    background-color: rgba(108,104,255,1)
-    padding: 5px 15px
-    border-radius: 25px
-    margin: 15px 0
-    display: block
-    width: fit-content
-    // height: 80px
-
-.second-about
-    margin: 30px 0
-
-// Education block
-.edu
-    // outline: 2px solid red
-    width: 30%
-    &__block
-        padding: 0 15px
-    &__year
-        // outline: 2px dashed black
-        margin: 5px 0
-        @include eduStyle
-    &__place
-        @include eduStyle
-    &__degree
-        font-size: 18px
-        &--point
-            margin: 10px 0 10px 28px
-
-// Experience block
-.exp
-    width: 40%
-    &__block
-        padding: 0 15px
-    &__year
-        // outline: 2px dashed black
-        margin: 10px 0
-        @include eduStyle
-    &__place
-        @include eduStyle
-    &__history
-        font-size: 18px
-        &--done
-            margin: 10px 0 10px 28px
-
-.projects
-    // outline: 2px solid red
-    height: auto
-    margin: 50px 0 100px 0
-    &__subtitle
-        margin: 10px auto
-    &__wrapper
-        height: auto
-        // outline: 2px solid black
-        display: flex
-        flex-wrap: wrap
-        align-items: center
-        justify-content: center
-        // gap: 5px
-    &__project
-        outline: 2px solid black
-        margin: 10px
-        padding: 0
-        width: 300px
-        height: 200px
-        display: block
-        filter: blur(1px)
-        -webkit-filter: blur(1px)
-        transition: scale 1s, box-shadow .5s, filter 1s
-        &--pss
-            border-radius: 25px 0 0 0
-            background-image: url('img/projects/pss.jpg')
-            @include bgHobbies
-        &--pwcdv
-            background-image: url('img/projects/pwcdv.jpg')
-            @include bgHobbies
-        &--psc
-            background-image: url('img/projects/psc.jpg')
-            @include bgHobbies
-            border-radius: 0 25px 0 0
-        &--law
-            background-image: url('img/projects/law.jpg')
-            @include bgHobbies
-        &--ga
-            background-image: url('img/projects/gamaun.jpg')
-            @include bgHobbies
-        &--vim
-            background-image: url('img/projects/vimarko.jpg')
-            @include bgHobbies
-        &--mo
-            background-image: url('img/projects/monticello.jpg')
-            @include bgHobbies
-            border-radius: 0 0 0 25px
-        &--pri
-            background-image: url('img/projects/printe.jpg')
-            @include bgHobbies
-        &--dgp
-            background-image: url('img/projects/digital.jpg')
-            @include bgHobbies
-            border-radius: 0 0 25px 0
-    &__project:hover
-        scale: (1.2)
-        box-shadow: inset 0px 0px 14px 5px #FFD900
-        filter: blur(0px)
-
-.hobbies
-    height: 250px
-    // margin: 20px
-    &__activity
-        // outline: 2px solid red
-        width: 200px
-        height: 150px
-        margin: 20px 0
-        border-radius: 25px
-        &--volley
-            background-image: url('img/hobbies/volley.gif')
-            @include bgHobbies
-        &--b-volley
-            background-image: url('img/hobbies/beach-volley.gif')
-            @include bgHobbies
-        &--coding
-            background-image: url('img/hobbies/coding.gif')
-            @include bgHobbies
-        &--drawing
-            background-image: url('img/hobbies/drawing.gif')
-            @include bgHobbies
-        &--reading
-            background-image: url('img/hobbies/reading.gif')
-            @include bgHobbies
-        &--traveling
-            background-image: url('img/hobbies/travel.gif')
-            @include bgHobbies
-
-.awards
-    // outline: 2px solid blue
-    // height: 180px
-    // padding: 10px 0
-    &__point
-        // outline: 2px solid blue
-        width: 200px
-        height: 150px
-        display: flex
-        flex-direction: column
-        justify-content: flex-start
-        align-items: center
-        font-size: 20px
-        text-align: center
-        background-color: navy
-        padding: 20px 5px 0 5px
-        color: white
-        &--ps::before
-            @include avardIcon
-            background-image: url('img/awards/protest.png')
-        &--u::before
-            @include avardIcon
-            background-image: url('img/awards/graduation.png')
-        &--it::before
-            @include avardIcon
-            background-image: url('img/awards/coding.png')
-        &--d::before
-            @include avardIcon
-            background-image: url('img/awards/atom.png')
-        &--ds::before
-            @include avardIcon
-            background-image: url('img/awards/certificate (3).png')
-        &--dr::before
-            @include avardIcon
-            background-image: url('img/awards/kitty.png')
-        &--c::before
-            @include avardIcon
-            background-image: url('img/awards/team-management.png')
-        &--m::before
-            @include avardIcon
-            background-image: url('img/awards/magazine.png')
-        &--js::before
-            @include avardIcon
-            background-image: url('img/awards/js.png')
-
-.connect
-    height: 200px
-    margin: 40px 0
-    // outline: 2px solid red
-    &__wrapper
-        display: flex
-        align-items: flex-end
-        position: relative
-    &__text
-        width: 700px
-        height: 100px
-        margin: 0 30px 0 -100px
-        // display: block
-        border-radius: 25px
-        outline: none
-        // text-align: top
-        // display: flex
-        // justify-content: flex-start
-        // align-items: flex-start
-        // border: none
-        padding: 15px 15px 15px 115px
-        resize: none
-        border-color: red
-        background-color: gold
-    &__button
-        height: 80px
-        font-size: 50px
-        border-radius: 25px 25px 0 0
-        width: fit-content
-        padding: 10px 40px
-        font-family: Iceland
+        margin: 20px 0 0 0
+        border-radius: 15px
         cursor: pointer
-        margin-bottom: -50px
-        background-color: #fff
-        display: flex
-        color: orange
-        background-color: navy
-        border-color: red
-        border-bottom: none
-        // position: absolute
-        // bottom: -150%
-        // left: 50%
+        height: 40px
+        font-size: 25px
+        font-family: 'Iceland'
+        outline: none
+        border: none
+        border-bottom: 1px solid red
+        color: $third-color
+        background-color: $main-color
+        // @include bgGrad
+
 
 // ideas 💡
 // make mobile v
