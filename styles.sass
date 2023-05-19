@@ -203,6 +203,20 @@ $sec-font: 'Roboto Mono',
         padding: 5px 20px
         margin-top: 30px
         
+.hobbies
+    width: 70%
+    @include bgGrad
+    padding: 5px 20px
+    display: flex
+    justify-content: space-between
+    &__subtitle
+        @include title
+    &__list
+        font-size: 22px
+        list-style-type: none
+        padding-left: 0
+    &__list > *
+        margin-bottom: 10px
 
 .hidden
     display: none

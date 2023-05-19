@@ -267,6 +267,29 @@
   margin-top: 30px;
 }
 
+.hobbies {
+  width: 70%;
+  background-image: linear-gradient(45deg, hsl(31, 100%, 48%) 0%, hsl(36, 96%, 59%) 33%, hsl(43, 85%, 69%) 67%, hsl(51, 55%, 82%) 100%);
+  border-bottom: 2px solid #d62828;
+  border-left: 2px solid #d62828;
+  border-radius: 25px;
+  padding: 5px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.hobbies__subtitle {
+  margin: 10px 0;
+  font-size: 45px;
+}
+.hobbies__list {
+  font-size: 22px;
+  list-style-type: none;
+  padding-left: 0;
+}
+.hobbies__list > * {
+  margin-bottom: 10px;
+}
+
 .hidden {
   display: none;
 }
