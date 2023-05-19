@@ -151,7 +151,7 @@ $sec-font: 'Roboto Mono',
         width: 30%
         height: 100px
         outline: 2px solid blue
-        display: block 
+        display: block
         margin: 15px
         background-color: $secondary-color
         border-radius: 10px
@@ -202,7 +202,7 @@ $sec-font: 'Roboto Mono',
         @include button
         padding: 5px 20px
         margin-top: 30px
-        
+
 .hobbies
     width: 70%
     @include bgGrad
@@ -217,6 +217,71 @@ $sec-font: 'Roboto Mono',
         padding-left: 0
     &__list > *
         margin-bottom: 10px
+
+.contacts
+    width: 70%
+    @include bgGrad
+    padding: 5px 30px
+    display: flex
+    justify-content: space-between
+    &__links
+        // outline: 2px solid red
+        width: 40%
+    &__name
+        @include title
+        font-size: 55px
+    &__list
+        // outline: 2px solid blue
+        list-style-type: none
+        padding-left: 0
+        // width: 100%
+    &__contact
+        margin-bottom: 10px
+        font-size: 25px
+    &__contact > *
+        display: flex
+    &__contact--phone::before
+        @include iconBefore
+        background-image: url('img/icons/phone-call.png')
+    &__contact--mail::before
+        @include iconBefore
+        background-image: url('img/icons/email.png')
+    &__contact--geo::before
+        @include iconBefore
+        background-image: url('img/icons/placeholder.png')
+    &__contact--ln::before
+        @include iconBefore
+        background-image: url('img/icons/linkedin.png')
+    &__contact--tg::before
+        @include iconBefore
+        background-image: url('img/icons/telegram.png')
+    &__contact--gh::before
+        @include iconBefore
+        background-image: url('img/icons/github.png')
+    &__subtitle
+        @include title
+    &__message
+        width: 50%
+        // outline: 2px solid red
+    &__text
+        width: 90%
+        height: 200px
+        resize: none
+        border-radius: 0 15px 15px 15px
+        padding: 20px
+        letter-spacing: 1px
+        outline: none
+    &__send
+        @include button
+        padding: 5px 20px
+        margin: 10px 0 20px auto
+        display: block  
+
+.link
+    text-decoration: none
+    color: #000
+    &:hover
+        color: $third-color
 
 .hidden
     display: none

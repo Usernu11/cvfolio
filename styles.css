@@ -290,6 +290,140 @@
   margin-bottom: 10px;
 }
 
+.contacts {
+  width: 70%;
+  background-image: linear-gradient(45deg, hsl(31, 100%, 48%) 0%, hsl(36, 96%, 59%) 33%, hsl(43, 85%, 69%) 67%, hsl(51, 55%, 82%) 100%);
+  border-bottom: 2px solid #d62828;
+  border-left: 2px solid #d62828;
+  border-radius: 25px;
+  padding: 5px 30px;
+  display: flex;
+  justify-content: space-between;
+}
+.contacts__links {
+  width: 40%;
+}
+.contacts__name {
+  margin: 10px 0;
+  font-size: 45px;
+  font-size: 55px;
+}
+.contacts__list {
+  list-style-type: none;
+  padding-left: 0;
+}
+.contacts__contact {
+  margin-bottom: 10px;
+  font-size: 25px;
+}
+.contacts__contact > * {
+  display: flex;
+}
+.contacts__contact--phone::before {
+  display: block;
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-right: 10px;
+  background-image: url("img/icons/phone-call.png");
+}
+.contacts__contact--mail::before {
+  display: block;
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-right: 10px;
+  background-image: url("img/icons/email.png");
+}
+.contacts__contact--geo::before {
+  display: block;
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-right: 10px;
+  background-image: url("img/icons/placeholder.png");
+}
+.contacts__contact--ln::before {
+  display: block;
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-right: 10px;
+  background-image: url("img/icons/linkedin.png");
+}
+.contacts__contact--tg::before {
+  display: block;
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-right: 10px;
+  background-image: url("img/icons/telegram.png");
+}
+.contacts__contact--gh::before {
+  display: block;
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-right: 10px;
+  background-image: url("img/icons/github.png");
+}
+.contacts__subtitle {
+  margin: 10px 0;
+  font-size: 45px;
+}
+.contacts__message {
+  width: 50%;
+}
+.contacts__text {
+  width: 90%;
+  height: 200px;
+  resize: none;
+  border-radius: 0 15px 15px 15px;
+  padding: 20px;
+  letter-spacing: 1px;
+  outline: none;
+}
+.contacts__send {
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 25px;
+  font-family: "Iceland";
+  outline: none;
+  border: none;
+  border-bottom: 1px solid red;
+  color: #eae2b7;
+  background-color: #003049;
+  padding: 5px 20px;
+  margin: 10px 0 20px auto;
+  display: block;
+}
+
+.link {
+  text-decoration: none;
+  color: #000;
+}
+.link:hover {
+  color: #eae2b7;
+}
+
 .hidden {
   display: none;
 }
