@@ -1,6 +1,38 @@
-body {
+#body {
   margin: 0;
-  overflow-x: hidden;
+  padding: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+  height: 100vh;
+  background-color: #003049;
+}
+
+.wrapper {
+  height: 100%;
+}
+
+.menu {
+  width: 20%;
+}
+.menu__nav > * {
+  width: 70%;
+  height: 45px;
+  cursor: pointer;
+  margin: 10px 0;
+  padding-left: 15px;
+  border-radius: 0px 15px 15px 0;
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  background: rgb(247, 127, 0);
+  background: -moz-linear-gradient(90deg, rgb(247, 127, 0) 0%, rgb(252, 191, 73) 50%, rgb(234, 226, 183) 100%);
+  background: -webkit-linear-gradient(90deg, rgb(247, 127, 0) 0%, rgb(252, 191, 73) 50%, rgb(234, 226, 183) 100%);
+  background: linear-gradient(90deg, rgb(247, 127, 0) 0%, rgb(252, 191, 73) 50%, rgb(234, 226, 183) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f77f00",endColorstr="#eae2b7",GradientType=1);
+}
+
+.display {
+  width: 80%;
 }
 
 .up {
