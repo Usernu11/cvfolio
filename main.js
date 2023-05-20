@@ -17,6 +17,10 @@ const jsStyles = {
         position: 'absolute',
         top: '-3px',
         right: '-30px'
+    },
+    projectHover: {
+        backgroundSize: '100% 100%',
+        backgroundRepeat: 'no-repeat'
     }
 }
 
@@ -120,3 +124,74 @@ const skillsLoading = () => {
 
     areLevelsFilled = true
 }
+
+// Projects interface
+// Info
+const getInfoEl = document.querySelector('.projects__info')
+const getAllProjects = document.querySelectorAll('.projects__item')
+getInfoEl.textContent = `Found: ${getAllProjects.length} projects`
+
+// Project items
+// Find every project
+const pss = document.querySelector('#pss')
+const wcdv = document.querySelector('#wcdv')
+const sc = document.querySelector('#sc')
+const law = document.querySelector('#law')
+const school = document.querySelector('#school')
+const rest = document.querySelector('#rest')
+const archi = document.querySelector('#archi')
+const typo = document.querySelector('#typo')
+const digit = document.querySelector('#digit')
+
+// Add eventListener for each project
+getAllProjects.forEach(project => {
+    const projectText = project.textContent
+    project.addEventListener('mouseenter', () => {
+        switch (project) {
+            case pss:
+                pss.style.backgroundImage = `url('img/projects/pss.jpg')`
+                Object.assign(pss.style, jsStyles.projectHover)
+                break
+            case wcdv:
+                wcdv.style.backgroundImage = `url('img/projects/pwcdv.jpg')`
+                Object.assign(wcdv.style, jsStyles.projectHover)
+                break
+            case sc:
+                sc.style.backgroundImage = `url('img/projects/psc.jpg')`
+                Object.assign(sc.style, jsStyles.projectHover)
+                break
+            case law:
+                law.style.backgroundImage = `url('img/projects/law.jpg')`
+                Object.assign(law.style, jsStyles.projectHover)
+                break
+            case school:
+                school.style.backgroundImage = `url('img/projects/gamaun.jpg')`
+                Object.assign(school.style, jsStyles.projectHover)
+                break
+            case rest:
+                rest.style.backgroundImage = `url('img/projects/vimarko.jpg')`
+                Object.assign(rest.style, jsStyles.projectHover)
+                break
+            case archi:
+                archi.style.backgroundImage = `url('img/projects/monticello.jpg')`
+                Object.assign(archi.style, jsStyles.projectHover)
+                break
+            case typo:
+                typo.style.backgroundImage = `url('img/projects/printe.jpg')`
+                Object.assign(typo.style, jsStyles.projectHover)
+                break
+            case digit:
+                digit.style.backgroundImage = `url('img/projects/digital.jpg')`
+                Object.assign(digit.style, jsStyles.projectHover)
+                break
+        }
+
+        // project.style.backgroundColor = 'red'
+        project.textContent = ''
+    })
+
+    project.addEventListener('mouseout', () => {
+        project.textContent = projectText
+        project.style.backgroundImage = 'none'
+    })
+})
