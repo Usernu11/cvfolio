@@ -21,6 +21,7 @@ const getKeywords = document.querySelectorAll('.projects__key')
 const getSearch = document.querySelector('.projects__input')
 // Clear filter button
 const clearFiltersButton = document.querySelector('.projects__clear')
+let isKeyAdded = false
 
 // Styles
 const jsStyles = {
@@ -329,30 +330,48 @@ getKeywords.forEach(el => {
             el.textContent = curElText.replace('➕', '➖')
             el.style.display = 'flex'
             filterProjects()
+            isKeyAdded = true
+            getSearch.disabled = true
+            getSearch.placeholder = 'Keyword is active'
         } else {
             el.style.backgroundColor = 'transparent'
             el.classList.remove('added')
             el.textContent = curElText
             removeFilter()
             updateInfo()
+            isKeyAdded = false
+            getSearch.disabled = false
+            getSearch.placeholder = 'Search ...'
         }
 
     })
 })
-
+  
 // A function which generates projects by search bar (input)
 const generateProjects = (wordPattern) => {
-    // console.log(wordPattern)
 
-    getAllProjects.forEach(project => {
-        if (project.textContent.toLowerCase().match(wordPattern)) {
-            project.style.display = 'flex'
-        }
-    })
+    if (isKeyAdded === false) {     // if there is no keywords
+        getAllProjects.forEach(project => {     // display projects like normal
+            if (project.textContent.toLowerCase().match(wordPattern)) {     // using wordPattern for all projects
+                project.style.display = 'flex'      // display projects
+            }
+        })
+    }
+
+    if (isKeyAdded === true) {      // if there is a keywords
+        getAllProjects.forEach(pr => {      // check all projects
+            if (
+                pr.style.display === 'flex' &&      // if a project display
+                !pr.textContent.toLocaleLowerCase().match(wordPattern)      // and wordPattern isn't same
+                ) {
+                    pr.style.display = 'none'       // hide the project
+            }   
+        })
+    }
 
     updateInfo()
 }
-
+  
 // Adding eventListemer for search bar
 getSearch.addEventListener('input', key => {
     const words = getSearch.value
@@ -372,7 +391,7 @@ clearFiltersButton.addEventListener('click', () => {
     removeFilter()
     getKeywords.forEach(el => {
         const text = el.textContent
-        el.textContent = text.replace('➖','➕')
+        el.textContent = text.replace('➖', '➕')
         el.style.backgroundColor = 'transparent'
     })
 
