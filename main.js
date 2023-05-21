@@ -1,6 +1,26 @@
 const menu = document.querySelector('nav')
 const menuButtons = menu.querySelectorAll('div')
 let areLevelsFilled = false
+// Info ↓
+const getInfoEl = document.querySelector('.projects__info')
+const getAllProjects = document.querySelectorAll('.projects__item')
+getInfoEl.textContent = `Found: ${getAllProjects.length} projects`
+// Project items ↓
+const pss = document.querySelector('#pss')
+const wcdv = document.querySelector('#wcdv')
+const sc = document.querySelector('#sc')
+const law = document.querySelector('#law')
+const school = document.querySelector('#school')
+const rest = document.querySelector('#rest')
+const archi = document.querySelector('#archi')
+const typo = document.querySelector('#typo')
+const digit = document.querySelector('#digit')
+// Filter buttons ↓
+const getKeywords = document.querySelectorAll('.projects__key')
+// Search projects input ↓
+const getSearch = document.querySelector('.projects__input')
+// Clear filter button
+const clearFiltersButton = document.querySelector('.projects__clear')
 
 // Styles
 const jsStyles = {
@@ -126,23 +146,6 @@ const skillsLoading = () => {
 }
 
 // Projects interface
-// Info
-const getInfoEl = document.querySelector('.projects__info')
-const getAllProjects = document.querySelectorAll('.projects__item')
-getInfoEl.textContent = `Found: ${getAllProjects.length} projects`
-
-// Project items
-// Find every project
-const pss = document.querySelector('#pss')
-const wcdv = document.querySelector('#wcdv')
-const sc = document.querySelector('#sc')
-const law = document.querySelector('#law')
-const school = document.querySelector('#school')
-const rest = document.querySelector('#rest')
-const archi = document.querySelector('#archi')
-const typo = document.querySelector('#typo')
-const digit = document.querySelector('#digit')
-
 // Add eventListener for each project
 getAllProjects.forEach(project => {
     const projectText = project.textContent
@@ -195,10 +198,6 @@ getAllProjects.forEach(project => {
     })
 })
 
-// Add eventListener for filter buttons
-const getKeywords = document.querySelectorAll('.projects__key')
-// const allProjectKeys = ['js', 'mp', 'lp', 'sass', 'scss', 'resp', 'sl', 'jq', 'gm']     // for comparing 2 and more filters
-
 // Update info
 const updateInfo = () => {
     let totalProjects = 0
@@ -210,6 +209,7 @@ const updateInfo = () => {
     getInfoEl.textContent = `Found: ${totalProjects} projects`
 }
 
+// Remove all projects before some genereting
 const clearProjectsField = () => {
     getAllProjects.forEach(project => {
         project.style.display = 'none'
@@ -340,8 +340,9 @@ getKeywords.forEach(el => {
     })
 })
 
+// A function which generates projects by search bar (input)
 const generateProjects = (wordPattern) => {
-    console.log(wordPattern)
+    // console.log(wordPattern)
 
     getAllProjects.forEach(project => {
         if (project.textContent.toLowerCase().match(wordPattern)) {
@@ -352,9 +353,6 @@ const generateProjects = (wordPattern) => {
     updateInfo()
 }
 
-// Search projects input
-const getSearch = document.querySelector('.projects__input')
-
 // Adding eventListemer for search bar
 getSearch.addEventListener('input', key => {
     const words = getSearch.value
@@ -362,4 +360,22 @@ getSearch.addEventListener('input', key => {
     clearProjectsField()
     generateProjects(words)
     // console.log(words)
+})
+
+// EventListener for filters button
+clearFiltersButton.addEventListener('click', () => {
+    // CLear search bar
+    getSearch.value = ''
+    showAllProjects()
+
+    // Clear filters
+    removeFilter()
+    getKeywords.forEach(el => {
+        const text = el.textContent
+        el.textContent = text.replace('➖','➕')
+        el.style.backgroundColor = 'transparent'
+    })
+
+    // Update info
+    updateInfo()
 })
