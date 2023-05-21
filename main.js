@@ -203,11 +203,17 @@ const getKeywords = document.querySelectorAll('.projects__key')
 const updateInfo = () => {
     let totalProjects = 0
     getAllProjects.forEach(project => {
-            if (project.style.display === 'flex') {
-                totalProjects += 1
-            }
+        if (project.style.display === 'flex') {
+            totalProjects += 1
+        }
     })
     getInfoEl.textContent = `Found: ${totalProjects} projects`
+}
+
+const clearProjectsField = () => {
+    getAllProjects.forEach(project => {
+        project.style.display = 'none'
+    })
 }
 
 // Keywords filter function for projects
@@ -215,9 +221,7 @@ const filterProjects = () => {
     const addedKeywords = document.querySelectorAll('.added')
 
     // remove all projects (preparing field)
-    getAllProjects.forEach(project => {
-        project.style.display = 'none'
-    })
+    clearProjectsField()
 
     // display needed projects
     addedKeywords.forEach(el => {
@@ -313,6 +317,7 @@ const removeFilter = () => {
     })
 }
 
+// Keyword panel
 getKeywords.forEach(el => {
     const curElText = el.textContent
 
@@ -333,4 +338,28 @@ getKeywords.forEach(el => {
         }
 
     })
+})
+
+const generateProjects = (wordPattern) => {
+    console.log(wordPattern)
+
+    getAllProjects.forEach(project => {
+        if (project.textContent.toLowerCase().match(wordPattern)) {
+            project.style.display = 'flex'
+        }
+    })
+
+    updateInfo()
+}
+
+// Search projects input
+const getSearch = document.querySelector('.projects__input')
+
+// Adding eventListemer for search bar
+getSearch.addEventListener('input', key => {
+    const words = getSearch.value
+
+    clearProjectsField()
+    generateProjects(words)
+    // console.log(words)
 })
