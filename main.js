@@ -186,12 +186,135 @@ getAllProjects.forEach(project => {
                 break
         }
 
-        // project.style.backgroundColor = 'red'
         project.textContent = ''
     })
 
     project.addEventListener('mouseout', () => {
         project.textContent = projectText
         project.style.backgroundImage = 'none'
+    })
+})
+
+// Add eventListener for filter buttons
+const getKeywords = document.querySelectorAll('.projects__key')
+// const allProjectKeys = ['js', 'mp', 'lp', 'sass', 'scss', 'resp', 'sl', 'jq', 'gm']
+
+// Update info
+const updateInfo = () => {
+    let totalProjects = 0
+    getAllProjects.forEach(project => {
+            if (project.style.display === 'flex') {
+                totalProjects += 1
+            }
+    })
+    getInfoEl.textContent = `Found: ${totalProjects} projects`
+}
+
+// Keywords filter function for projects
+const filterProjects = () => {
+    const addedKeywords = document.querySelectorAll('.added')
+    // let totalProjects = 0
+
+    // remove all projects (preparing field)
+    getAllProjects.forEach(project => {
+        project.style.display = 'none'
+    })
+
+    // display needed projects
+    addedKeywords.forEach(el => {
+        if (el.classList.contains('js-key')) {
+            getAllProjects.forEach(project => {
+                if (project.classList.contains('js')) {
+                    project.style.display = 'flex'
+                }
+            })
+        }
+        if (el.classList.contains('mp-key')) {
+            getAllProjects.forEach(project => {
+                if (project.classList.contains('mp')) {
+                    project.style.display = 'flex'
+                }
+            })
+        }
+        if (el.classList.contains('lp-key')) {
+            getAllProjects.forEach(project => {
+                if (project.classList.contains('lp')) {
+                    project.style.display = 'flex'
+                }
+            })
+        }
+        if (el.classList.contains('scss-key')) {
+            getAllProjects.forEach(project => {
+                if (project.classList.contains('scss')) {
+                    project.style.display = 'flex'
+                }
+            })
+        }
+        if (el.classList.contains('resp-key')) {
+            getAllProjects.forEach(project => {
+                if (project.classList.contains('re')) {
+                    project.style.display = 'flex'
+                }
+            })
+        }
+        if (el.classList.contains('sl-key')) {
+            getAllProjects.forEach(project => {
+                if (project.classList.contains('sl')) {
+                    project.style.display = 'flex'
+                }
+            })
+        }
+        if (el.classList.contains('jq-key')) {
+            getAllProjects.forEach(project => {
+                if (project.classList.contains('jq')) {
+                    project.style.display = 'flex'
+                }
+            })
+        }
+        if (el.classList.contains('gm-key')) {
+            getAllProjects.forEach(project => {
+                if (project.classList.contains('gm')) {
+                    project.style.display = 'flex'
+                }
+            })
+        }
+    })
+
+    // update info
+    updateInfo()
+}
+
+// Clear filters function
+const removeFilter = () => {    // fix logic ❗❗❗
+    // return all projects
+    getKeywords.forEach(key => {
+        if (!key.classList.contains('added')) {     // if there is no any filters
+            getAllProjects.forEach(project => {     // display all projects
+                project.style.display = 'flex'
+            })
+        } else {                                    // if there is a filter
+            filterProjects()                        // filter projects
+            // getInfoEl.textContent = `Found: ${getAllProjects.length} projects`
+        }
+    })
+}
+
+getKeywords.forEach(el => {
+    const curElText = el.textContent
+
+    el.addEventListener('click', () => {
+        if (!el.classList.contains('added')) {
+            el.style.backgroundColor = '#eae2b7'
+            el.classList.add('added')
+            el.textContent = curElText.replace('➕', '➖')
+            filterProjects()
+        } else {
+            el.style.backgroundColor = 'transparent'
+            el.classList.remove('added')
+            el.textContent = curElText
+            removeFilter()
+            updateInfo()
+        }
+
     })
 })

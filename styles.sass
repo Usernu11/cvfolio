@@ -117,7 +117,7 @@ $sec-font: 'Roboto Mono',
 
 .projects
     // outline: 2px solid red
-    width: 80%
+    width: 90%
     height: 600px
     padding: 15px
     @include bgGrad
@@ -142,8 +142,22 @@ $sec-font: 'Roboto Mono',
         letter-spacing: 2px
     &__keywords
         width: 100%
-        height: 40px
-        outline: 2px solid red
+        height: auto
+        // outline: 2px solid red
+        display: flex
+        flex-wrap: wrap
+        // justify-content: flex-start  
+    &__key
+        border: 1px solid $main-color
+        height: 20px
+        border-radius: 25px
+        display: flex
+        justify-content: center
+        align-items: center
+        padding: 15px
+        cursor: pointer
+        font-size: 20px
+        margin: 5px
     &__info
         width: 30%
         height: 40px
@@ -159,14 +173,14 @@ $sec-font: 'Roboto Mono',
         // outline: 2px solid red
         width: 100%
         // height: 400px
-        margin-top: 40px
+        // margin-top: 40px
         display: flex
         justify-content: center
         // gap: 30px
         flex-wrap: wrap
     &__item
         width: 30%
-        height: 100px
+        height: 90px
         // outline: 2px solid blue
         border: 1px solid $main-color
         display: block
@@ -183,7 +197,7 @@ $sec-font: 'Roboto Mono',
         &:hover
             transform: scale(1.3)
             height: 150px
-            margin: -15px 10px
+            margin: -20px 10px
 
 .exp
     // outline: 2px solid red
