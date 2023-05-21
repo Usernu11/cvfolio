@@ -197,7 +197,7 @@ getAllProjects.forEach(project => {
 
 // Add eventListener for filter buttons
 const getKeywords = document.querySelectorAll('.projects__key')
-// const allProjectKeys = ['js', 'mp', 'lp', 'sass', 'scss', 'resp', 'sl', 'jq', 'gm']
+// const allProjectKeys = ['js', 'mp', 'lp', 'sass', 'scss', 'resp', 'sl', 'jq', 'gm']     // for comparing 2 and more filters
 
 // Update info
 const updateInfo = () => {
@@ -213,7 +213,6 @@ const updateInfo = () => {
 // Keywords filter function for projects
 const filterProjects = () => {
     const addedKeywords = document.querySelectorAll('.added')
-    // let totalProjects = 0
 
     // remove all projects (preparing field)
     getAllProjects.forEach(project => {
@@ -279,22 +278,37 @@ const filterProjects = () => {
             })
         }
     })
-
-    // update info
     updateInfo()
 }
 
+// Hide keywords
+const hideKeywords = () => {
+    getKeywords.forEach(keyword => {
+        keyword.style.display = 'none'
+    })
+}
+
+// Show keywords
+const showKeywords = () => {
+    getKeywords.forEach(keyword => {
+        keyword.style.display = 'flex'
+    })
+}
+
+// Retunr all projects
+const showAllProjects = () => {
+    getAllProjects.forEach(project => {
+        project.style.display = 'flex'
+    })
+}
+
 // Clear filters function
-const removeFilter = () => {    // fix logic ❗❗❗
+const removeFilter = () => {
     // return all projects
     getKeywords.forEach(key => {
         if (!key.classList.contains('added')) {     // if there is no any filters
-            getAllProjects.forEach(project => {     // display all projects
-                project.style.display = 'flex'
-            })
-        } else {                                    // if there is a filter
-            filterProjects()                        // filter projects
-            // getInfoEl.textContent = `Found: ${getAllProjects.length} projects`
+            showKeywords()
+            showAllProjects()
         }
     })
 }
@@ -304,9 +318,11 @@ getKeywords.forEach(el => {
 
     el.addEventListener('click', () => {
         if (!el.classList.contains('added')) {
+            hideKeywords()
             el.style.backgroundColor = '#eae2b7'
             el.classList.add('added')
             el.textContent = curElText.replace('➕', '➖')
+            el.style.display = 'flex'
             filterProjects()
         } else {
             el.style.backgroundColor = 'transparent'

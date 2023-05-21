@@ -81,10 +81,10 @@ body {
 .stopwatch {
     width: 250px;
     height: 100px;
-    outline: 2px solid yellow;
+    outline: 2px solid red;
     position: absolute;
-    right: 100px;
-    top: 50px;
+    right: 10px;
+    top: 1.5px;
     color: yellow;
     background: black;
     font-size: 3rem;
@@ -99,12 +99,12 @@ body {
     width: 1%;
     height: 100px;
     position: absolute;
-    right: 99px;
-    top: 49px;
+    right: 0px;
+    top: 0px;
     padding: 0 5px;
     line-height: 21px;
     color: yellow;
-    border: 2px solid yellow;
+    border: 2px solid red;
     border-radius: 0 15px 15px 0;
     box-shadow: inset 0px 0px 5px 5px rgba(255,0,0,0.82);
     background: repeating-linear-gradient(
