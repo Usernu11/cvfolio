@@ -55,7 +55,7 @@ $sec-font: 'Roboto Mono',
         transition-delay: .5
     &__nav > *:hover
         background: $secondary-color
-        border-bottom: 1px solid $third-color        
+        border-bottom: 1px solid $third-color
 
 .active
     @include bgGrad
@@ -94,10 +94,13 @@ $sec-font: 'Roboto Mono',
     flex-wrap: wrap
     padding: 30px 100px 30px 60px
     @include bgGrad
+    transition: width 1s, height 1s
     &__type
         @include title
     &__item
         font-size: 23px
+        &--additional
+            display: none
     &__level
         width: 100%
         height: 14px
@@ -105,8 +108,12 @@ $sec-font: 'Roboto Mono',
         margin: 4px 0 10px 0
         border-radius: 10px
         position: relative
+        &--additional
+            display: none
     &__first
         width: 40%
+        transition: width 1s, height 1s, display 1s
+        // outline: 2px solid red
     &__sec
         width: 40%
     &__more
@@ -328,8 +335,6 @@ $sec-font: 'Roboto Mono',
 
 .hidden
     display: none
-
-
 
 // ideas 💡
 // make mobile v

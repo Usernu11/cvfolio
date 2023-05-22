@@ -89,6 +89,7 @@
   border-bottom: 2px solid #d62828;
   border-left: 2px solid #d62828;
   border-radius: 25px;
+  transition: width 1s, height 1s;
 }
 .skills__type {
   margin: 10px 0;
@@ -96,6 +97,9 @@
 }
 .skills__item {
   font-size: 23px;
+}
+.skills__item--additional {
+  display: none;
 }
 .skills__level {
   width: 100%;
@@ -105,8 +109,12 @@
   border-radius: 10px;
   position: relative;
 }
+.skills__level--additional {
+  display: none;
+}
 .skills__first {
   width: 40%;
+  transition: width 1s, height 1s, display 1s;
 }
 .skills__sec {
   width: 40%;

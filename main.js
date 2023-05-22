@@ -19,9 +19,19 @@ const digit = document.querySelector('#digit')
 const getKeywords = document.querySelectorAll('.projects__key')
 // Search projects input ↓
 const getSearch = document.querySelector('.projects__input')
-// Clear filter button
+// Clear filter button ↓
 const clearFiltersButton = document.querySelector('.projects__clear')
 let isKeyAdded = false
+// For skills button
+const getSkillsMoreBtn = document.querySelector('.skills__more')
+const getAdditionaNamesSkill = document.querySelectorAll('.skills__item--additional')
+const getAdditionalLevelsSkill = document.querySelectorAll('.skills__level--additional')
+let areSkillsWrapped = true
+const getSkillsCard = document.querySelector('.skills')
+const getSkillsWrapper = document.querySelector('.skills__first')
+const getSkillLevels = document.querySelectorAll('.skills__level')
+const getCsLevels = document.querySelectorAll('.skills__level--cs')
+let areAdditionalLevelsFilled = false
 
 // Styles
 const jsStyles = {
@@ -93,19 +103,28 @@ menuButtons.forEach(button => {
     })
 })
 
-// Filling skills lelel
+// Filling skills level
 const skillsLoading = () => {
     // Find elements
+    // Skills
     const jsLevel = document.querySelector('.js-level')
     const htmlcssLevel = document.querySelector('.htmlcss-level')
     const sassLevel = document.querySelector('.sass-level')
     const mysqlLevel = document.querySelector('.mysql-level')
     const gitLevel = document.querySelector('.git-level')
+    const jqLevel = document.querySelector('.jq-level')
+    const phLevel = document.querySelector('.ph-level')
+    const phpLevel = document.querySelector('.php-level')
+    const ftpLevel = document.querySelector('.ftp-level')
+    const csLevel = document.querySelector('.skills__level--cs')
+
+    // Langs
     const deLevel = document.querySelector('.de-level')
     const enLevel = document.querySelector('.en-level')
     const uaLevel = document.querySelector('.ua-level')
     const ruLevel = document.querySelector('.ru-level')
     const skillsLevelArray = [jsLevel, htmlcssLevel, sassLevel, mysqlLevel, gitLevel, deLevel, enLevel, uaLevel, ruLevel]
+    const additionalSkillsArray = [jqLevel, phLevel, phpLevel, ftpLevel, csLevel]
 
     // Create and add load-bars
     skillsLevelArray.forEach(level => {
@@ -128,7 +147,7 @@ const skillsLoading = () => {
                 (level === htmlcssLevel && curWidth < 85) ||
                 (level === sassLevel && curWidth < 65) ||
                 (level === mysqlLevel && curWidth < 45) ||
-                (level === gitLevel && curWidth < 50) ||
+                (level === gitLevel && curWidth < 70) ||
                 (level === deLevel && curWidth < 20) ||
                 (level === enLevel && curWidth < 70) ||
                 (level === uaLevel && curWidth < 90) ||
@@ -145,6 +164,126 @@ const skillsLoading = () => {
 
     areLevelsFilled = true
 }
+
+// Filling additional skills levels
+const AdditionalSkillsLoading = () => {
+    // Find elements
+    // Additional Skills
+    const jqLevel = document.querySelector('.jq-level')
+    const phLevel = document.querySelector('.ph-level')
+    const phpLevel = document.querySelector('.php-level')
+    const ftpLevel = document.querySelector('.ftp-level')
+    const csLevel = document.querySelectorAll('.skills__level--cs')
+
+    // Langs
+    // const deLevel = document.querySelector('.de-level')
+    // const enLevel = document.querySelector('.en-level')
+    // const uaLevel = document.querySelector('.ua-level')
+    // const ruLevel = document.querySelector('.ru-level')
+    const additionalSkillsArray = [jqLevel, phLevel, phpLevel, ftpLevel, csLevel]
+
+    // Create and add load-bars
+    if (areAdditionalLevelsFilled === false) {
+        additionalSkillsArray.forEach(lvl => {
+            const levelBar = document.createElement('div')
+            const levelPercent = document.createElement('div')
+    
+            lvl.appendChild(levelBar)
+            lvl.appendChild(levelPercent)
+    
+            Object.assign(levelBar.style, jsStyles.levelBar)
+            Object.assign(levelPercent.style, jsStyles.levelNumSkills)
+    
+            levelPercent.textContent = '0%'
+            let curWidth = 0
+            let curPercent = 0
+    
+            setInterval(() => {
+                if (
+                    (lvl === jqLevel && curWidth < 60) ||
+                    (lvl === phLevel && curWidth < 55) ||
+                    (lvl === phpLevel && curWidth < 25) ||
+                    (lvl === ftpLevel && curWidth < 35)
+    
+                ) {
+                    curWidth += 1
+                    curPercent += 1
+                    levelBar.style.width = `${curWidth}%`
+                    levelPercent.textContent = `${curPercent}%`
+                }
+            }, 50)
+        })
+    }
+
+    areAdditionalLevelsFilled = true
+}
+
+// Skills more button
+getSkillsMoreBtn.addEventListener('click', () => {
+    if (areSkillsWrapped === true) {
+        getAdditionaNamesSkill.forEach(name => {
+            name.style.display = 'block'
+        })
+        getAdditionalLevelsSkill.forEach(level => {
+            level.style.display = 'block'
+        })
+
+        getSkillsCard.style.width = '80%'
+        getSkillsCard.style.height = '500px'
+
+        getSkillsWrapper.style.width = '60%'
+        getSkillsWrapper.style.height = '440px'
+        getSkillsWrapper.style.display = 'flex'
+        getSkillsWrapper.style.flexDirection = 'column'
+        getSkillsWrapper.style.justifyContent = 'flex-end'
+        getSkillsWrapper.style.alignItems = 'flex-start'
+        getSkillsWrapper.style.flexWrap = 'wrap'
+
+        getSkillLevels.forEach(level => {
+            level.style.width = '35%'
+        })
+
+        getCsLevels.forEach(csLevel => {
+            csLevel.style.border = '1px solid #d62828'
+        })
+
+        getSkillsMoreBtn.textContent = 'Less'
+        getSkillsMoreBtn.style.width = '50%'
+        getSkillsMoreBtn.style.margin = '0 auto'
+
+        areSkillsWrapped = false
+
+        if (areAdditionalLevelsFilled === false) {
+            AdditionalSkillsLoading()
+        }
+
+        areAdditionalLevelsFilled = true
+    } else {
+        getAdditionaNamesSkill.forEach(name => {
+            name.style.display = 'none'
+        })
+        getAdditionalLevelsSkill.forEach(level => {
+            level.style.display = 'none'
+        })
+
+        getSkillsCard.style.width = '40%'
+        getSkillsCard.style.height = 'auto'
+
+        getSkillsWrapper.style.width = '40%'
+        getSkillsWrapper.style.height = 'auto'
+        getSkillsWrapper.style.display = 'block'
+
+        getSkillLevels.forEach(level => {
+            level.style.width = '100%'
+        })
+
+        getSkillsMoreBtn.textContent = 'More'
+        getSkillsMoreBtn.style.width = '100%'
+        getSkillsMoreBtn.style.margin = '20px 0 0 0'
+
+        areSkillsWrapped = true
+    }
+})
 
 // Projects interface
 // Add eventListener for each project
@@ -346,7 +485,7 @@ getKeywords.forEach(el => {
 
     })
 })
-  
+
 // A function which generates projects by search bar (input)
 const generateProjects = (wordPattern) => {
 
@@ -363,15 +502,15 @@ const generateProjects = (wordPattern) => {
             if (
                 pr.style.display === 'flex' &&      // if a project display
                 !pr.textContent.toLocaleLowerCase().match(wordPattern)      // and wordPattern isn't same
-                ) {
-                    pr.style.display = 'none'       // hide the project
-            }   
+            ) {
+                pr.style.display = 'none'       // hide the project
+            }
         })
     }
 
     updateInfo()
 }
-  
+
 // Adding eventListemer for search bar
 getSearch.addEventListener('input', key => {
     const words = getSearch.value
