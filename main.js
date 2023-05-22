@@ -32,6 +32,8 @@ const getSkillsWrapper = document.querySelector('.skills__first')
 const getSkillLevels = document.querySelectorAll('.skills__level')
 const getCsLevels = document.querySelectorAll('.skills__level--cs')
 let areAdditionalLevelsFilled = false
+const getLangsBlock = document.querySelector('.skills__sec')
+let isBtnClicked = false
 
 // Styles
 const jsStyles = {
@@ -173,38 +175,32 @@ const AdditionalSkillsLoading = () => {
     const phLevel = document.querySelector('.ph-level')
     const phpLevel = document.querySelector('.php-level')
     const ftpLevel = document.querySelector('.ftp-level')
-    const csLevel = document.querySelectorAll('.skills__level--cs')
 
-    // Langs
-    // const deLevel = document.querySelector('.de-level')
-    // const enLevel = document.querySelector('.en-level')
-    // const uaLevel = document.querySelector('.ua-level')
-    // const ruLevel = document.querySelector('.ru-level')
-    const additionalSkillsArray = [jqLevel, phLevel, phpLevel, ftpLevel, csLevel]
+    const additionalSkillsArray = [jqLevel, phLevel, phpLevel, ftpLevel]
 
     // Create and add load-bars
     if (areAdditionalLevelsFilled === false) {
         additionalSkillsArray.forEach(lvl => {
             const levelBar = document.createElement('div')
             const levelPercent = document.createElement('div')
-    
+
             lvl.appendChild(levelBar)
             lvl.appendChild(levelPercent)
-    
+
             Object.assign(levelBar.style, jsStyles.levelBar)
             Object.assign(levelPercent.style, jsStyles.levelNumSkills)
-    
+
             levelPercent.textContent = '0%'
             let curWidth = 0
             let curPercent = 0
-    
+
             setInterval(() => {
                 if (
                     (lvl === jqLevel && curWidth < 60) ||
                     (lvl === phLevel && curWidth < 55) ||
                     (lvl === phpLevel && curWidth < 25) ||
                     (lvl === ftpLevel && curWidth < 35)
-    
+
                 ) {
                     curWidth += 1
                     curPercent += 1
@@ -214,8 +210,6 @@ const AdditionalSkillsLoading = () => {
             }, 50)
         })
     }
-
-    areAdditionalLevelsFilled = true
 }
 
 // Skills more button
@@ -228,9 +222,12 @@ getSkillsMoreBtn.addEventListener('click', () => {
             level.style.display = 'block'
         })
 
-        getSkillsCard.style.width = '80%'
+        // Main Skills Card
+        getSkillsCard.style.width = '65%'
         getSkillsCard.style.height = '500px'
+        getSkillsCard.style.paddingRight = '100px'
 
+        // SKills
         getSkillsWrapper.style.width = '60%'
         getSkillsWrapper.style.height = '440px'
         getSkillsWrapper.style.display = 'flex'
@@ -239,18 +236,29 @@ getSkillsMoreBtn.addEventListener('click', () => {
         getSkillsWrapper.style.alignItems = 'flex-start'
         getSkillsWrapper.style.flexWrap = 'wrap'
 
+        // Langs
+        getLangsBlock.style.width = '25%'
+        getLangsBlock.style.display = 'flex'
+        getLangsBlock.style.flexDirection = 'column'
+        // getLangsBlock.style.alignItems = 'flex-end'
+
+        // Levels
         getSkillLevels.forEach(level => {
-            level.style.width = '35%'
+            level.style.width = '200px'
+            level.style.marginRight = '70px'
         })
 
+        // Levels (special)
         getCsLevels.forEach(csLevel => {
             csLevel.style.border = '1px solid #d62828'
         })
 
+        // Button
         getSkillsMoreBtn.textContent = 'Less'
         getSkillsMoreBtn.style.width = '50%'
         getSkillsMoreBtn.style.margin = '0 auto'
 
+        // Var switcher
         areSkillsWrapped = false
 
         if (areAdditionalLevelsFilled === false) {
@@ -258,29 +266,43 @@ getSkillsMoreBtn.addEventListener('click', () => {
         }
 
         areAdditionalLevelsFilled = true
+        isBtnClicked = true
     } else {
+        // Skills name
         getAdditionaNamesSkill.forEach(name => {
             name.style.display = 'none'
         })
+        // Skills name (additional)
         getAdditionalLevelsSkill.forEach(level => {
             level.style.display = 'none'
         })
 
+        // Skills Main Card
         getSkillsCard.style.width = '40%'
         getSkillsCard.style.height = 'auto'
+        getSkillsCard.style.paddingRight = '60px'
 
+        // Skills
         getSkillsWrapper.style.width = '40%'
         getSkillsWrapper.style.height = 'auto'
         getSkillsWrapper.style.display = 'block'
 
+        // Levels
         getSkillLevels.forEach(level => {
             level.style.width = '100%'
         })
 
+        // Langs
+        getLangsBlock.style.width = '40%'
+        getLangsBlock.style.display = 'flex'
+        getLangsBlock.style.flexDirection = 'column'
+
+        // Button
         getSkillsMoreBtn.textContent = 'More'
         getSkillsMoreBtn.style.width = '100%'
         getSkillsMoreBtn.style.margin = '20px 0 0 0'
 
+        // Var switcher
         areSkillsWrapped = true
     }
 })
