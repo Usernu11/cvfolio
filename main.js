@@ -1,3 +1,5 @@
+const body = document.querySelector('body')
+const display = document.querySelector('.display')
 const menu = document.querySelector('nav')
 const menuButtons = menu.querySelectorAll('div')
 let areLevelsFilled = false
@@ -68,8 +70,88 @@ const jsStyles = {
     projectHover: {
         backgroundSize: '100% 100%',
         backgroundRepeat: 'no-repeat'
+    },
+    img: {
+        width: '200px',
+        height: '200px',
+        position: 'absolute',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'contain'
     }
 }
+
+// Fill img for each section
+const loadImg = (section) => {
+    if (section === 'skills') {
+        // ...
+    }
+}
+
+// EventListener for main page (about section), when it will be loaded
+document.addEventListener('DOMContentLoaded', () => {
+    // fist
+    const firstImg = document.createElement('div')
+    display.appendChild(firstImg)
+    Object.assign(firstImg.style, jsStyles.img)
+    firstImg.style.backgroundImage = 'url("img/about/activism.png")'
+
+    // fist
+    let posBot = -40
+    let posLeft = -40
+    setInterval(() => {
+        if (posBot < 0) {
+            posBot += 1
+            firstImg.style.bottom = `${posBot}%`
+        }
+
+        if (posLeft < 0) {
+            posLeft += 1
+            firstImg.style.left = `${posLeft}%`
+        }
+    }, 40)
+
+    // switzerland
+    const secondImg = document.createElement('div')
+    display.appendChild(secondImg)
+    Object.assign(secondImg.style, jsStyles.img)
+    secondImg.style.backgroundImage = 'url("img/about/swiss.png")'
+    secondImg.style.bottom = '-5%'
+    secondImg.style.right = '1%'
+    secondImg.style.opacity = 0
+    secondImg.style.zIndex = -1
+    secondImg.style.width = '300px'
+    secondImg.style.height = '300px'
+
+    // code
+    const thirdImg = document.createElement('div')
+    display.appendChild(thirdImg)
+    Object.assign(thirdImg.style, jsStyles.img)
+    thirdImg.style.backgroundImage = 'url("img/about/code.png")'
+    thirdImg.style.top = '7%'
+    thirdImg.style.left = '50%'
+    thirdImg.style.opacity = .8
+    thirdImg.style.zIndex = -1
+    thirdImg.style.width = '100px'
+    thirdImg.style.height = '100px'
+
+    // switzerland
+    let op = 0
+    let tOp = 0
+    setInterval(() => {
+        if (op < 1 && tOp < .8) {
+            op += 0.005
+            tOp += 0.005
+            secondImg.style.opacity = op
+            thirdImg.style.opacity = tOp
+        } else {
+            secondImg.style.opacity = 1
+            thirdImg.style.opacity = .8
+        }
+    }, 40)
+
+
+})
 
 // Adding an eventListener for menu buttons and card changins
 menuButtons.forEach(button => {
