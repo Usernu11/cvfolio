@@ -407,7 +407,7 @@ getEduMoreBtn.addEventListener('click', () => {
             if (block.classList.contains('edu__block--additional')) {
                 block.classList.add('hidden')
 
-                
+
                 // Var switcher
                 isEduHidden = true
             }
