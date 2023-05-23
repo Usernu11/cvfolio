@@ -34,6 +34,11 @@ const getCsLevels = document.querySelectorAll('.skills__level--cs')
 let areAdditionalLevelsFilled = false
 const getLangsBlock = document.querySelector('.skills__sec')
 let isBtnClicked = false
+// Expirience block ↓
+const getExpMoreBtn = document.querySelector('.exp__more')
+const getExpBlocks = document.querySelectorAll('.exp__block')
+let isExpHidden = true
+const getExpMainCard = document.querySelector('.exp')
 
 // Styles
 const jsStyles = {
@@ -280,7 +285,7 @@ getSkillsMoreBtn.addEventListener('click', () => {
         // Skills Main Card
         getSkillsCard.style.width = '40%'
         getSkillsCard.style.height = 'auto'
-        getSkillsCard.style.paddingRight = '60px'
+        getSkillsCard.style.paddingRight = '100px'
 
         // Skills
         getSkillsWrapper.style.width = '40%'
@@ -304,6 +309,45 @@ getSkillsMoreBtn.addEventListener('click', () => {
 
         // Var switcher
         areSkillsWrapped = true
+    }
+})
+
+// Expirience eventListener
+getExpMoreBtn.addEventListener('click', () => {
+    if (isExpHidden === true) {
+        // Hidden block
+        getExpBlocks.forEach(block => {
+            if (block.classList.contains('hidden')) {
+                block.classList.remove('hidden')
+
+                
+            }
+        })
+
+        // Main card
+        getExpMainCard.style.width = '90%'
+
+        // Button
+        getExpMoreBtn.textContent = 'Less'
+
+        // Var switcher
+        isExpHidden = false
+    } else {
+        // Additional block (which was hidden)
+        getExpBlocks.forEach(block => {
+            if (block.classList.contains('exp__block--additional')) {
+                block.classList.add('hidden')
+
+                // Var switcher
+                isExpHidden = true
+            }
+        })
+
+        // Main card
+        getExpMainCard.style.width = '50%'
+
+        // Button
+        getExpMoreBtn.textContent = 'More'
     }
 })
 
