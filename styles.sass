@@ -15,8 +15,8 @@ $third-color: #eae2b7
     // 22. Gilroy and Jura
         // ubuntu
 
-$m-font: 'Iceland',
-$sec-font: 'Roboto Mono',
+$m-font: 'Iceland', monospace
+$sec-font: 'Roboto Mono', sans-serif
 // $t-font:
 // $f-font:
 // $fi-font:
@@ -30,6 +30,7 @@ $sec-font: 'Roboto Mono',
     box-sizing: border-box
     height: 100vh
     background-color: $main-color
+    font-family: $m-font
 
 .wrapper
     height: 100%
@@ -236,6 +237,8 @@ $sec-font: 'Roboto Mono',
     width: 50%
     @include bgGrad
     padding: 15px 30px
+    &__wrapper
+        // transition: display 1s
     &__block
         border-top: 1px solid $fourth-color
     &__subtitle

@@ -39,6 +39,15 @@ const getExpMoreBtn = document.querySelector('.exp__more')
 const getExpBlocks = document.querySelectorAll('.exp__block')
 let isExpHidden = true
 const getExpMainCard = document.querySelector('.exp')
+// Education block ↓
+const getEduMoreBtn = document.querySelector('.edu__more')
+const getEduBlocks = document.querySelectorAll('.edu__block')
+let isEduHidden = true
+const getEduMainCard = document.querySelector('.edu')
+const getEduWrapper = document.querySelector('.edu__wrapper')
+const getEduNames = document.querySelectorAll('.edu__place')
+const getEduDescs = document.querySelectorAll('.edu__degree')
+const getEduYears = document.querySelectorAll('.edu__year')
 
 // Styles
 const jsStyles = {
@@ -319,8 +328,6 @@ getExpMoreBtn.addEventListener('click', () => {
         getExpBlocks.forEach(block => {
             if (block.classList.contains('hidden')) {
                 block.classList.remove('hidden')
-
-                
             }
         })
 
@@ -348,6 +355,91 @@ getExpMoreBtn.addEventListener('click', () => {
 
         // Button
         getExpMoreBtn.textContent = 'More'
+    }
+})
+
+// Education evenListener
+getEduMoreBtn.addEventListener('click', () => {
+    if (isEduHidden === true) {
+        // Hidden block
+        getEduBlocks.forEach(block => {
+            if (block.classList.contains('hidden')) {
+                block.classList.remove('hidden')
+
+                // Var switcher
+                isEduHidden = false
+            }
+
+            block.style.width = '18%'
+            // make more gap between flex items
+            // make less right padding of main card
+        })
+
+        // Years
+        getEduYears.forEach(year => {
+            year.style.fontSize = '15px'
+            year.style.marginBottom = '5px'
+        })
+
+        // Names or Place
+        getEduNames.forEach(name => {
+            name.style.fontSize = '20px'
+        })
+
+        // Description or degree
+        getEduDescs.forEach(desc => {
+            desc.style.paddingLeft = '0'
+            desc.style.listStyleType = 'none'
+        })
+
+        // Main card
+        getEduMainCard.style.width = '90%'
+
+        // Wrapper
+        getEduWrapper.style.display = 'flex'
+        getEduWrapper.style.justifyContent = 'space-between'
+
+        // Button
+        getEduMoreBtn.textContent = 'Less'
+    } else {
+        // Additional block (which was hidden)
+        getEduBlocks.forEach(block => {
+            if (block.classList.contains('edu__block--additional')) {
+                block.classList.add('hidden')
+
+                
+                // Var switcher
+                isEduHidden = true
+            }
+            block.style.width = '100%'
+        })
+
+        // Years
+        getEduYears.forEach(year => {
+            year.style.fontSize = '20px'
+            year.style.marginBottom = '0'
+        })
+
+        // Names or Place
+        getEduNames.forEach(name => {
+            name.style.fontSize = '28px'
+        })
+
+        // Description or degree
+        getEduDescs.forEach(desc => {
+            desc.style.paddingLeft = '40px'
+            desc.style.listStyleType = 'disc'
+        })
+
+        // Main card
+        getEduMainCard.style.width = '50%'
+
+        // Wrapper
+        getEduWrapper.style.display = 'block'
+        getEduWrapper.style.justifyContent = 'none'
+
+        // Button
+        getEduMoreBtn.textContent = 'More'
     }
 })
 

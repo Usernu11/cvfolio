@@ -6,6 +6,7 @@
   box-sizing: border-box;
   height: 100vh;
   background-color: #003049;
+  font-family: "Iceland", monospace;
 }
 
 .wrapper {
