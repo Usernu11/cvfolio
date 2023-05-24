@@ -50,6 +50,8 @@ const getEduWrapper = document.querySelector('.edu__wrapper')
 const getEduNames = document.querySelectorAll('.edu__place')
 const getEduDescs = document.querySelectorAll('.edu__degree')
 const getEduYears = document.querySelectorAll('.edu__year')
+// Images
+let aboutImgsLoaded = false
 
 // Styles
 const jsStyles = {
@@ -90,6 +92,10 @@ const loadImg = (section) => {
     getCurImages.forEach(img => {
         img.style.display = 'none'
     })
+
+    if (section === 'about') {
+        loadImgFirst()
+    }
 
     if (section === 'skills') {
         const fImg = document.createElement('div')
@@ -174,7 +180,7 @@ const loadImg = (section) => {
 
         // git
         tImg.style.backgroundImage = 'url("img/skills/github.png")'
-        tImg.style.bottom = '15%'
+        tImg.style.bottom = '28%'
         tImg.style.left = '20%'
         tImg.style.width = '100px'
         tImg.style.height = '100px'
@@ -192,7 +198,7 @@ const loadImg = (section) => {
         }, 10);
 
         // germany
-        foImg.style.backgroundImage = 'url("img/skills/germany.png")'
+        foImg.style.backgroundImage = 'url("img/skills/switzerland.png")'
         foImg.style.top = '15%'
         foImg.style.right = '10%'
         foImg.style.width = '100px'
@@ -211,7 +217,7 @@ const loadImg = (section) => {
         }, 10);
 
         // ukraine
-        fiImg.style.backgroundImage = 'url("img/skills/ukraine.png")'
+        fiImg.style.backgroundImage = 'url("img/skills/germany.png")'
         fiImg.style.top = '35%'
         fiImg.style.right = '5%'
         fiImg.style.width = '100px'
@@ -230,7 +236,7 @@ const loadImg = (section) => {
         }, 10);
 
         // switzerland
-        siImg.style.backgroundImage = 'url("img/skills/switzerland.png")'
+        siImg.style.backgroundImage = 'url("img/skills/ukraine.png")'
         siImg.style.top = '60%'
         siImg.style.right = '8%'
         siImg.style.width = '100px'
@@ -248,75 +254,185 @@ const loadImg = (section) => {
             }
         }, 10);
     }
+
+    if (section === 'exp') {
+        const fCompanyImg = document.createElement('div')   // first
+        const sCompanyImg = document.createElement('div')   // second
+
+        display.appendChild(fCompanyImg)
+        display.appendChild(sCompanyImg)
+
+        Object.assign(fCompanyImg.style, jsStyles.img)
+        Object.assign(sCompanyImg.style, jsStyles.img)
+
+        fCompanyImg.classList.add('img')
+        sCompanyImg.classList.add('img')
+
+        // FDT
+        fCompanyImg.style.backgroundImage = 'url("img/experience/fdt.png")'
+        fCompanyImg.style.bottom = '5%'
+        fCompanyImg.style.left = '13%'
+        fCompanyImg.style.opacity = '0'
+
+        let fcw = 0     // first company width
+        let fcop = 0    // first company opacity
+        setInterval(() => {
+            if (fcw < 300) {
+                fcw += 5
+                fCompanyImg.style.width = `${fcw}px`
+            }
+
+            if (fcop < 1) {
+                fcop += 0.05
+                fCompanyImg.style.opacity = fcop
+            }
+        }, 10)
+
+        // JTI
+        sCompanyImg.style.backgroundImage = 'url("img/experience/jti.png")'
+        sCompanyImg.style.bottom = '32%'
+        sCompanyImg.style.right = '5%'
+        sCompanyImg.style.opacity = '0'
+
+        let scw = 0     // second company width
+        let scop = 0    // second company opacity
+        setInterval(() => {
+            if (scw < 100) {
+                scw += 5
+                sCompanyImg.style.width = `${scw}px`
+            }
+
+            if (scop < 1) {
+                scop += 0.05
+                sCompanyImg.style.opacity = scop
+            }
+        }, 10)
+    }
+
+    if (section === 'edu') {
+        const fEduImg = document.createElement('div')   // first image
+        const sEduImg = document.createElement('div')   // second image
+        const tEduImg = document.createElement('div')   // third image
+
+        fEduImg.classList.add('img')
+        sEduImg.classList.add('img')
+        tEduImg.classList.add('img')
+
+        display.appendChild(fEduImg)
+        display.appendChild(sEduImg)
+        display.appendChild(tEduImg)
+
+        Object.assign(fEduImg.style, jsStyles.img)
+        Object.assign(sEduImg.style, jsStyles.img)
+        Object.assign(tEduImg.style, jsStyles.img)
+
+        // first image PSTU
+        fEduImg.style.top = '35%'
+        fEduImg.style.left = '85%'
+        fEduImg.style.backgroundImage = 'url("img/edu/pstu.png")'
+
+        // second img BA
+        sEduImg.style.bottom = '46%'
+        sEduImg.style.left = '21%'
+        sEduImg.style.backgroundImage = 'url("img/edu/beetroot.svg")'
+
+        // third JS challenge
+        tEduImg.textContent = '"30DaysOfJavaScript" challenge'
+        tEduImg.style.backgroundColor = 'gold'
+        tEduImg.style.fontSize = '20px'
+        tEduImg.style.bottom = '17%'
+        tEduImg.style.left = '15%'
+        tEduImg.style.display = 'flex'
+        tEduImg.style.justifyContent = 'center'
+        tEduImg.style.alignItems = 'center'
+        tEduImg.style.textAlign = 'center'
+        tEduImg.style.borderRadius = '10px'
+        tEduImg.style.height = 'auto'
+        tEduImg.style.padding = '15px'
+    }
+
+    if (section === 'contacts') {
+
+    }
 }
 
 // EventListener for main page (about section), when it will be loaded
-document.addEventListener('DOMContentLoaded', () => {
-    // fist
-    const firstImg = document.createElement('div')
-    firstImg.classList.add('img')
-    display.appendChild(firstImg)
-    Object.assign(firstImg.style, jsStyles.img)
-    firstImg.style.backgroundImage = 'url("img/about/activism.png")'
+const loadImgFirst = () => {
+    const getCurrentImages = document.querySelectorAll('.img')
 
-    // fist
-    let posBot = -40
-    let posLeft = -40
-    setInterval(() => {
-        if (posBot < 0) {
-            posBot += 1
-            firstImg.style.bottom = `${posBot}%`
-        }
-
-        if (posLeft < 0) {
-            posLeft += 1
-            firstImg.style.left = `${posLeft}%`
-        }
-    }, 40)
-
-    // switzerland
-    const secondImg = document.createElement('div')
-    secondImg.classList.add('img')
-    display.appendChild(secondImg)
-    Object.assign(secondImg.style, jsStyles.img)
-    secondImg.style.backgroundImage = 'url("img/about/swiss.png")'
-    secondImg.style.bottom = '-5%'
-    secondImg.style.right = '1%'
-    secondImg.style.opacity = 0
-    secondImg.style.zIndex = -1
-    secondImg.style.width = '300px'
-    secondImg.style.height = '300px'
-
-    // code
-    const thirdImg = document.createElement('div')
-    thirdImg.classList.add('img')
-    display.appendChild(thirdImg)
-    Object.assign(thirdImg.style, jsStyles.img)
-    thirdImg.style.backgroundImage = 'url("img/about/code.png")'
-    thirdImg.style.top = '7%'
-    thirdImg.style.left = '50%'
-    thirdImg.style.opacity = .8
-    thirdImg.style.zIndex = -1
-    thirdImg.style.width = '100px'
-    thirdImg.style.height = '100px'
-
-    // switzerland
-    let op = 0
-    let tOp = 0
-    setInterval(() => {
-        if (op < 1 && tOp < .8) {
-            op += 0.005
-            tOp += 0.005
-            secondImg.style.opacity = op
-            thirdImg.style.opacity = tOp
-        } else {
-            secondImg.style.opacity = 1
+    if (aboutImgsLoaded === false) {
+        document.addEventListener('DOMContentLoaded', () => {
+            // fist
+            const firstImg = document.createElement('div')
+            firstImg.classList.add('img')
+            display.appendChild(firstImg)
+            Object.assign(firstImg.style, jsStyles.img)
+            firstImg.style.backgroundImage = 'url("img/about/activism.png")'
+    
+            // fist
+            let posBot = -40
+            let posLeft = -40
+            setInterval(() => {
+                if (posBot < 0) {
+                    posBot += 1
+                    firstImg.style.bottom = `${posBot}%`
+                }
+    
+                if (posLeft < 0) {
+                    posLeft += 1
+                    firstImg.style.left = `${posLeft}%`
+                }
+            }, 40)
+    
+            // switzerland
+            const secondImg = document.createElement('div')
+            secondImg.classList.add('img')
+            display.appendChild(secondImg)
+            Object.assign(secondImg.style, jsStyles.img)
+            secondImg.style.backgroundImage = 'url("img/about/swiss.png")'
+            secondImg.style.bottom = '-5%'
+            secondImg.style.right = '1%'
+            secondImg.style.opacity = 0
+            secondImg.style.zIndex = -1
+            secondImg.style.width = '300px'
+            secondImg.style.height = '300px'
+    
+            // code
+            const thirdImg = document.createElement('div')
+            thirdImg.classList.add('img')
+            display.appendChild(thirdImg)
+            Object.assign(thirdImg.style, jsStyles.img)
+            thirdImg.style.backgroundImage = 'url("img/about/code.png")'
+            thirdImg.style.top = '7%'
+            thirdImg.style.left = '50%'
             thirdImg.style.opacity = .8
-        }
-    }, 40)
-
-
-})
+            thirdImg.style.zIndex = -1
+            thirdImg.style.width = '100px'
+            thirdImg.style.height = '100px'
+    
+            // switzerland
+            let op = 0
+            let tOp = 0
+            setInterval(() => {
+                if (op < 1 && tOp < .8) {
+                    op += 0.01
+                    tOp += 0.01
+                    secondImg.style.opacity = op
+                    thirdImg.style.opacity = tOp
+                } else {
+                    secondImg.style.opacity = 1
+                    thirdImg.style.opacity = .8
+                }
+            }, 40)
+        })
+    } else {
+        getCurrentImages.forEach(img => {
+            img.style.display = 'flex'
+        })
+    }
+    aboutImgsLoaded = true
+}
+loadImgFirst()
 
 // Adding an eventListener for menu buttons and card changins
 menuButtons.forEach(button => {
@@ -340,6 +456,7 @@ menuButtons.forEach(button => {
         switch (true) {
             case button.classList.contains('menu__about'):
                 parrentDisplay.querySelector('.about').classList.remove('hidden')
+                loadImg('about')
                 break
             case button.classList.contains('menu__skills'):
                 parrentDisplay.querySelector('.skills').classList.remove('hidden')
@@ -350,18 +467,23 @@ menuButtons.forEach(button => {
                 break
             case button.classList.contains('menu__projects'):
                 parrentDisplay.querySelector('.projects').classList.remove('hidden')
+                loadImg('projects')
                 break
             case button.classList.contains('menu__exp'):
                 parrentDisplay.querySelector('.exp').classList.remove('hidden')
+                loadImg('exp')
                 break
             case button.classList.contains('menu__edu'):
                 parrentDisplay.querySelector('.edu').classList.remove('hidden')
+                loadImg('edu')
                 break
             case button.classList.contains('menu__hobbies'):
                 parrentDisplay.querySelector('.hobbies').classList.remove('hidden')
+                loadImg('hobbies')
                 break
             case button.classList.contains('menu__contacts'):
                 parrentDisplay.querySelector('.contacts').classList.remove('hidden')
+                loadImg('contacts')
                 break
         }
     })
@@ -618,7 +740,7 @@ getEduMoreBtn.addEventListener('click', () => {
                 isEduHidden = false
             }
 
-            block.style.width = '18%'
+            block.style.width = '13%'
             // make more gap between flex items
             // make less right padding of main card
         })
@@ -647,6 +769,16 @@ getEduMoreBtn.addEventListener('click', () => {
         getEduWrapper.style.display = 'flex'
         getEduWrapper.style.justifyContent = 'space-between'
 
+        // Specific edu block
+        // Beetroot Academy
+        getEduBlocks[3].style.order = '-1'
+        // Js challenge
+        getEduBlocks[2].style.order = '-3'
+        // Master degree at PSTU
+        getEduBlocks[0].style.order = '-2'
+
+
+
         // Button
         getEduMoreBtn.textContent = 'Less'
     } else {
@@ -655,7 +787,7 @@ getEduMoreBtn.addEventListener('click', () => {
             if (block.classList.contains('edu__block--additional')) {
                 block.classList.add('hidden')
 
-
+                block.style.order = '0'
                 // Var switcher
                 isEduHidden = true
             }
