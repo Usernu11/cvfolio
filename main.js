@@ -77,14 +77,176 @@ const jsStyles = {
         position: 'absolute',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
-        backgroundSize: 'contain'
+        backgroundSize: 'contain',
+        zIndex: '-1'
     }
 }
 
 // Fill img for each section
 const loadImg = (section) => {
+    // For images
+    const getCurImages = document.querySelectorAll('.img')
+    // clear curent images
+    getCurImages.forEach(img => {
+        img.style.display = 'none'
+    })
+
     if (section === 'skills') {
-        // ...
+        const fImg = document.createElement('div')
+        const sImg = document.createElement('div')
+        const tImg = document.createElement('div')
+        const foImg = document.createElement('div')
+        const fiImg = document.createElement('div')
+        const siImg = document.createElement('div')
+
+        fImg.classList.add('img')   // first image
+        sImg.classList.add('img')   // second image
+        tImg.classList.add('img')   // third image
+        foImg.classList.add('img')   // fourth image
+        fiImg.classList.add('img')   // fifth image
+        siImg.classList.add('img')   // sixth image
+
+        Object.assign(fImg.style, jsStyles.img)
+        Object.assign(sImg.style, jsStyles.img)
+        Object.assign(tImg.style, jsStyles.img)
+        Object.assign(foImg.style, jsStyles.img)
+        Object.assign(fiImg.style, jsStyles.img)
+        Object.assign(siImg.style, jsStyles.img)
+
+        display.appendChild(fImg)
+        display.appendChild(sImg)
+        display.appendChild(tImg)
+        display.appendChild(foImg)
+        display.appendChild(fiImg)
+        display.appendChild(siImg)
+
+        // js
+        fImg.style.bottom = '75%'
+        fImg.style.left = '25%'
+        fImg.textContent = 'JS'
+        fImg.style.borderRadius = '50%'
+        fImg.style.backgroundColor = 'gold'
+        fImg.style.fontSize = '0'      // 40
+        fImg.style.display = 'flex'
+        fImg.style.justifyContent = 'center'
+        fImg.style.alignItems = 'center'
+        fImg.style.width = '0'      // 100
+        fImg.style.height = '0'     // 100
+        fImg.style.transform = 'rotate(350deg)'
+
+        // js
+        let fz = 0  // font size
+        let w = 0   // width
+        let h = 0   // height
+        setInterval(() => {
+            if (w < 90) {
+                w += 1
+                h += 1
+
+                fImg.style.width = `${w}px`      // 100
+                fImg.style.height = `${h}px`     // 100       
+            }
+
+            if (fz < 60) {
+                fz += 1
+                fImg.style.fontSize = `${fz}px`   // 40
+            }
+        }, 10)
+
+        // sass
+        sImg.style.backgroundImage = 'url("img/skills/sass.png")'
+        sImg.style.top = '40%'
+        sImg.style.left = '30%'
+        sImg.style.width = '100px'
+        sImg.style.height = '100px'
+        sImg.style.transform = 'rotate(16deg)'
+
+        let sw = 0  // second width
+        let sh = 0  // second height
+        setInterval(() => {
+            if (sw < 65) {
+                sw += 1
+                sh += 1
+                sImg.style.width = `${sw}px`
+                sImg.style.height = `${sh}px`
+            }
+        }, 10)
+
+        // git
+        tImg.style.backgroundImage = 'url("img/skills/github.png")'
+        tImg.style.bottom = '15%'
+        tImg.style.left = '20%'
+        tImg.style.width = '100px'
+        tImg.style.height = '100px'
+        tImg.style.transform = 'rotate(320deg)'
+
+        let tw = 0      // third width
+        let th = 0      // third height
+        setInterval(() => {
+            if (tw < 115) {
+                tw += 1
+                th += 1
+                tImg.style.width = `${tw}px`
+                tImg.style.height = `${th}px`
+            }
+        }, 10);
+
+        // germany
+        foImg.style.backgroundImage = 'url("img/skills/germany.png")'
+        foImg.style.top = '15%'
+        foImg.style.right = '10%'
+        foImg.style.width = '100px'
+        foImg.style.height = '100px'
+        foImg.style.transform = 'rotate(16deg)'
+
+        let foW = 0
+        let foH = 0
+        setInterval(() => {
+            if (foW < 100) {
+                foW += 1
+                foH += 1
+                foImg.style.width = `${foW}px`
+                foImg.style.height = `${foH}px`
+            }
+        }, 10);
+
+        // ukraine
+        fiImg.style.backgroundImage = 'url("img/skills/ukraine.png")'
+        fiImg.style.top = '35%'
+        fiImg.style.right = '5%'
+        fiImg.style.width = '100px'
+        fiImg.style.height = '100px'
+        fiImg.style.transform = 'rotate(340deg)'
+
+        let fiW = 0
+        let fiH = 0
+        setInterval(() => {
+            if (fiW < 100) {
+                fiW += 1
+                fiH += 1
+                fiImg.style.width = `${fiW}px`
+                fiImg.style.height = `${fiH}px`
+            }
+        }, 10);
+
+        // switzerland
+        siImg.style.backgroundImage = 'url("img/skills/switzerland.png")'
+        siImg.style.top = '60%'
+        siImg.style.right = '8%'
+        siImg.style.width = '100px'
+        siImg.style.height = '100px'
+        siImg.style.transform = 'rotate(7deg)'
+
+        let siW = 0
+        let siH = 0
+        setInterval(() => {
+            if (siW < 100) {
+                siW += 1
+                siH += 1
+                siImg.style.width = `${siW}px`
+                siImg.style.height = `${siH}px`
+            }
+        }, 10);
     }
 }
 
@@ -92,6 +254,7 @@ const loadImg = (section) => {
 document.addEventListener('DOMContentLoaded', () => {
     // fist
     const firstImg = document.createElement('div')
+    firstImg.classList.add('img')
     display.appendChild(firstImg)
     Object.assign(firstImg.style, jsStyles.img)
     firstImg.style.backgroundImage = 'url("img/about/activism.png")'
@@ -113,6 +276,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // switzerland
     const secondImg = document.createElement('div')
+    secondImg.classList.add('img')
     display.appendChild(secondImg)
     Object.assign(secondImg.style, jsStyles.img)
     secondImg.style.backgroundImage = 'url("img/about/swiss.png")'
@@ -125,6 +289,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // code
     const thirdImg = document.createElement('div')
+    thirdImg.classList.add('img')
     display.appendChild(thirdImg)
     Object.assign(thirdImg.style, jsStyles.img)
     thirdImg.style.backgroundImage = 'url("img/about/code.png")'
@@ -178,6 +343,7 @@ menuButtons.forEach(button => {
                 break
             case button.classList.contains('menu__skills'):
                 parrentDisplay.querySelector('.skills').classList.remove('hidden')
+                loadImg('skills')
                 if (areLevelsFilled === false) {
                     skillsLoading()
                 }
