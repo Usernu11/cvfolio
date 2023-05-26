@@ -52,6 +52,9 @@ const getEduDescs = document.querySelectorAll('.edu__degree')
 const getEduYears = document.querySelectorAll('.edu__year')
 // Images
 let aboutImgsLoaded = false
+let skillsImgsLoaded = false
+let expImgsLoaded = false
+let eduImgsLoaded = false
 
 // Styles
 const jsStyles = {
@@ -86,18 +89,16 @@ const jsStyles = {
 
 // Fill img for each section
 const loadImg = (section) => {
-    // For images
-    const getCurImages = document.querySelectorAll('.img')
-    // clear curent images
-    getCurImages.forEach(img => {
-        img.style.display = 'none'
-    })
+const getCurSkillsImgs = document.querySelectorAll('.img-skills')
+const getCurExpImgs = document.querySelectorAll('.img-exp')
+const getCurEduImgs = document.querySelectorAll('.img-edu')
+const getAllImgs = document.querySelectorAll('.img')
 
     if (section === 'about') {
         loadImgFirst()
     }
 
-    if (section === 'skills') {
+    if (section === 'skills' && !skillsImgsLoaded) {
         const fImg = document.createElement('div')
         const sImg = document.createElement('div')
         const tImg = document.createElement('div')
@@ -111,6 +112,13 @@ const loadImg = (section) => {
         foImg.classList.add('img')   // fourth image
         fiImg.classList.add('img')   // fifth image
         siImg.classList.add('img')   // sixth image
+
+        fImg.classList.add('img-skills')   // first image
+        sImg.classList.add('img-skills')   // second image
+        tImg.classList.add('img-skills')   // third image
+        foImg.classList.add('img-skills')   // fourth image
+        fiImg.classList.add('img-skills')   // fifth image
+        siImg.classList.add('img-skills')   // sixth image
 
         Object.assign(fImg.style, jsStyles.img)
         Object.assign(sImg.style, jsStyles.img)
@@ -253,9 +261,15 @@ const loadImg = (section) => {
                 siImg.style.height = `${siH}px`
             }
         }, 10);
+
+        skillsImgsLoaded = true
+    } else if (section === 'skills' && skillsImgsLoaded) {
+        getCurSkillsImgs.forEach(img => {
+            img.style.display = 'flex'
+        })
     }
 
-    if (section === 'exp') {
+    if (section === 'exp' && !expImgsLoaded) {
         const fCompanyImg = document.createElement('div')   // first
         const sCompanyImg = document.createElement('div')   // second
 
@@ -267,6 +281,9 @@ const loadImg = (section) => {
 
         fCompanyImg.classList.add('img')
         sCompanyImg.classList.add('img')
+
+        fCompanyImg.classList.add('img-exp')
+        sCompanyImg.classList.add('img-exp')
 
         // FDT
         fCompanyImg.style.backgroundImage = 'url("img/experience/fdt.png")'
@@ -307,9 +324,15 @@ const loadImg = (section) => {
                 sCompanyImg.style.opacity = scop
             }
         }, 10)
+
+        expImgsLoaded = true
+    } else if (section === 'exp' && expImgsLoaded) {
+        getCurExpImgs.forEach(img => {
+            img.style.display = 'flex'
+        })
     }
 
-    if (section === 'edu') {
+    if (section === 'edu' && !eduImgsLoaded) {
         const fEduImg = document.createElement('div')   // first image
         const sEduImg = document.createElement('div')   // second image
         const tEduImg = document.createElement('div')   // third image
@@ -317,6 +340,10 @@ const loadImg = (section) => {
         fEduImg.classList.add('img')
         sEduImg.classList.add('img')
         tEduImg.classList.add('img')
+
+        fEduImg.classList.add('img-edu')
+        sEduImg.classList.add('img-edu')
+        tEduImg.classList.add('img-edu')
 
         display.appendChild(fEduImg)
         display.appendChild(sEduImg)
@@ -349,26 +376,35 @@ const loadImg = (section) => {
         tEduImg.style.borderRadius = '10px'
         tEduImg.style.height = 'auto'
         tEduImg.style.padding = '15px'
+
+        eduImgsLoaded = true
+    } else if (section === 'edu' && eduImgsLoaded) {
+        getCurEduImgs.forEach(img => {
+            img.style.display = 'flex'
+        })
     }
 
     if (section === 'contacts') {
-
+        getAllImgs.forEach(img => {
+            img.style.display = 'flex'
+        })
     }
 }
 
 // EventListener for main page (about section), when it will be loaded
 const loadImgFirst = () => {
-    const getCurrentImages = document.querySelectorAll('.img')
+    const getCurAboutImages = document.querySelectorAll('.img-about')
 
     if (aboutImgsLoaded === false) {
         document.addEventListener('DOMContentLoaded', () => {
             // fist
             const firstImg = document.createElement('div')
             firstImg.classList.add('img')
+            firstImg.classList.add('img-about')
             display.appendChild(firstImg)
             Object.assign(firstImg.style, jsStyles.img)
             firstImg.style.backgroundImage = 'url("img/about/activism.png")'
-    
+
             // fist
             let posBot = -40
             let posLeft = -40
@@ -377,16 +413,17 @@ const loadImgFirst = () => {
                     posBot += 1
                     firstImg.style.bottom = `${posBot}%`
                 }
-    
+
                 if (posLeft < 0) {
                     posLeft += 1
                     firstImg.style.left = `${posLeft}%`
                 }
             }, 40)
-    
+
             // switzerland
             const secondImg = document.createElement('div')
             secondImg.classList.add('img')
+            secondImg.classList.add('img-about')
             display.appendChild(secondImg)
             Object.assign(secondImg.style, jsStyles.img)
             secondImg.style.backgroundImage = 'url("img/about/swiss.png")'
@@ -396,10 +433,12 @@ const loadImgFirst = () => {
             secondImg.style.zIndex = -1
             secondImg.style.width = '300px'
             secondImg.style.height = '300px'
-    
+
             // code
             const thirdImg = document.createElement('div')
             thirdImg.classList.add('img')
+            thirdImg.classList.add('img-about')
+            // thirdImg.classList.add('img-about')
             display.appendChild(thirdImg)
             Object.assign(thirdImg.style, jsStyles.img)
             thirdImg.style.backgroundImage = 'url("img/about/code.png")'
@@ -409,30 +448,50 @@ const loadImgFirst = () => {
             thirdImg.style.zIndex = -1
             thirdImg.style.width = '100px'
             thirdImg.style.height = '100px'
-    
+
             // switzerland
             let op = 0
-            let tOp = 0
             setInterval(() => {
-                if (op < 1 && tOp < .8) {
+                if (op < 1) {
                     op += 0.01
-                    tOp += 0.01
                     secondImg.style.opacity = op
-                    thirdImg.style.opacity = tOp
                 } else {
                     secondImg.style.opacity = 1
+                }
+            }, 40)
+
+            // code
+            let tOp = 0
+            setInterval(() => {
+                if (tOp < .8) {
+                    tOp += 0.01
+                    thirdImg.style.opacity = tOp
+                } else {
                     thirdImg.style.opacity = .8
                 }
             }, 40)
         })
     } else {
-        getCurrentImages.forEach(img => {
+        getCurAboutImages.forEach(img => {
             img.style.display = 'flex'
         })
     }
+
     aboutImgsLoaded = true
 }
 loadImgFirst()
+
+// Remove images
+const hideImgs = () => {
+    // For images
+    const getCurImages = document.querySelectorAll('.img')
+    // clear curent images
+    getCurImages.forEach(img => {
+        // img.remove()
+        // img.style.cssText = 'display: none !important'
+        img.style.display = 'none'
+    })
+}
 
 // Adding an eventListener for menu buttons and card changins
 menuButtons.forEach(button => {
@@ -453,13 +512,22 @@ menuButtons.forEach(button => {
             }
         })
 
+        hideImgs()
+
         switch (true) {
             case button.classList.contains('menu__about'):
                 parrentDisplay.querySelector('.about').classList.remove('hidden')
-                loadImg('about')
+                if (aboutImgsLoaded === false) {
+                    // hideImgs()
+                    loadImg('about')
+                } else {
+                    // hideImgs()
+                    loadImgFirst()
+                }
                 break
             case button.classList.contains('menu__skills'):
                 parrentDisplay.querySelector('.skills').classList.remove('hidden')
+                // hideImgs()
                 loadImg('skills')
                 if (areLevelsFilled === false) {
                     skillsLoading()
@@ -467,7 +535,8 @@ menuButtons.forEach(button => {
                 break
             case button.classList.contains('menu__projects'):
                 parrentDisplay.querySelector('.projects').classList.remove('hidden')
-                loadImg('projects')
+                hideImgs()
+                // loadImg('projects')
                 break
             case button.classList.contains('menu__exp'):
                 parrentDisplay.querySelector('.exp').classList.remove('hidden')
@@ -475,15 +544,17 @@ menuButtons.forEach(button => {
                 break
             case button.classList.contains('menu__edu'):
                 parrentDisplay.querySelector('.edu').classList.remove('hidden')
+                // hideImgs()
                 loadImg('edu')
                 break
             case button.classList.contains('menu__hobbies'):
                 parrentDisplay.querySelector('.hobbies').classList.remove('hidden')
-                loadImg('hobbies')
+                // hideImgs()
+                // loadImg('hobbies')
                 break
             case button.classList.contains('menu__contacts'):
                 parrentDisplay.querySelector('.contacts').classList.remove('hidden')
-                loadImg('contacts')
+                // loadImg('contacts')
                 break
         }
     })
