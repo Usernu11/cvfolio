@@ -89,10 +89,10 @@ const jsStyles = {
 
 // Fill img for each section
 const loadImg = (section) => {
-const getCurSkillsImgs = document.querySelectorAll('.img-skills')
-const getCurExpImgs = document.querySelectorAll('.img-exp')
-const getCurEduImgs = document.querySelectorAll('.img-edu')
-const getAllImgs = document.querySelectorAll('.img')
+    const getCurSkillsImgs = document.querySelectorAll('.img-skills')
+    const getCurExpImgs = document.querySelectorAll('.img-exp')
+    const getCurEduImgs = document.querySelectorAll('.img-edu')
+    const getAllImgs = document.querySelectorAll('.img')
 
     if (section === 'about') {
         loadImgFirst()
@@ -287,8 +287,8 @@ const getAllImgs = document.querySelectorAll('.img')
 
         // FDT
         fCompanyImg.style.backgroundImage = 'url("img/experience/fdt.png")'
-        fCompanyImg.style.bottom = '5%'
-        fCompanyImg.style.left = '13%'
+        fCompanyImg.style.bottom = '14%'
+        fCompanyImg.style.left = '10%'
         fCompanyImg.style.opacity = '0'
 
         let fcw = 0     // first company width
@@ -335,47 +335,43 @@ const getAllImgs = document.querySelectorAll('.img')
     if (section === 'edu' && !eduImgsLoaded) {
         const fEduImg = document.createElement('div')   // first image
         const sEduImg = document.createElement('div')   // second image
-        const tEduImg = document.createElement('div')   // third image
 
         fEduImg.classList.add('img')
         sEduImg.classList.add('img')
-        tEduImg.classList.add('img')
 
         fEduImg.classList.add('img-edu')
         sEduImg.classList.add('img-edu')
-        tEduImg.classList.add('img-edu')
 
         display.appendChild(fEduImg)
         display.appendChild(sEduImg)
-        display.appendChild(tEduImg)
 
         Object.assign(fEduImg.style, jsStyles.img)
         Object.assign(sEduImg.style, jsStyles.img)
-        Object.assign(tEduImg.style, jsStyles.img)
 
         // first image PSTU
         fEduImg.style.top = '35%'
-        fEduImg.style.left = '85%'
+        // fEduImg.style.left = '85%'
         fEduImg.style.backgroundImage = 'url("img/edu/pstu.png")'
 
+        let posU = 120
+        setInterval(() => {     // move PSTU from right to left
+            if (posU > 85) {
+                posU -= 1
+                fEduImg.style.left = `${posU}%`
+            }
+        }, 20);
+
         // second img BA
-        sEduImg.style.bottom = '46%'
-        sEduImg.style.left = '21%'
+        sEduImg.style.bottom = '38%'
         sEduImg.style.backgroundImage = 'url("img/edu/beetroot.svg")'
 
-        // third JS challenge
-        tEduImg.textContent = '"30DaysOfJavaScript" challenge'
-        tEduImg.style.backgroundColor = 'gold'
-        tEduImg.style.fontSize = '20px'
-        tEduImg.style.bottom = '17%'
-        tEduImg.style.left = '15%'
-        tEduImg.style.display = 'flex'
-        tEduImg.style.justifyContent = 'center'
-        tEduImg.style.alignItems = 'center'
-        tEduImg.style.textAlign = 'center'
-        tEduImg.style.borderRadius = '10px'
-        tEduImg.style.height = 'auto'
-        tEduImg.style.padding = '15px'
+        let posBA = -20
+        setInterval(() => {
+            if (posBA < 21) {
+                posBA += 1
+                sEduImg.style.left = `${posBA}%`
+            }
+        }, 17);
 
         eduImgsLoaded = true
     } else if (section === 'edu' && eduImgsLoaded) {
@@ -1146,3 +1142,14 @@ clearFiltersButton.addEventListener('click', () => {
     // Update info
     updateInfo()
 })
+
+// Particles bg
+window.onload = function () {
+    Particles.init({
+        selector: '.background',
+        connectParticles: true,
+        color: ['#eae2b7', '#d62828', '#f77f00', '#fcbf49'],
+        maxParticles: 50,
+        minDistance: 150
+    })
+}
