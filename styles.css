@@ -512,5 +512,27 @@ html, body {
     width: 70%;
   }
 }
+@media only screen and (max-width: 1360px) {
+  .skills {
+    width: 60%;
+    padding: 20px;
+  }
+  .skills__level {
+    width: 140px !important;
+  }
+  .skills__item {
+    font-size: 20px;
+  }
+}
+@media only screen and (max-width: 1320px) {
+  .projects__display {
+    justify-content: space-between;
+  }
+  .projects__item {
+    width: 20%;
+    font-size: 19px;
+    background-size: cover !important;
+  }
+}
 
 /*# sourceMappingURL=styles.css.map */

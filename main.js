@@ -57,6 +57,7 @@ let expImgsLoaded = false
 let eduImgsLoaded = false
 // Responsive
 const laptopSize = window.matchMedia("(max-width: 1024px)")
+const largeLaptopSize = window.matchMedia("(max-width: 1360px)")
 const cardsArray = ['about', 'skills', 'exp', 'edu']
 const allDisplayCards = document.querySelectorAll('.display-card')
 
@@ -399,7 +400,7 @@ const loadImgFirst = () => {
                 display.appendChild(firstImg)
                 Object.assign(firstImg.style, jsStyles.img)
                 firstImg.style.backgroundImage = 'url("img/about/activism.png")'
-    
+
                 // fist
                 let posBot = -40
                 let posLeft = -40
@@ -408,13 +409,13 @@ const loadImgFirst = () => {
                         posBot += 1
                         firstImg.style.bottom = `${posBot}%`
                     }
-    
+
                     if (posLeft < 0) {
                         posLeft += 1
                         firstImg.style.left = `${posLeft}%`
                     }
                 }, 40)
-    
+
                 // switzerland
                 const secondImg = document.createElement('div')
                 secondImg.classList.add('img')
@@ -428,7 +429,7 @@ const loadImgFirst = () => {
                 secondImg.style.zIndex = -1
                 secondImg.style.width = '300px'
                 secondImg.style.height = '300px'
-    
+
                 // code
                 const thirdImg = document.createElement('div')
                 thirdImg.classList.add('img')
@@ -443,7 +444,7 @@ const loadImgFirst = () => {
                 thirdImg.style.zIndex = -1
                 thirdImg.style.width = '100px'
                 thirdImg.style.height = '100px'
-    
+
                 // switzerland
                 let op = 0
                 setInterval(() => {
@@ -454,7 +455,7 @@ const loadImgFirst = () => {
                         secondImg.style.opacity = 1
                     }
                 }, 40)
-    
+
                 // code
                 let tOp = 0
                 setInterval(() => {
@@ -1166,8 +1167,8 @@ window.onload = function () {
 
 // Responsive
 const disableImgs = (size) => {
+    // manage images
     const getAllImages = document.querySelectorAll('.img')
-
     if (size.matches) {
         getAllImages.forEach(img => {
             img.style.display = 'none'
@@ -1183,6 +1184,24 @@ const disableImgs = (size) => {
         })
     }
 }
-  
+
+const genChanges = (size) => {
+    // Skills (opened)
+    if (size.matches && !areSkillsWrapped) {
+        getSkillsCard.style.padding = '5px 70px 5px 20px'
+
+        getSkillLevels.forEach(level => {
+            level.style.width = '140px'
+        })
+    }
+}
+// если 160 и развернут
+// тогда меняем падинг гл карте 5 120 5 20
+// длину всех уровней
+// каминг сун меняем на просто сун
+// и при завернутом состоянии возвращать в нормальное положение, чтобы тоже было красиво
+
 disableImgs(laptopSize)
+genChanges(largeLaptopSize)
 laptopSize.addEventListener('change', disableImgs)
+largeLaptopSize.addEventListener('change', genChanges)
