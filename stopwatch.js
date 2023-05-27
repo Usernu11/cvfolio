@@ -5,7 +5,7 @@ let time = {
   }
   
   let intervalId;
-  let text = document.getElementById('stopwatch').innerHTML = `hello`
+  // let text = document.getElementById('stopwatch').innerHTML = `hello`
   
   const stopwatch = (command) => {
     if (command === 'start') {
@@ -20,7 +20,7 @@ let time = {
             time.minutes = 0
             time.hours += 1
           }
-          text = document.getElementById('stopwatch').innerHTML = `${("0" + time.hours).slice(-2)}:${("0" + time.minutes).slice(-2)}:${("0" + time.seconds).slice(-2)}`
+          // text = document.getElementById('stopwatch').innerHTML = `${("0" + time.hours).slice(-2)}:${("0" + time.minutes).slice(-2)}:${("0" + time.seconds).slice(-2)}`
           document.title = `${("0" + time.hours).slice(-2)}:${("0" + time.minutes).slice(-2)}:${("0" + time.seconds).slice(-2)} - ⚡`
           localStorage.setItem('stopwatchData', JSON.stringify(time));
         }
@@ -59,9 +59,9 @@ let time = {
     }, 0)
   }
   
-  let start = document.getElementById('start').addEventListener("click", stopwatch.bind(null, 'start'))
-  let pause = document.getElementById('pause').addEventListener("click", stopwatch.bind(null, 'pause'))
-  let stop = document.getElementById('stop').addEventListener("click", stopwatch.bind(null, 'stop'))
+  // let start = document.getElementById('start').addEventListener("click", stopwatch.bind(null, 'start'))
+  // let pause = document.getElementById('pause').addEventListener("click", stopwatch.bind(null, 'pause'))
+  // let stop = document.getElementById('stop').addEventListener("click", stopwatch.bind(null, 'stop'))
   
   document.addEventListener("keydown", function(event) {
     if (event.code === "Space") {

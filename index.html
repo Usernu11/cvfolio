@@ -13,20 +13,35 @@
 
 <body id="body">
 
-    <div class="stopwatch" id="stopwatch"></div>
+    <!-- <div class="stopwatch" id="stopwatch"></div>
 
     <div id="start" onclick="start"></div>
     <div id="pause" onclick="pause"></div>
-    <div id="stop" onclick="stop"></div>
+    <div id="stop" onclick="stop"></div> -->
 
     <!-- Total 695 min -->
     <!-- rb 197 min -->
     <!-- rb 121 min -->
+    <!-- rb 48 min -->
     <!-- Total rb 1404 min -->
 
     <div class="wrapper">
+        <div class="burger-menu">
+            <div class="burger-menu__line--top">
+                <div class="burger-menu__line--top-l"></div>
+                <div class="burger-menu__line--top-r"></div>
+            </div>
+
+            <div class="burger-menu__line--middle"></div>
+            
+            <div class="burger-menu__line--bottom">
+                <div class="burger-menu__line--bottom-l"></div>
+                <div class="burger-menu__line--bottom-r"></div>
+            </div>
+        </div>
+
         <div class="menu">
-            <nav class="menu__nav">
+            <nav class="menu__nav hidden">
                 <div class="menu-button menu__about active">About</div>
                 <div class="menu-button menu__skills">Skills</div>
                 <div class="menu-button menu__projects">Projects</div>
@@ -38,7 +53,7 @@
         </div>
 
         <div class="display">
-            <div class="display-card about">
+            <div class="display-card about hidden">
                 <h1 class="about__title">Bohdan Lavrentiev</h1>
                 <h2 class="about__subtitle">Experienced Front-End Developer</h2>
                 <p class="about__text">Hello, I'm proficient Front-End developer with 4+ years of experience from the
@@ -335,7 +350,7 @@
 
     <canvas class="background"></canvas>
 
-    <script src="stopwatch.js"></script>
+    <!-- <script src="stopwatch.js"></script> -->
     <script src="main.js" type="module"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
 </body>

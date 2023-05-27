@@ -25,9 +25,10 @@ $m-font: 'Iceland', monospace
     display: flex
 
 .menu
-    width: 20%
+    width: 80%
+    // outline: 2px solid red
+    z-index: 2
     &__nav > *
-        // outline: 2px solid red
         width: 70%
         height: 45px
         cursor: pointer
@@ -55,7 +56,7 @@ $m-font: 'Iceland', monospace
 
 .display
     // outline: 2px solid yellow
-    width: 80%
+    // width: 80%
     display: flex
     justify-content: center
     align-items: center
@@ -341,38 +342,102 @@ html, body
     z-index: -2
 
 // Responsive 1024
-@media only screen and (max-width: 1024px)
-    .about
-        padding: 10px 30px
-        width: 70%
-        &__title
-            font-size: 35px
-        &__subtitle
-            font-size: 25px
-        &__text
-            font-size: 20px
+// @media only screen and (max-width: 1024px)
+//     .about
+//         padding: 10px 30px
+//         width: 70%
+//         &__title
+//             font-size: 35px
+//         &__subtitle
+//             font-size: 25px
+//         &__text
+//             font-size: 20px
 
-    .menu
-        width: 30%
-    .display
-        width: 70%
+//     .menu
+//         width: 30%
+//     .display
+//         width: 70%
 
-// Responsive 1360 for closed Skills
-@media only screen and (max-width: 1360px)
-    .skills
-        width: 60%
-        padding: 20px
-        &__level
-            width: 140px !important
-        &__item
-            font-size: 20px
+// // Responsive 1360 for closed Skills
+// @media only screen and (max-width: 1360px)
+//     .skills
+//         width: 60%
+//         padding: 20px
+//         &__level
+//             width: 140px !important
+//         &__item
+//             font-size: 20px
 
-// Responsive 1320 for Project
-@media only screen and (max-width: 1320px)
-    .projects
-        &__display
-            justify-content: space-between
-        &__item
-            width: 20%
-            font-size: 19px
-            background-size: cover !important
+// // Responsive 1320 for Project
+// @media only screen and (max-width: 1320px)
+//     .projects
+//         &__display
+//             justify-content: space-between
+//         &__item
+//             width: 20%
+//             font-size: 19px
+//             background-size: cover !important
+
+// // Responsive for closed Exp
+// @media only screen and (max-width: 1440px)
+//     .exp
+//         height: 80%
+//         width: 60%
+//         @media only screen and (max-width: 1360px) 
+//             width: 70% !important
+//         @media only screen and (max-width: 1150px) 
+//             width: 80% !important
+//         &__list
+//             font-size: 17px
+
+// Responsive
+.burger-menu
+    height: 60px
+    width: 70px
+    display: flex
+    justify-content: space-between
+    align-items: center
+    flex-direction: column
+    margin: 15px
+    position: absolute
+    top: 0
+    right: 0
+    transition: height 1s
+    &__line
+        &--top
+            height: 10px
+            width: 100%
+            display: flex
+        &--top-l
+            height: 10px
+            width: 50%
+            border-radius: 5px 0 0 5px
+            background-color: $secondary-color
+            transition: transform 1s
+        &--top-r
+            height: 10px
+            width: 50%
+            border-radius: 0 5px 5px 0
+            background-color: $secondary-color
+            transition: transform 1s
+        &--middle
+            height: 10px
+            width: 100%
+            border-radius: 5px
+            background-color: $fifth-color
+        &--bottom
+            height: 10px
+            width: 100%
+            display: flex
+        &--bottom-l
+            height: 10px
+            width: 50%
+            border-radius: 5px 0 0 5px
+            background-color: $third-color
+            transition: transform 1s
+        &--bottom-r
+            height: 10px
+            width: 50%
+            border-radius: 0 5px 5px 0
+            background-color: $third-color
+            transition: transform 1s

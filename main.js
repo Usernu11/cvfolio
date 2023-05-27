@@ -58,8 +58,10 @@ let eduImgsLoaded = false
 // Responsive
 const laptopSize = window.matchMedia("(max-width: 1024px)")
 const largeLaptopSize = window.matchMedia("(max-width: 1360px)")
+const llSize = window.matchMedia("(max-width: 1440px)")
 const cardsArray = ['about', 'skills', 'exp', 'edu']
 const allDisplayCards = document.querySelectorAll('.display-card')
+const expPoints = document.querySelectorAll('.exp__list--done')
 
 // Styles
 const jsStyles = {
@@ -1161,47 +1163,130 @@ window.onload = function () {
         connectParticles: true,
         color: ['#eae2b7', '#d62828', '#f77f00', '#fcbf49'],
         maxParticles: 50,
-        minDistance: 150
+        minDistance: 150,
+        responsive: [
+            {
+                breakpoint: 768,
+                options: {
+                    maxParticles: 200,
+                    color: '#48F2E3',
+                    connectParticles: false
+                }
+            }, {
+                breakpoint: 425,
+                options: {
+                    maxParticles: 100,
+                    connectParticles: true
+                }
+            }, {
+                breakpoint: 320,
+                options: {
+                    maxParticles: 35,
+                    minDistance: 75,
+                    // disables: particles.js
+                }
+            }
+        ]
     })
 }
 
 // Responsive
-const disableImgs = (size) => {
-    // manage images
-    const getAllImages = document.querySelectorAll('.img')
-    if (size.matches) {
-        getAllImages.forEach(img => {
-            img.style.display = 'none'
-        })
+// const disableImgs = (size) => {
+//     // manage images
+//     const getAllImages = document.querySelectorAll('.img')
+//     if (size.matches) {
+//         getAllImages.forEach(img => {
+//             img.style.display = 'none'
+//         })
+//     } else {
+//         document.addEventListener('DOMContentLoaded', () => {
+//             allDisplayCards.forEach(card => {
+//                 if (!card.classList.contains('hidden')) {
+//                     const curCardArg = card.classList[1]
+//                     loadImg(curCardArg)
+//                 }
+//             })
+//         })
+//     }
+// }
+
+// const genChanges = (size) => {
+//     // Skills (opened)
+//     if (size.matches && !areSkillsWrapped) {
+//         getSkillsCard.style.padding = '5px 70px 5px 20px'
+
+//         getSkillLevels.forEach(level => {
+//             level.style.width = '140px'
+//         })
+//     }
+
+//     // Exp opened
+//     if (size.matches && !isExpHidden) {
+//         // скрываем инфу блоков
+//         // делаем кнопки аккордеонов
+//         // при клике на 1 кнопку, второй должен скрываться
+//         expPoints.forEach(point => {
+//             point.classList.add('hidden')
+//         })
+
+//         getExpBlocks.forEach(block => {
+//             block.style.border = '1px solid #003049'
+//             block.style.borderRadius = '5px'
+//             block.style.paddingLeft = '20px'
+//             block.style.cursor = 'pointer'
+//             // block.addEventListener('mouseenter', () => {
+//             //     block.style.boxShadow = 'inset 0px -8px 10px -3px #000000'
+//             // })
+//         })
+//     } else {
+//         expPoints.forEach(point => {
+//             point.classList.remove('hidden')
+//         })
+//     }
+// }
+
+// disableImgs(laptopSize)
+// genChanges(largeLaptopSize)
+// genChanges(llSize)
+// laptopSize.addEventListener('change', disableImgs)
+// largeLaptopSize.addEventListener('change', genChanges)
+// llSize.addEventListener('change', genChanges)
+
+// New Responsive
+const getBurger = document.querySelector('.burger-menu')
+const getBurgerMid = document.querySelector('.burger-menu__line--middle')
+const getBurgerTopL = document.querySelector('.burger-menu__line--top-l')
+const getBurgerTopR = document.querySelector('.burger-menu__line--top-r')
+const getBurgerBotL = document.querySelector('.burger-menu__line--bottom-l')
+const getBurgerBotR = document.querySelector('.burger-menu__line--bottom-r')
+
+getBurger.addEventListener('click', () => {
+    if (menu.classList.contains('hidden')) {
+        // menu buttons
+        menu.classList.remove('hidden')
+
+        // wrapper
+        getBurger.style.height = '45px'
+
+        // lines
+        getBurgerMid.style.display = 'none'
+
+        getBurgerTopL.style.transform = 'rotate(45deg)'
+        getBurgerTopR.style.transform = 'rotate(315deg)'
+        getBurgerBotL.style.transform = 'rotate(315deg)'
+        getBurgerBotR.style.transform = 'rotate(45deg)'
     } else {
-        document.addEventListener('DOMContentLoaded', () => {
-            allDisplayCards.forEach(card => {
-                if (!card.classList.contains('hidden')) {
-                    const curCardArg = card.classList[1]
-                    loadImg(curCardArg)
-                }
-            })
-        })
+        menu.classList.add('hidden')
+
+        // wrapper
+        getBurger.style.height = '60px'
+
+        // lines
+        getBurgerMid.style.display = 'flex'
+
+        getBurgerTopL.style.transform = 'rotate(0deg)'
+        getBurgerTopR.style.transform = 'rotate(0deg)'
+        getBurgerBotL.style.transform = 'rotate(0deg)'
+        getBurgerBotR.style.transform = 'rotate(0deg)'
     }
-}
-
-const genChanges = (size) => {
-    // Skills (opened)
-    if (size.matches && !areSkillsWrapped) {
-        getSkillsCard.style.padding = '5px 70px 5px 20px'
-
-        getSkillLevels.forEach(level => {
-            level.style.width = '140px'
-        })
-    }
-}
-// если 160 и развернут
-// тогда меняем падинг гл карте 5 120 5 20
-// длину всех уровней
-// каминг сун меняем на просто сун
-// и при завернутом состоянии возвращать в нормальное положение, чтобы тоже было красиво
-
-disableImgs(laptopSize)
-genChanges(largeLaptopSize)
-laptopSize.addEventListener('change', disableImgs)
-largeLaptopSize.addEventListener('change', genChanges)
+})

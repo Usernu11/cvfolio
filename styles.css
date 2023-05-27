@@ -15,7 +15,8 @@
 }
 
 .menu {
-  width: 20%;
+  width: 80%;
+  z-index: 2;
 }
 .menu__nav > * {
   width: 70%;
@@ -53,7 +54,6 @@
 }
 
 .display {
-  width: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -491,48 +491,62 @@ html, body {
   z-index: -2;
 }
 
-@media only screen and (max-width: 1024px) {
-  .about {
-    padding: 10px 30px;
-    width: 70%;
-  }
-  .about__title {
-    font-size: 35px;
-  }
-  .about__subtitle {
-    font-size: 25px;
-  }
-  .about__text {
-    font-size: 20px;
-  }
-  .menu {
-    width: 30%;
-  }
-  .display {
-    width: 70%;
-  }
+.burger-menu {
+  height: 60px;
+  width: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  margin: 15px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transition: height 1s;
 }
-@media only screen and (max-width: 1360px) {
-  .skills {
-    width: 60%;
-    padding: 20px;
-  }
-  .skills__level {
-    width: 140px !important;
-  }
-  .skills__item {
-    font-size: 20px;
-  }
+.burger-menu__line--top {
+  height: 10px;
+  width: 100%;
+  display: flex;
 }
-@media only screen and (max-width: 1320px) {
-  .projects__display {
-    justify-content: space-between;
-  }
-  .projects__item {
-    width: 20%;
-    font-size: 19px;
-    background-size: cover !important;
-  }
+.burger-menu__line--top-l {
+  height: 10px;
+  width: 50%;
+  border-radius: 5px 0 0 5px;
+  background-color: #f77f00;
+  transition: transform 1s;
+}
+.burger-menu__line--top-r {
+  height: 10px;
+  width: 50%;
+  border-radius: 0 5px 5px 0;
+  background-color: #f77f00;
+  transition: transform 1s;
+}
+.burger-menu__line--middle {
+  height: 10px;
+  width: 100%;
+  border-radius: 5px;
+  background-color: #fcbf49;
+}
+.burger-menu__line--bottom {
+  height: 10px;
+  width: 100%;
+  display: flex;
+}
+.burger-menu__line--bottom-l {
+  height: 10px;
+  width: 50%;
+  border-radius: 5px 0 0 5px;
+  background-color: #eae2b7;
+  transition: transform 1s;
+}
+.burger-menu__line--bottom-r {
+  height: 10px;
+  width: 50%;
+  border-radius: 0 5px 5px 0;
+  background-color: #eae2b7;
+  transition: transform 1s;
 }
 
 /*# sourceMappingURL=styles.css.map */
