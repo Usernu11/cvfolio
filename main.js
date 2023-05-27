@@ -57,6 +57,8 @@ let expImgsLoaded = false
 let eduImgsLoaded = false
 // Responsive
 const laptopSize = window.matchMedia("(max-width: 1024px)")
+const cardsArray = ['about', 'skills', 'exp', 'edu']
+const allDisplayCards = document.querySelectorAll('.display-card')
 
 // Styles
 const jsStyles = {
@@ -1170,8 +1172,17 @@ const disableImgs = (size) => {
         getAllImages.forEach(img => {
             img.style.display = 'none'
         })
+    } else {
+        document.addEventListener('DOMContentLoaded', () => {
+            allDisplayCards.forEach(card => {
+                if (!card.classList.contains('hidden')) {
+                    const curCardArg = card.classList[1]
+                    loadImg(curCardArg)
+                }
+            })
+        })
     }
 }
   
 disableImgs(laptopSize)
-laptopSize.addListener(disableImgs)
+laptopSize.addEventListener('change', disableImgs)
