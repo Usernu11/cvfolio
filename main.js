@@ -55,6 +55,8 @@ let aboutImgsLoaded = false
 let skillsImgsLoaded = false
 let expImgsLoaded = false
 let eduImgsLoaded = false
+// Responsive
+const laptopSize = window.matchMedia("(max-width: 1024px)")
 
 // Styles
 const jsStyles = {
@@ -379,98 +381,94 @@ const loadImg = (section) => {
             img.style.display = 'flex'
         })
     }
-
-    if (section === 'contacts') {
-        getAllImgs.forEach(img => {
-            img.style.display = 'flex'
-        })
-    }
 }
 
 // EventListener for main page (about section), when it will be loaded
 const loadImgFirst = () => {
     const getCurAboutImages = document.querySelectorAll('.img-about')
 
-    if (aboutImgsLoaded === false) {
-        document.addEventListener('DOMContentLoaded', () => {
-            // fist
-            const firstImg = document.createElement('div')
-            firstImg.classList.add('img')
-            firstImg.classList.add('img-about')
-            display.appendChild(firstImg)
-            Object.assign(firstImg.style, jsStyles.img)
-            firstImg.style.backgroundImage = 'url("img/about/activism.png")'
-
-            // fist
-            let posBot = -40
-            let posLeft = -40
-            setInterval(() => {
-                if (posBot < 0) {
-                    posBot += 1
-                    firstImg.style.bottom = `${posBot}%`
-                }
-
-                if (posLeft < 0) {
-                    posLeft += 1
-                    firstImg.style.left = `${posLeft}%`
-                }
-            }, 40)
-
-            // switzerland
-            const secondImg = document.createElement('div')
-            secondImg.classList.add('img')
-            secondImg.classList.add('img-about')
-            display.appendChild(secondImg)
-            Object.assign(secondImg.style, jsStyles.img)
-            secondImg.style.backgroundImage = 'url("img/about/swiss.png")'
-            secondImg.style.bottom = '-5%'
-            secondImg.style.right = '1%'
-            secondImg.style.opacity = 0
-            secondImg.style.zIndex = -1
-            secondImg.style.width = '300px'
-            secondImg.style.height = '300px'
-
-            // code
-            const thirdImg = document.createElement('div')
-            thirdImg.classList.add('img')
-            thirdImg.classList.add('img-about')
-            // thirdImg.classList.add('img-about')
-            display.appendChild(thirdImg)
-            Object.assign(thirdImg.style, jsStyles.img)
-            thirdImg.style.backgroundImage = 'url("img/about/code.png")'
-            thirdImg.style.top = '7%'
-            thirdImg.style.left = '50%'
-            thirdImg.style.opacity = .8
-            thirdImg.style.zIndex = -1
-            thirdImg.style.width = '100px'
-            thirdImg.style.height = '100px'
-
-            // switzerland
-            let op = 0
-            setInterval(() => {
-                if (op < 1) {
-                    op += 0.01
-                    secondImg.style.opacity = op
-                } else {
-                    secondImg.style.opacity = 1
-                }
-            }, 40)
-
-            // code
-            let tOp = 0
-            setInterval(() => {
-                if (tOp < .8) {
-                    tOp += 0.01
-                    thirdImg.style.opacity = tOp
-                } else {
-                    thirdImg.style.opacity = .8
-                }
-            }, 40)
-        })
-    } else {
-        getCurAboutImages.forEach(img => {
-            img.style.display = 'flex'
-        })
+    if (!laptopSize.matches) {
+        if (aboutImgsLoaded === false) {
+            document.addEventListener('DOMContentLoaded', () => {
+                // fist
+                const firstImg = document.createElement('div')
+                firstImg.classList.add('img')
+                firstImg.classList.add('img-about')
+                display.appendChild(firstImg)
+                Object.assign(firstImg.style, jsStyles.img)
+                firstImg.style.backgroundImage = 'url("img/about/activism.png")'
+    
+                // fist
+                let posBot = -40
+                let posLeft = -40
+                setInterval(() => {
+                    if (posBot < 0) {
+                        posBot += 1
+                        firstImg.style.bottom = `${posBot}%`
+                    }
+    
+                    if (posLeft < 0) {
+                        posLeft += 1
+                        firstImg.style.left = `${posLeft}%`
+                    }
+                }, 40)
+    
+                // switzerland
+                const secondImg = document.createElement('div')
+                secondImg.classList.add('img')
+                secondImg.classList.add('img-about')
+                display.appendChild(secondImg)
+                Object.assign(secondImg.style, jsStyles.img)
+                secondImg.style.backgroundImage = 'url("img/about/swiss.png")'
+                secondImg.style.bottom = '-5%'
+                secondImg.style.right = '1%'
+                secondImg.style.opacity = 0
+                secondImg.style.zIndex = -1
+                secondImg.style.width = '300px'
+                secondImg.style.height = '300px'
+    
+                // code
+                const thirdImg = document.createElement('div')
+                thirdImg.classList.add('img')
+                thirdImg.classList.add('img-about')
+                // thirdImg.classList.add('img-about')
+                display.appendChild(thirdImg)
+                Object.assign(thirdImg.style, jsStyles.img)
+                thirdImg.style.backgroundImage = 'url("img/about/code.png")'
+                thirdImg.style.top = '7%'
+                thirdImg.style.left = '50%'
+                thirdImg.style.opacity = .8
+                thirdImg.style.zIndex = -1
+                thirdImg.style.width = '100px'
+                thirdImg.style.height = '100px'
+    
+                // switzerland
+                let op = 0
+                setInterval(() => {
+                    if (op < 1) {
+                        op += 0.01
+                        secondImg.style.opacity = op
+                    } else {
+                        secondImg.style.opacity = 1
+                    }
+                }, 40)
+    
+                // code
+                let tOp = 0
+                setInterval(() => {
+                    if (tOp < .8) {
+                        tOp += 0.01
+                        thirdImg.style.opacity = tOp
+                    } else {
+                        thirdImg.style.opacity = .8
+                    }
+                }, 40)
+            })
+        } else {
+            getCurAboutImages.forEach(img => {
+                img.style.display = 'flex'
+            })
+        }
     }
 
     aboutImgsLoaded = true
@@ -513,18 +511,22 @@ menuButtons.forEach(button => {
         switch (true) {
             case button.classList.contains('menu__about'):
                 parrentDisplay.querySelector('.about').classList.remove('hidden')
-                if (aboutImgsLoaded === false) {
-                    // hideImgs()
-                    loadImg('about')
-                } else {
-                    // hideImgs()
-                    loadImgFirst()
+                if (!laptopSize.matches) {
+                    if (aboutImgsLoaded === false) {
+                        // hideImgs()
+                        loadImg('about')
+                    } else {
+                        // hideImgs()
+                        loadImgFirst()
+                    }
                 }
                 break
             case button.classList.contains('menu__skills'):
                 parrentDisplay.querySelector('.skills').classList.remove('hidden')
                 // hideImgs()
-                loadImg('skills')
+                if (!laptopSize.matches) {
+                    loadImg('skills')
+                }
                 if (areLevelsFilled === false) {
                     skillsLoading()
                 }
@@ -536,12 +538,16 @@ menuButtons.forEach(button => {
                 break
             case button.classList.contains('menu__exp'):
                 parrentDisplay.querySelector('.exp').classList.remove('hidden')
-                loadImg('exp')
+                if (!laptopSize.matches) {
+                    loadImg('exp')
+                }
                 break
             case button.classList.contains('menu__edu'):
                 parrentDisplay.querySelector('.edu').classList.remove('hidden')
                 // hideImgs()
-                loadImg('edu')
+                if (!laptopSize.matches) {
+                    loadImg('edu')
+                }
                 break
             case button.classList.contains('menu__hobbies'):
                 parrentDisplay.querySelector('.hobbies').classList.remove('hidden')
@@ -808,6 +814,7 @@ getEduMoreBtn.addEventListener('click', () => {
             }
 
             block.style.width = '13%'
+            // block.style.transition = 'width .2s'
             // make more gap between flex items
             // make less right padding of main card
         })
@@ -831,6 +838,7 @@ getEduMoreBtn.addEventListener('click', () => {
 
         // Main card
         getEduMainCard.style.width = '90%'
+        getEduMainCard.style.transition = 'width 1s'
 
         // Wrapper
         getEduWrapper.style.display = 'flex'
@@ -1153,3 +1161,17 @@ window.onload = function () {
         minDistance: 150
     })
 }
+
+// Responsive
+const disableImgs = (size) => {
+    const getAllImages = document.querySelectorAll('.img')
+
+    if (size.matches) {
+        getAllImages.forEach(img => {
+            img.style.display = 'none'
+        })
+    }
+}
+  
+disableImgs(laptopSize)
+laptopSize.addListener(disableImgs)

@@ -8,19 +8,7 @@ $secondary-color: #f77f00
 $fifth-color: #fcbf49
 $third-color: #eae2b7
 
-// Fonts
-    // Exo 2 & Alegreya Sans
-        // 06. Julius Sans One and Archive Narrow
-// 17. Nova Mono and Lato
-    // 22. Gilroy and Jura
-        // ubuntu
-
 $m-font: 'Iceland', monospace
-$sec-font: 'Roboto Mono', sans-serif
-// $t-font:
-// $f-font:
-// $fi-font:
-// $s-font:
 
 // General styles
 #body
@@ -51,7 +39,7 @@ $sec-font: 'Roboto Mono', sans-serif
         @include bgGrad()
         border-radius: 0px 15px 15px 0
         border: none
-        transition: background 1s, border-bottom 1s
+        transition: background 1s, border-bottom 1s, width .3s
         transition-timing-function: in-out
         transition-delay: .5
     &__nav > *:hover
@@ -352,8 +340,19 @@ html, body
     left: 0
     z-index: -2
 
-// ideas 💡
-// make mobile v
-// make comment marks for blocks
-// we can make it more minimalistic with wrapping 
-// we can also move our blocks from each side slowly for more interesting presentation
+// Responsive 1024
+@media only screen and (max-width: 1024px)
+    .about
+        padding: 10px 30px
+        width: 70%
+        &__title
+            font-size: 35px
+        &__subtitle
+            font-size: 25px
+        &__text
+            font-size: 20px
+
+    .menu
+        width: 30%
+    .display
+        width: 70%
