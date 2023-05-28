@@ -15,7 +15,7 @@
 }
 
 .menu {
-  width: 80%;
+  width: 20%;
   z-index: 2;
   transition: width 1s;
 }
@@ -555,6 +555,14 @@ html, body {
   z-index: -2;
 }
 
+@media only screen and (max-width: 2560px) {
+  .menu {
+    width: 30%;
+  }
+  .display {
+    width: 70%;
+  }
+}
 @media only screen and (max-width: 1440px) {
   .about__subtitle {
     font-size: 30px;
@@ -571,7 +579,7 @@ html, body {
     font-size: 22px;
   }
   .menu {
-    width: 30%;
+    width: 30% !important;
   }
   .display {
     width: 70%;
@@ -592,7 +600,7 @@ html, body {
     font-size: 18px;
   }
   .menu {
-    width: 40%;
+    width: 40% !important;
   }
   .display {
     width: 60%;
@@ -651,6 +659,67 @@ html, body {
   }
   .about__text {
     font-size: 20px;
+  }
+}
+@media only screen and (max-width: 2560px) {
+  .menu {
+    width: 20%;
+  }
+  .display {
+    width: 80%;
+  }
+}
+@media only screen and (max-width: 1440px) {
+  .skills {
+    width: 60%;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .skills {
+    width: 80%;
+    padding: 0 80px 5px 5px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+    overflow-y: scroll !important;
+    height: auto;
+  }
+  .skills {
+    flex-direction: column;
+    padding: 10px;
+    margin: 10px 0;
+  }
+  .skills__level {
+    width: 130px;
+  }
+  .skills__item {
+    font-size: 20px;
+  }
+  .skills__first {
+    width: 100%;
+  }
+  .skills__sec {
+    width: 100%;
+  }
+  .menu {
+    width: 60% !important;
+  }
+  .wrapper {
+    height: auto;
+  }
+}
+@media only screen and (max-width: 425px) {
+  .skills {
+    width: 85%;
+    margin: 100px 0;
+  }
+  .skills__level {
+    width: 80%;
+  }
+  .display {
+    width: 100%;
   }
 }
 

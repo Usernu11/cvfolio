@@ -64,6 +64,8 @@ const cardsArray = ['about', 'skills', 'exp', 'edu']
 const allDisplayCards = document.querySelectorAll('.display-card')
 const expPoints = document.querySelectorAll('.exp__list--done')
 const mobileLSize = window.matchMedia("(max-width: 425px)")
+const tabletSize = window.matchMedia("(max-width: 768px)")
+const notTabletSize = window.matchMedia("(max-width: 769px)")
 
 // Styles
 const jsStyles = {
@@ -514,6 +516,11 @@ menuButtons.forEach(button => {
         })
 
         hideImgs()
+
+        // when do click on mobile version
+        if (mobileLSize.matches) {
+            getBurger.click()
+        }
 
         switch (true) {
             case button.classList.contains('menu__about'):
@@ -1195,14 +1202,27 @@ window.onload = function () {
 }
 
 // Responsive
-// const disableImgs = (size) => {
-//     // manage images
-//     const getAllImages = document.querySelectorAll('.img')
+const disableImgs = (size) => {
+    // manage images
+    const getAllImages = document.querySelectorAll('.img')
+    if (size.matches) {
+        getAllImages.forEach(img => {
+            img.style.display = 'none'
+        })
+    } else {
+        document.addEventListener('DOMContentLoaded', () => {
+            allDisplayCards.forEach(card => {
+                if (!card.classList.contains('hidden')) {
+                    const curCardArg = card.classList[1]
+                    loadImg(curCardArg)
+                }
+            })
+        })
+    }
+}
+
+// const restoreImg = (size) => {
 //     if (size.matches) {
-//         getAllImages.forEach(img => {
-//             img.style.display = 'none'
-//         })
-//     } else {
 //         document.addEventListener('DOMContentLoaded', () => {
 //             allDisplayCards.forEach(card => {
 //                 if (!card.classList.contains('hidden')) {
@@ -1214,7 +1234,7 @@ window.onload = function () {
 //     }
 // }
 
-const genChanges = (size) => {
+const toggleMenuClass = (size) => {
     // Skills (opened)
     // if (size.matches && !areSkillsWrapped) {
     //     getSkillsCard.style.padding = '5px 70px 5px 20px'
@@ -1256,14 +1276,12 @@ const genChanges = (size) => {
     }
 }
 
-// disableImgs(laptopSize)
-genChanges(largeLaptopSize)
-genChanges(llSize)
-genChanges(mobileLSize)
-// laptopSize.addEventListener('change', disableImgs)
-largeLaptopSize.addEventListener('change', genChanges)
-mobileLSize.addEventListener('change', genChanges)
-llSize.addEventListener('change', genChanges)
+disableImgs(tabletSize)
+toggleMenuClass(mobileLSize)
+// restoreImg(notTabletSize)
+mobileLSize.addEventListener('change', toggleMenuClass)
+tabletSize.addEventListener('change', disableImgs)
+// notTabletSize.addEventListener('change', restoreImg)
 
 // New Responsive
 const getBurger = document.querySelector('.burger-menu')
@@ -1295,7 +1313,7 @@ getBurger.addEventListener('click', () => {
     } else {
         menuWrapper.style.left = '-270px'
         menu.classList.add('hidden')
-        
+
         // menu.style.display = 'none'
 
         // card

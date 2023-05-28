@@ -25,7 +25,7 @@ $m-font: 'Iceland', monospace
     display: flex
 
 .menu
-    width: 80%
+    width: 20%
     // outline: 2px solid red
     z-index: 2
     transition: width 1s
@@ -399,13 +399,15 @@ html, body
     z-index: -2
 
 // Responsive About
-// 1440
+@media only screen and (max-width: 2560px)
+    .menu
+        width: 30%
+    .display
+        width: 70%
 @media only screen and (max-width: 1440px)
     .about
         &__subtitle
             font-size: 30px
-
-// 1024
 @media only screen and (max-width: 1024px)
     .about
         &__title
@@ -416,12 +418,10 @@ html, body
             font-size: 22px
 
     .menu
-        width: 30%
+        width: 30% !important
 
     .display
         width: 70%
-
-// 768
 @media only screen and (max-width: 768px)
     .about
         padding: 0 15px
@@ -434,15 +434,13 @@ html, body
             font-size: 18px
 
     .menu
-        width: 40%
+        width: 40% !important
 
     .display
         width: 60%
 
     .menu-button
         padding-left: 10px
-
-// 425
 @media only screen and (max-width: 425px)
     .about
         // padding: 0 15px
@@ -464,16 +462,14 @@ html, body
         background-image: linear-gradient(90deg,hsl(0deg 0% 0%) 0%,hsl(0deg 69% 25%) 50%,hsl(0deg 69% 50%) 100%)
         border-radius: 0 0 25px 0
         // border-bottom: 2px solid $main-color 
-        border-right: 1px solid $third-color 
+        border-right: 1px solid $third-color
         // border-bottom: 1px solid $third-color
         left: -270px
         top: 0
-        transition: left 1s 
+        transition: left 1s
 
     .display
         width: 100%
-
-// 375
 @media only screen and (max-width: 375px)
     .about
         // padding: 0 15px
@@ -482,8 +478,6 @@ html, body
             font-size: 34px
         &__text
             font-size: 20px
-
-// 320
 @media only screen and (max-width: 320px)
     .about
         // padding: 0 15px
@@ -492,6 +486,56 @@ html, body
             font-size: 34px
         &__text
             font-size: 20px
+
+// Responsive Skills (closed)
+@media only screen and (max-width: 2560px)
+    .menu
+        width: 20%
+    .display
+        width: 80%
+@media only screen and (max-width: 1440px)
+    .skills
+        width: 60%
+@media only screen and (max-width: 1024px)
+    .skills
+        width: 80%
+        padding: 0 80px 5px 5px
+@media only screen and (max-width: 768px)
+    body
+        overflow-x: hidden
+        overflow-y: scroll !important
+        height: auto
+    .skills
+        flex-direction: column
+        padding: 10px
+        margin: 10px 0
+        &__level
+            width: 130px
+        &__item
+            font-size: 20px
+        &__first
+            width: 100%
+        &__sec
+            width: 100%
+    .menu
+        width: 60% !important
+    .wrapper
+        height: auto
+@media only screen and (max-width: 425px)
+    .skills
+        width: 85%
+        margin: 100px 0
+        &__level
+            width: 80%
+    .display
+        width: 100%
+
+// @media only screen and (max-width: 1440px)
+// @media only screen and (max-width: 1024px)
+// @media only screen and (max-width: 768px)
+// @media only screen and (max-width: 425px)
+// @media only screen and (max-width: 375px)
+// @media only screen and (max-width: 320px)
 
 // // Responsive 1360 for closed Skills
 // @media only screen and (max-width: 1360px)
