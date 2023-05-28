@@ -1,6 +1,7 @@
 const body = document.querySelector('body')
 const display = document.querySelector('.display')
 const menu = document.querySelector('nav')
+const menuWrapper = document.querySelector('.menu')
 const menuButtons = menu.querySelectorAll('div')
 let areLevelsFilled = false
 // Info ↓
@@ -62,6 +63,7 @@ const llSize = window.matchMedia("(max-width: 1440px)")
 const cardsArray = ['about', 'skills', 'exp', 'edu']
 const allDisplayCards = document.querySelectorAll('.display-card')
 const expPoints = document.querySelectorAll('.exp__list--done')
+const mobileLSize = window.matchMedia("(max-width: 425px)")
 
 // Styles
 const jsStyles = {
@@ -1168,15 +1170,17 @@ window.onload = function () {
             {
                 breakpoint: 768,
                 options: {
-                    maxParticles: 200,
-                    color: '#48F2E3',
-                    connectParticles: false
+                    maxParticles: 80,
+                    minDistance: 80
+                    // color: '#48F2E3',
+                    // connectParticles: false
                 }
             }, {
                 breakpoint: 425,
                 options: {
-                    maxParticles: 100,
-                    connectParticles: true
+                    maxParticles: 70,
+                    minDistance: 50
+                    // connectParticles: true
                 }
             }, {
                 breakpoint: 320,
@@ -1210,47 +1214,56 @@ window.onload = function () {
 //     }
 // }
 
-// const genChanges = (size) => {
-//     // Skills (opened)
-//     if (size.matches && !areSkillsWrapped) {
-//         getSkillsCard.style.padding = '5px 70px 5px 20px'
+const genChanges = (size) => {
+    // Skills (opened)
+    // if (size.matches && !areSkillsWrapped) {
+    //     getSkillsCard.style.padding = '5px 70px 5px 20px'
 
-//         getSkillLevels.forEach(level => {
-//             level.style.width = '140px'
-//         })
-//     }
+    //     getSkillLevels.forEach(level => {
+    //         level.style.width = '140px'
+    //     })
+    // }
 
-//     // Exp opened
-//     if (size.matches && !isExpHidden) {
-//         // скрываем инфу блоков
-//         // делаем кнопки аккордеонов
-//         // при клике на 1 кнопку, второй должен скрываться
-//         expPoints.forEach(point => {
-//             point.classList.add('hidden')
-//         })
+    // Exp opened
+    // if (size.matches && !isExpHidden) {
+    //     // скрываем инфу блоков
+    //     // делаем кнопки аккордеонов
+    //     // при клике на 1 кнопку, второй должен скрываться
+    //     expPoints.forEach(point => {
+    //         point.classList.add('hidden')
+    //     })
 
-//         getExpBlocks.forEach(block => {
-//             block.style.border = '1px solid #003049'
-//             block.style.borderRadius = '5px'
-//             block.style.paddingLeft = '20px'
-//             block.style.cursor = 'pointer'
-//             // block.addEventListener('mouseenter', () => {
-//             //     block.style.boxShadow = 'inset 0px -8px 10px -3px #000000'
-//             // })
-//         })
-//     } else {
-//         expPoints.forEach(point => {
-//             point.classList.remove('hidden')
-//         })
-//     }
-// }
+    //     getExpBlocks.forEach(block => {
+    //         block.style.border = '1px solid #003049'
+    //         block.style.borderRadius = '5px'
+    //         block.style.paddingLeft = '20px'
+    //         block.style.cursor = 'pointer'
+    //         // block.addEventListener('mouseenter', () => {
+    //         //     block.style.boxShadow = 'inset 0px -8px 10px -3px #000000'
+    //         // })
+    //     })
+    // } else {
+    //     expPoints.forEach(point => {
+    //         point.classList.remove('hidden')
+    //     })
+    // }
+
+    // mobile 425 - menu
+    if (size.matches) {
+        menu.classList.add('hidden')
+    } else {
+        menu.classList.remove('hidden')
+    }
+}
 
 // disableImgs(laptopSize)
-// genChanges(largeLaptopSize)
-// genChanges(llSize)
+genChanges(largeLaptopSize)
+genChanges(llSize)
+genChanges(mobileLSize)
 // laptopSize.addEventListener('change', disableImgs)
-// largeLaptopSize.addEventListener('change', genChanges)
-// llSize.addEventListener('change', genChanges)
+largeLaptopSize.addEventListener('change', genChanges)
+mobileLSize.addEventListener('change', genChanges)
+llSize.addEventListener('change', genChanges)
 
 // New Responsive
 const getBurger = document.querySelector('.burger-menu')
@@ -1264,6 +1277,10 @@ getBurger.addEventListener('click', () => {
     if (menu.classList.contains('hidden')) {
         // menu buttons
         menu.classList.remove('hidden')
+        menuWrapper.style.left = '0'
+
+        // card
+        display.style.filter = 'blur(6px)'
 
         // wrapper
         getBurger.style.height = '45px'
@@ -1276,7 +1293,13 @@ getBurger.addEventListener('click', () => {
         getBurgerBotL.style.transform = 'rotate(315deg)'
         getBurgerBotR.style.transform = 'rotate(45deg)'
     } else {
+        menuWrapper.style.left = '-270px'
         menu.classList.add('hidden')
+        
+        // menu.style.display = 'none'
+
+        // card
+        display.style.filter = 'none'
 
         // wrapper
         getBurger.style.height = '60px'
@@ -1290,3 +1313,6 @@ getBurger.addEventListener('click', () => {
         getBurgerBotR.style.transform = 'rotate(0deg)'
     }
 })
+
+// при нажатии на одну из кнопок меню, нужно инициировать клик по меню, чтобы оно пришло в первоначальное сост
+// при нажатии на меню, карточка затемняется или становится полупрозрач + на фоне (zindex <)
