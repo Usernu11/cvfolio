@@ -617,13 +617,30 @@ html, body
             height: 290px
             width: 90%
 
-// Responsive Exp
-// @media only screen and (max-width: 1440px)
-// @media only screen and (max-width: 1024px)
-// @media only screen and (max-width: 768px)
-// @media only screen and (max-width: 425px)
-// @media only screen and (max-width: 375px)
-// @media only screen and (max-width: 320px)
+// Responsive Exp (closed)
+@media only screen and (max-width: 1440px)
+    .exp
+        width: 70%
+        &__list
+            font-size: 16px
+@media only screen and (max-width: 1024px)
+    .exp
+        padding: 10px
+        &__list
+            margin-bottom: 0
+@media only screen and (max-width: 768px)
+    .exp
+        width: 85% !important
+        margin: 10px auto
+        &__year
+            font-size: 18px
+        &__place
+            font-size: 22px
+        &__list
+            padding-left: 15px
+@media only screen and (max-width: 425px)
+    .exp
+        margin-top: 100px
 
 // Responsive Edu
 // @media only screen and (max-width: 1440px)
