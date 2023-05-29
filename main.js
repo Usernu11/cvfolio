@@ -1188,7 +1188,7 @@ const generateProjects = (wordPattern) => {
 
 // Adding eventListemer for search bar
 getSearch.addEventListener('input', key => {
-    const words = getSearch.value
+    const words = getSearch.value.toLowerCase()
 
     clearProjectsField()
     generateProjects(words)
@@ -1405,6 +1405,11 @@ const osm = (size) => {
         getSkillLevels.forEach(lvl => {
             lvl.style.width = '85%'
         })
+        getSkillsWrapper.style.width = '100%'
+        getLangsBlock.style.width = '100%'
+
+        getSkillsCard.style.padding = '10px'
+        getSkillsCard.style.width = '85%'
     }
 }
 
@@ -1455,7 +1460,7 @@ const oEduMob = (size) => {
 
             // descs or degrees
             getEduDescs.forEach(desc => {
-                desc.style.fontSize = '24px'
+                desc.style.fontSize = '20px'
             })
         } else {
             // main card
