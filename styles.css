@@ -333,6 +333,7 @@
   padding: 5px 20px;
   display: flex;
   justify-content: space-between;
+  transition: width 1s;
 }
 .hobbies__subtitle {
   margin: 10px 0;
@@ -887,6 +888,42 @@ html, body {
 @media only screen and (max-width: 425px) {
   .edu {
     margin-top: 100px !important;
+  }
+}
+@media only screen and (max-width: 1440px) {
+  .hobbies {
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .hobbies {
+    margin: 10px;
+    width: 90% !important;
+    flex-direction: column;
+  }
+  .hobbies__subtitle {
+    font-size: 36px;
+  }
+  .display {
+    width: 65%;
+  }
+}
+@media only screen and (max-width: 425px) {
+  .hobbies {
+    margin-top: 100px;
+    width: 100%;
+  }
+  .hobbies__subtitle {
+    font-size: 45px;
+  }
+  .hobbies__act {
+    font-size: 26px;
+  }
+  .hobbies__aw {
+    font-size: 26px;
+  }
+  .display {
+    width: 100% !important;
   }
 }
 

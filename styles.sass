@@ -259,6 +259,7 @@ $m-font: 'Iceland', monospace
     padding: 5px 20px
     display: flex
     justify-content: space-between
+    transition: width 1s
     &__subtitle
         @include title
     &__list
@@ -659,12 +660,32 @@ html, body
         margin-top: 100px !important
 
 // Responsive Hobbies
-// @media only screen and (max-width: 1440px)
-// @media only screen and (max-width: 1024px)
-// @media only screen and (max-width: 768px)
-// @media only screen and (max-width: 425px)
-// @media only screen and (max-width: 375px)
-// @media only screen and (max-width: 320px)
+@media only screen and (max-width: 1440px)
+    .hobbies
+        width: 90%
+@media only screen and (max-width: 768px)
+    .hobbies
+        margin: 10px
+        width: 90% !important
+        flex-direction: column
+        &__subtitle
+            font-size: 36px
+
+    .display
+        width: 65%
+@media only screen and (max-width: 425px)
+    .hobbies
+        margin-top: 100px
+        width: 100%
+        &__subtitle
+            font-size: 45px
+        &__act
+            font-size: 26px
+        &__aw
+            font-size: 26px
+    
+    .display
+        width: 100% !important
 
 // Responsive Contacts
 // @media only screen and (max-width: 1440px)
