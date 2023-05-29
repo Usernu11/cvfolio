@@ -926,5 +926,37 @@ html, body {
     width: 100% !important;
   }
 }
+@media only screen and (max-width: 768px) {
+  .contacts {
+    width: 90%;
+    padding: 5px;
+  }
+  .contacts__name {
+    font-size: 40px;
+  }
+  .contacts__contact {
+    font-size: 19px;
+  }
+  .display {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 425px) {
+  .contacts {
+    padding: 10px;
+    margin-top: 100px;
+  }
+  .contacts__name {
+    font-size: 60px;
+  }
+  .contacts__contact {
+    font-size: 26px;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .contacts__contact {
+    font-size: 22px;
+  }
+}
 
 /*# sourceMappingURL=styles.css.map */
