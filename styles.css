@@ -114,6 +114,7 @@
   margin: 4px 0 10px 0;
   border-radius: 10px;
   position: relative;
+  transition: width 1s;
 }
 .skills__level--additional {
   display: none;
@@ -710,7 +711,7 @@ html, body {
     margin: 10px 0;
   }
   .skills__level {
-    width: 130px;
+    width: 80%;
   }
   .skills__item {
     font-size: 20px;
@@ -734,7 +735,7 @@ html, body {
     margin: 100px 0;
   }
   .skills__level {
-    width: 80%;
+    width: 90%;
   }
   .display {
     width: 100%;

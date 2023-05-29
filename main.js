@@ -65,7 +65,7 @@ const allDisplayCards = document.querySelectorAll('.display-card')
 const expPoints = document.querySelectorAll('.exp__list--done')
 const mobileLSize = window.matchMedia("(max-width: 425px)")
 const tabletSize = window.matchMedia("(max-width: 768px)")
-const notTabletSize = window.matchMedia("(max-width: 769px)")
+// const notTabletSize = window.matchMedia("(max-width: 769px)")
 
 // Styles
 const jsStyles = {
@@ -736,6 +736,28 @@ getSkillsMoreBtn.addEventListener('click', () => {
             AdditionalSkillsLoading()
         }
 
+        // Responsive 1440 (Skills opened)
+        openedSkillsResp(llSize)
+        llSize.addEventListener('change', openedSkillsResp)
+
+        // Responsive 1440 (Skills opened)
+        const openedSkillsRes = (size) => {
+            if (openedSkillsResp) {
+                getSkillLevels.forEach(lvl => {
+                    lvl.style.width = '100px'
+                })
+                getSkillsCard.style.width = '75%'
+            }
+        }
+
+        // Responsive 768 (Skills opened)
+        osr(tabletSize)
+        tabletSize.addEventListener('change', osr)
+
+        // Responsve 425 (Skills opened)
+        osm(mobileLSize)
+        mobileLSize.addEventListener('change', osm)
+
         areAdditionalLevelsFilled = true
         isBtnClicked = true
     } else {
@@ -775,6 +797,18 @@ getSkillsMoreBtn.addEventListener('click', () => {
 
         // Var switcher
         areSkillsWrapped = true
+
+        // Responsive 1440 (Skills opened)
+        openedSkillsResp(laptopSize)
+        llSize.addEventListener('change', openedSkillsResp)
+
+        // Responsive 768 (skills opened)
+        osr(tabletSize)
+        tabletSize.addEventListener('change', osr)
+
+        // Responsve 425 (Skills opened)
+        osm(mobileLSize)
+        mobileLSize.addEventListener('change', osm)
     }
 })
 
@@ -1276,6 +1310,69 @@ const toggleMenuClass = (size) => {
     }
 }
 
+// Responsive 1440 (Skills opened)
+const openedSkillsResp = (size) => {
+    if (!areSkillsWrapped) {
+        getSkillLevels.forEach(lvl => {
+            lvl.style.width = '140px'
+        })
+    } else {
+        getSkillsCard.style.width = '70%'
+    }
+}
+
+// Responsive 768 (Skills opened)
+const osr = (size) => {
+    if (!areSkillsWrapped) {
+        // main card
+        getSkillsCard.style.display = 'flex'
+        getSkillsCard.style.flexDirection = 'column'
+        getSkillsCard.style.height = 'auto'
+        getSkillsCard.style.width = '85%'
+        getSkillsCard.style.padding = '10px'
+
+        // first skills (hard)
+        getSkillsWrapper.style.height = 'auto'
+        getSkillsWrapper.style.width = '100%'
+
+        // second skills (langs)
+        getLangsBlock.style.width = '100%'
+        getLangsBlock.style.height = 'auto'
+
+        // skill levels
+        getSkillLevels.forEach(lvl => {
+            lvl.style.width = '75%'
+        })
+    } else {
+        // main card
+        getSkillsCard.style.width = '80%'
+        getSkillsCard.style.padding = '10px'
+
+        // first skills (hard)
+        getSkillsWrapper.style.width = '100%'
+
+        // sec skills (langs)
+        getLangsBlock.style.width = '100%'
+
+        getSkillLevels.forEach(lvl => {
+            lvl.style.width = '75%'
+        })
+    }
+}
+
+// Responsive 425 (Opened Skills Mobile)
+const osm = (size) => {
+    if (!areSkillsWrapped) {
+        getSkillLevels.forEach(lvl => {
+            lvl.style.width = '85%'
+        })
+    } else {
+        getSkillLevels.forEach(lvl => {
+            lvl.style.width = '85%'
+        })
+    }
+}
+
 disableImgs(tabletSize)
 toggleMenuClass(mobileLSize)
 // restoreImg(notTabletSize)
@@ -1331,6 +1428,3 @@ getBurger.addEventListener('click', () => {
         getBurgerBotR.style.transform = 'rotate(0deg)'
     }
 })
-
-// при нажатии на одну из кнопок меню, нужно инициировать клик по меню, чтобы оно пришло в первоначальное сост
-// при нажатии на меню, карточка затемняется или становится полупрозрач + на фоне (zindex <)
