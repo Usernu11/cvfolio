@@ -196,7 +196,7 @@ $m-font: 'Iceland', monospace
         text-align: center
         font-size: 25px
         padding: 5px
-        transition: transform .5s, background
+        transition: transform .5s, background, width 1s, height 1s
         &:hover
             transform: scale(1.3)
             height: 150px
@@ -546,6 +546,78 @@ html, body
     .display
         width: 100%
 
+// Responsive Projects
+@media only screen and (max-width: 1440px)
+    .projects
+        height: 550px
+        &__item
+            width: 100px
+            height: 100px
+            font-size: 20px
+            &:hover
+                width: 150px
+                height: 150px
+                margin: -20px -15px
+                background-size: cover !important
+@media only screen and (max-width: 1024px)
+    .projects
+        padding: 0
+        // height: auto
+        margin: 50px 0
+        &__input
+            font-size: 15px
+        &__info
+            margin: 0 10px
+            font-size: 20px
+        &__clear
+            padding: 0 4px
+        &__key
+            font-size: 18px
+            padding: 10px
+        &__display
+            overflow-y: scroll
+            height: 250px
+            border: 1px solid $main-color
+            border-radius: 5px
+            width: 90%
+            margin: 10px auto
+            overflow-x: none !important
+        &__item:hover
+            transform: scale(1)
+            width: 100px
+            height: 100px
+            margin: 10px
+@media only screen and (max-width: 768px)
+    .projects
+        &__wrap
+            flex-direction: column
+        &__input
+            width: 90%
+        &__info
+            width: 90%
+            margin: 0
+        &__clear
+            padding: 4px
+        &__keywords
+            display: none
+        &__display
+            width: 85%
+            height: 345px
+        &__item
+            width: 100%
+            height: 50px
+            &:hover
+                width: 100%
+                height: 50px
+@media only screen and (max-width: 425px)
+    .projects
+        margin-top: 90px
+        height: 490px
+        &__display
+            height: 290px
+            width: 90%
+
+// Responsive Exp
 // @media only screen and (max-width: 1440px)
 // @media only screen and (max-width: 1024px)
 // @media only screen and (max-width: 768px)
@@ -553,34 +625,26 @@ html, body
 // @media only screen and (max-width: 375px)
 // @media only screen and (max-width: 320px)
 
-// // Responsive 1360 for closed Skills
-// @media only screen and (max-width: 1360px)
-//     .skills
-//         width: 60%
-//         padding: 20px
-//         &__level
-//             width: 140px !important
-//         &__item
-//             font-size: 20px
-
-// // Responsive 1320 for Project
-// @media only screen and (max-width: 1320px)
-//     .projects
-//         &__display
-//             justify-content: space-between
-//         &__item
-//             width: 20%
-//             font-size: 19px
-//             background-size: cover !important
-
-// // Responsive for closed Exp
+// Responsive Edu
 // @media only screen and (max-width: 1440px)
-//     .exp
-//         height: 80%
-//         width: 60%
-//         @media only screen and (max-width: 1360px) 
-//             width: 70% !important
-//         @media only screen and (max-width: 1150px) 
-//             width: 80% !important
-//         &__list
-//             font-size: 17px
+// @media only screen and (max-width: 1024px)
+// @media only screen and (max-width: 768px)
+// @media only screen and (max-width: 425px)
+// @media only screen and (max-width: 375px)
+// @media only screen and (max-width: 320px)
+
+// Responsive Hobbies
+// @media only screen and (max-width: 1440px)
+// @media only screen and (max-width: 1024px)
+// @media only screen and (max-width: 768px)
+// @media only screen and (max-width: 425px)
+// @media only screen and (max-width: 375px)
+// @media only screen and (max-width: 320px)
+
+// Responsive Contacts
+// @media only screen and (max-width: 1440px)
+// @media only screen and (max-width: 1024px)
+// @media only screen and (max-width: 768px)
+// @media only screen and (max-width: 425px)
+// @media only screen and (max-width: 375px)
+// @media only screen and (max-width: 320px)
