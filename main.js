@@ -684,7 +684,7 @@ const AdditionalSkillsLoading = () => {
 
 // Skills more button
 getSkillsMoreBtn.addEventListener('click', () => {
-    if (areSkillsWrapped === true) {
+    if (areSkillsWrapped) {
         getAdditionaNamesSkill.forEach(name => {
             name.style.display = 'block'
         })
@@ -731,23 +731,13 @@ getSkillsMoreBtn.addEventListener('click', () => {
         // Var switcher
         areSkillsWrapped = false
 
-        if (areAdditionalLevelsFilled === false) {
+        if (!areAdditionalLevelsFilled) {
             AdditionalSkillsLoading()
         }
 
         // Responsive 1440 (Skills opened)
         openedSkillsResp(llSize)
         llSize.addEventListener('change', openedSkillsResp)
-
-        // Responsive 1440 (Skills opened)
-        const openedSkillsRes = (size) => {
-            if (openedSkillsResp) {
-                getSkillLevels.forEach(lvl => {
-                    lvl.style.width = '100px'
-                })
-                getSkillsCard.style.width = '75%'
-            }
-        }
 
         // Responsive 768 (Skills opened)
         osr(tabletSize)
@@ -798,8 +788,12 @@ getSkillsMoreBtn.addEventListener('click', () => {
         areSkillsWrapped = true
 
         // Responsive 1440 (Skills opened)
-        openedSkillsResp(laptopSize)
+        openedSkillsResp(llSize)
         llSize.addEventListener('change', openedSkillsResp)
+
+        // Responsive 1024 (Skills opened)
+        osl(laptopSize)
+        laptopSize.addEventListener('change', osl)
 
         // Responsive 768 (skills opened)
         osr(tabletSize)
@@ -1329,51 +1323,72 @@ const toggleMenuClass = (size) => {
 
 // Responsive 1440 (Skills opened)
 const openedSkillsResp = (size) => {
-    if (!areSkillsWrapped) {
+    if (!areSkillsWrapped && size.matches) {
+        // console.log(!areSkillsWrapped && size.matches)
+        // console.log('openedSkillsResp -> if')
+
         getSkillLevels.forEach(lvl => {
+            // lvl.style.width = '140px'
             lvl.style.width = '140px'
         })
-    } else {
+    } else if (areSkillsWrapped && size.matches) {
+        // console.log('openedSkillsResp -> else')
         getSkillsCard.style.width = '70%'
+    }
+}
+
+// Responsive 1024 (Opened Skills Laptop)
+const osl = (size) => {
+    if (size.matches) {
+        getSkillLevels.forEach(lvl => {
+            lvl.style.width = '75%'
+        })
     }
 }
 
 // Responsive 768 (Skills opened)
 const osr = (size) => {
-    if (!areSkillsWrapped) {
-        // main card
-        getSkillsCard.style.display = 'flex'
-        getSkillsCard.style.flexDirection = 'column'
-        getSkillsCard.style.height = 'auto'
-        getSkillsCard.style.width = '85%'
-        getSkillsCard.style.padding = '10px'
+    if (size.matches) {
+        if (!areSkillsWrapped) {
+            console.log('osr -> if')
+            console.log(!areSkillsWrapped && size.matches)
+            // main card
+            getSkillsCard.style.display = 'flex'
+            getSkillsCard.style.flexDirection = 'column'
+            getSkillsCard.style.height = 'auto'
+            getSkillsCard.style.width = '85%'
+            getSkillsCard.style.padding = '10px'
 
-        // first skills (hard)
-        getSkillsWrapper.style.height = 'auto'
-        getSkillsWrapper.style.width = '100%'
+            // first skills (hard)
+            getSkillsWrapper.style.height = 'auto'
+            getSkillsWrapper.style.width = '100%'
 
-        // second skills (langs)
-        getLangsBlock.style.width = '100%'
-        getLangsBlock.style.height = 'auto'
+            // second skills (langs)
+            getLangsBlock.style.width = '100%'
+            getLangsBlock.style.height = 'auto'
 
-        // skill levels
-        getSkillLevels.forEach(lvl => {
-            lvl.style.width = '75%'
-        })
+            // skill levels
+            getSkillLevels.forEach(lvl => {
+                lvl.style.width = '75%'
+            })
+        }
     } else {
-        // main card
-        getSkillsCard.style.width = '80%'
-        getSkillsCard.style.padding = '10px'
+        if (!areSkillsWrapped) {
+            // main card
+            getSkillsCard.style.width = '80%'
+            getSkillsCard.style.padding = '10px 20px'
 
-        // first skills (hard)
-        getSkillsWrapper.style.width = '100%'
+            // first skills (hard)
+            getSkillsWrapper.style.width = '25%'
 
-        // sec skills (langs)
-        getLangsBlock.style.width = '100%'
+            // sec skills (langs)
+            getLangsBlock.style.width = '30%'
 
-        getSkillLevels.forEach(lvl => {
-            lvl.style.width = '75%'
-        })
+            getSkillLevels.forEach(lvl => {
+                // lvl.style.width = '100%'
+                lvl.style.marginRight = '50px'
+            })
+        }
     }
 }
 
@@ -1419,47 +1434,47 @@ const oEduLap = (size) => {
 }
 
 const oEduMob = (size) => {
-if (size.matches) {
-    if (!isEduHidden) {
-        // Main card
-        getEduMainCard.style.marginTop = '100px'
+    if (size.matches) {
+        if (!isEduHidden) {
+            // Main card
+            getEduMainCard.style.marginTop = '100px'
 
-        // years
-        getEduYears.forEach(year => {
-            year.style.fontSize = '20px'
-        })
+            // years
+            getEduYears.forEach(year => {
+                year.style.fontSize = '20px'
+            })
 
-        // names or places
-        getEduNames.forEach(name => {
-            name.style.fontSize = '26px'
-        })
+            // names or places
+            getEduNames.forEach(name => {
+                name.style.fontSize = '26px'
+            })
 
-        // descs or degrees
-        getEduDescs.forEach(desc => {
-            desc.style.fontSize = '24px'
-        })
-    } else {
-        // main card
-        getEduMainCard.style.width = '100%'
-        getEduMainCard.style.marginTop = '100px'
+            // descs or degrees
+            getEduDescs.forEach(desc => {
+                desc.style.fontSize = '24px'
+            })
+        } else {
+            // main card
+            getEduMainCard.style.width = '100%'
+            getEduMainCard.style.marginTop = '100px'
 
-        // years
-        getEduYears.forEach(year => {
-            year.style.fontSize = '24px'
-        })
+            // years
+            getEduYears.forEach(year => {
+                year.style.fontSize = '24px'
+            })
 
-        // names or places
-        getEduNames.forEach(name => {
-            name.style.fontSize = '28px'
-        })
+            // names or places
+            getEduNames.forEach(name => {
+                name.style.fontSize = '28px'
+            })
 
-        // descs or degrees
-        getEduDescs.forEach(desc => {
-            desc.style.paddingLeft = '0px'
-            desc.style.fontSize = '22px'
-        })
+            // descs or degrees
+            getEduDescs.forEach(desc => {
+                desc.style.paddingLeft = '0px'
+                desc.style.fontSize = '22px'
+            })
+        }
     }
-}
 }
 
 const сEduTab = (size) => {
