@@ -1469,18 +1469,18 @@ const oEduMob = (size) => {
 
             // years
             getEduYears.forEach(year => {
-                year.style.fontSize = '24px'
+                year.style.fontSize = '15px' // 24
             })
 
             // names or places
             getEduNames.forEach(name => {
-                name.style.fontSize = '28px'
+                name.style.fontSize = '18px'    // 28
             })
 
             // descs or degrees
             getEduDescs.forEach(desc => {
                 desc.style.paddingLeft = '0px'
-                desc.style.fontSize = '22px'
+                desc.style.fontSize = '20px'    // 22
             })
         }
     }
