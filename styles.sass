@@ -232,6 +232,7 @@ $m-font: 'Iceland', monospace
     width: 50%
     @include bgGrad
     padding: 15px 30px
+    transition: width 1s, height 1s
     &__wrapper
         // transition: display 1s
     &__block
@@ -642,13 +643,20 @@ html, body
     .exp
         margin-top: 100px
 
-// Responsive Edu
-// @media only screen and (max-width: 1440px)
-// @media only screen and (max-width: 1024px)
-// @media only screen and (max-width: 768px)
-// @media only screen and (max-width: 425px)
-// @media only screen and (max-width: 375px)
-// @media only screen and (max-width: 320px)
+// Responsive Edu (closed)
+@media only screen and (max-width: 768px)
+    .edu
+        width: 80% !important
+        margin: 10px !important
+        &__year
+            font-size: 18px
+        &__place
+            font-size: 22px
+        &__degree
+            padding-left: 0 !important
+@media only screen and (max-width: 425px)
+    .edu
+        margin-top: 100px !important
 
 // Responsive Hobbies
 // @media only screen and (max-width: 1440px)

@@ -288,6 +288,7 @@
   border-left: 2px solid #d62828;
   border-radius: 25px;
   padding: 15px 30px;
+  transition: width 1s, height 1s;
 }
 .edu__block {
   border-top: 1px solid #d62828;
@@ -866,6 +867,26 @@ html, body {
 @media only screen and (max-width: 425px) {
   .exp {
     margin-top: 100px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .edu {
+    width: 80% !important;
+    margin: 10px !important;
+  }
+  .edu__year {
+    font-size: 18px;
+  }
+  .edu__place {
+    font-size: 22px;
+  }
+  .edu__degree {
+    padding-left: 0 !important;
+  }
+}
+@media only screen and (max-width: 425px) {
+  .edu {
+    margin-top: 100px !important;
   }
 }
 

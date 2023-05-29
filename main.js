@@ -65,7 +65,6 @@ const allDisplayCards = document.querySelectorAll('.display-card')
 const expPoints = document.querySelectorAll('.exp__list--done')
 const mobileLSize = window.matchMedia("(max-width: 425px)")
 const tabletSize = window.matchMedia("(max-width: 768px)")
-// const notTabletSize = window.matchMedia("(max-width: 769px)")
 
 // Styles
 const jsStyles = {
@@ -900,7 +899,13 @@ getEduMoreBtn.addEventListener('click', () => {
         // Master degree at PSTU
         getEduBlocks[0].style.order = '-2'
 
+        // Responsive 1440
+        oEduLap(llSize)
+        llSize.addEventListener('change', oEduLap)
 
+        // Responsive 425
+        oEduMob(mobileLSize)
+        mobileLSize.addEventListener('change', oEduMob)
 
         // Button
         getEduMoreBtn.textContent = 'Less'
@@ -943,6 +948,18 @@ getEduMoreBtn.addEventListener('click', () => {
 
         // Button
         getEduMoreBtn.textContent = 'More'
+
+        // Responsive 1440
+        oEduLap(llSize)
+        llSize.addEventListener('change', oEduLap)
+
+        // Responsive 768
+        сEduTab(tabletSize)
+        tabletSize.addEventListener('change', oEduLap)
+
+        // Responsive 425
+        oEduMob(mobileLSize)
+        mobileLSize.addEventListener('change', oEduMob)
     }
 })
 
@@ -1372,6 +1389,92 @@ const osm = (size) => {
         })
     }
 }
+
+// Responsive 1440 (Opened Edu Laptop)
+const oEduLap = (size) => {
+    if (size.matches) {
+        if (!isEduHidden) {
+            // main card
+            getEduWrapper.style.flexDirection = 'column'
+            getEduMainCard.style.margin = '10px'
+
+            // edu blocks
+            getEduBlocks.forEach(block => {
+                block.style.width = '100%'
+            })
+
+            // general
+            body.style.overflowY = 'scroll'
+            body.style.height = 'auto'
+        } else {
+            // main card
+            getEduMainCard.style.margin = '0 auto'
+            getEduMainCard.style.width = '50%'
+
+            // general
+            body.style.overflowY = 'hidden'
+            body.style.height = '100vh'
+        }
+    }
+}
+
+const oEduMob = (size) => {
+if (size.matches) {
+    if (!isEduHidden) {
+        // Main card
+        getEduMainCard.style.marginTop = '100px'
+
+        // years
+        getEduYears.forEach(year => {
+            year.style.fontSize = '20px'
+        })
+
+        // names or places
+        getEduNames.forEach(name => {
+            name.style.fontSize = '26px'
+        })
+
+        // descs or degrees
+        getEduDescs.forEach(desc => {
+            desc.style.fontSize = '24px'
+        })
+    } else {
+        // main card
+        getEduMainCard.style.width = '100%'
+        getEduMainCard.style.marginTop = '100px'
+
+        // years
+        getEduYears.forEach(year => {
+            year.style.fontSize = '24px'
+        })
+
+        // names or places
+        getEduNames.forEach(name => {
+            name.style.fontSize = '28px'
+        })
+
+        // descs or degrees
+        getEduDescs.forEach(desc => {
+            desc.style.paddingLeft = '0px'
+            desc.style.fontSize = '22px'
+        })
+    }
+}
+}
+
+const сEduTab = (size) => {
+    if (size.matches) {
+        if (isEduHidden) {
+            // Main card
+            getEduMainCard.style.width = '70%'
+            getEduMainCard.style.marginTop = '10px'
+
+            // Degree
+            getEduDescs.style.paddingLeft = '0'
+        }
+    }
+}
+
 
 disableImgs(tabletSize)
 toggleMenuClass(mobileLSize)
