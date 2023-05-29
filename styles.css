@@ -302,7 +302,7 @@
   margin-top: 15px;
 }
 .edu__place {
-  font-size: 28px;
+  font-size: 24px;
 }
 .edu__degree {
   font-size: 20px;
@@ -610,6 +610,7 @@ html, body {
   .about {
     padding: 0 15px;
     width: 70%;
+    margin-top: 10px;
   }
   .about__title {
     font-size: 25px;
@@ -632,6 +633,7 @@ html, body {
 }
 @media only screen and (max-width: 425px) {
   .about {
+    margin-top: 100px;
     width: 80%;
   }
   .about__title {
@@ -842,10 +844,17 @@ html, body {
   .exp__list {
     font-size: 16px;
   }
+  .exp__more {
+    margin-top: 10px;
+  }
 }
 @media only screen and (max-width: 1024px) {
   .exp {
     padding: 10px;
+    width: 80%;
+  }
+  .exp__place {
+    font-size: 20px;
   }
   .exp__list {
     margin-bottom: 0;
@@ -868,7 +877,12 @@ html, body {
 }
 @media only screen and (max-width: 425px) {
   .exp {
-    margin-top: 100px;
+    margin-top: 100px !important;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .edu__place {
+    font-size: 18px;
   }
 }
 @media only screen and (max-width: 768px) {
@@ -880,7 +894,7 @@ html, body {
     font-size: 18px;
   }
   .edu__place {
-    font-size: 22px;
+    font-size: 18px;
   }
   .edu__degree {
     padding-left: 0 !important;

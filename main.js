@@ -807,7 +807,7 @@ getSkillsMoreBtn.addEventListener('click', () => {
 
 // Expirience eventListener
 getExpMoreBtn.addEventListener('click', () => {
-    if (isExpHidden === true) {
+    if (isExpHidden) {
         // Hidden block
         getExpBlocks.forEach(block => {
             if (block.classList.contains('hidden')) {
@@ -823,6 +823,9 @@ getExpMoreBtn.addEventListener('click', () => {
 
         // Var switcher
         isExpHidden = false
+
+        openedExp(laptopSize)
+        laptopSize.addEventListener('change', openedExp)
     } else {
         // Additional block (which was hidden)
         getExpBlocks.forEach(block => {
@@ -1433,6 +1436,7 @@ const oEduLap = (size) => {
     }
 }
 
+// Responsive 425 (Opened Edu Mobile)
 const oEduMob = (size) => {
     if (size.matches) {
         if (!isEduHidden) {
@@ -1446,7 +1450,7 @@ const oEduMob = (size) => {
 
             // names or places
             getEduNames.forEach(name => {
-                name.style.fontSize = '26px'
+                name.style.fontSize = '20px'
             })
 
             // descs or degrees
@@ -1477,6 +1481,7 @@ const oEduMob = (size) => {
     }
 }
 
+// Responsive 768 (Opened Edu Tablet)
 const сEduTab = (size) => {
     if (size.matches) {
         if (isEduHidden) {
@@ -1487,6 +1492,15 @@ const сEduTab = (size) => {
             // Degree
             getEduDescs.style.paddingLeft = '0'
         }
+    }
+}
+
+// Responsive 1024 (Opened Exp Laptop)
+const openedExp = (size) => {
+    if (size.matches) {
+        body.style.overflowY = 'scroll'
+        body.style.height = 'auto'
+        getExpMainCard.style.margin = '10px'
     }
 }
 
