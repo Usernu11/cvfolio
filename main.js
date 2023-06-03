@@ -1326,26 +1326,31 @@ const toggleMenuClass = (size) => {
 
 // Responsive 1440 (Skills opened)
 const openedSkillsResp = (size) => {
-    if (!areSkillsWrapped && size.matches) {
-        // console.log(!areSkillsWrapped && size.matches)
-        // console.log('openedSkillsResp -> if')
-
-        getSkillLevels.forEach(lvl => {
-            // lvl.style.width = '140px'
-            lvl.style.width = '140px'
-        })
-    } else if (areSkillsWrapped && size.matches) {
-        // console.log('openedSkillsResp -> else')
-        getSkillsCard.style.width = '70%'
+    if (size.matches) {
+        if (!areSkillsWrapped) {
+            getSkillsCard.style.width = '70%'
+            getSkillsCard.style.padding = '30px 0 10px 20px'
+            getSkillLevels.forEach(lvl => {
+                lvl.style.width = '70%'
+            })
+        } else if (areSkillsWrapped) {
+            getSkillsCard.style.width = '50%'
+            getSkillsCard.style.padding = '30px 100px 30px 60px'
+        }
     }
 }
 
 // Responsive 1024 (Opened Skills Laptop)
 const osl = (size) => {
     if (size.matches) {
-        getSkillLevels.forEach(lvl => {
-            lvl.style.width = '75%'
-        })
+        if (!areSkillsWrapped) {
+            getSkillsCard.style.padding = '10px 75px 30px 30px'
+
+            getSkillLevels.forEach(lvl => {
+                lvl.style.width = '75%'
+            })
+        }
+        // getSkillsCard.style.width = '50%'
     }
 }
 
@@ -1382,14 +1387,14 @@ const osr = (size) => {
             getSkillsCard.style.padding = '10px 20px'
 
             // first skills (hard)
-            getSkillsWrapper.style.width = '25%'
+            getSkillsWrapper.style.width = '30%'
 
             // sec skills (langs)
             getLangsBlock.style.width = '30%'
 
             getSkillLevels.forEach(lvl => {
-                // lvl.style.width = '100%'
-                lvl.style.marginRight = '50px'
+                // lvl.style.width = '70%' // can't cange
+                lvl.style.marginRight = '70px'
             })
         }
     }
@@ -1397,19 +1402,21 @@ const osr = (size) => {
 
 // Responsive 425 (Opened Skills Mobile)
 const osm = (size) => {
-    if (!areSkillsWrapped) {
-        getSkillLevels.forEach(lvl => {
-            lvl.style.width = '85%'
-        })
-    } else {
-        getSkillLevels.forEach(lvl => {
-            lvl.style.width = '85%'
-        })
-        getSkillsWrapper.style.width = '100%'
-        getLangsBlock.style.width = '100%'
-
-        getSkillsCard.style.padding = '10px'
-        getSkillsCard.style.width = '85%'
+    if (size.matches) {
+        if (!areSkillsWrapped) {
+            getSkillLevels.forEach(lvl => {
+                lvl.style.width = '85%'
+            })
+        } else {
+            getSkillLevels.forEach(lvl => {
+                lvl.style.width = '85%'
+            })
+            getSkillsWrapper.style.width = '100%'
+            getLangsBlock.style.width = '100%'
+    
+            getSkillsCard.style.padding = '10px'
+            getSkillsCard.style.width = '85%'
+        }
     }
 }
 
