@@ -83,6 +83,24 @@
   text-align: justify;
   transition: font-size 1s;
 }
+.about__person-type {
+  font-size: 20px;
+  margin-bottom: 15px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.about__person-type::before {
+  background-image: url("img/about/security.png");
+  display: block;
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-right: 10px;
+}
 
 .skills {
   display: flex;
@@ -620,6 +638,13 @@ html, body {
   .about__text {
     font-size: 18px;
   }
+  .about__person-type {
+    font-size: 16px;
+  }
+  .about__person-type::before {
+    width: 15px;
+    height: 15px;
+  }
   .menu {
     width: 40% !important;
   }
@@ -643,6 +668,13 @@ html, body {
   }
   .about__text {
     font-size: 20px;
+  }
+  .about__person-type {
+    font-size: 20px;
+  }
+  .about__person-type::before {
+    width: 20px;
+    height: 20px;
   }
   .burger-menu {
     display: flex;
