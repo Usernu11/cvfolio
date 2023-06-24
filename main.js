@@ -18,6 +18,8 @@ const rest = document.querySelector('#rest')
 const archi = document.querySelector('#archi')
 const typo = document.querySelector('#typo')
 const digit = document.querySelector('#digit')
+const lb = document.querySelector('#score')
+const anim = document.querySelector('#anim')
 // Filter buttons ↓
 const getKeywords = document.querySelectorAll('.projects__key')
 // Search projects input ↓
@@ -1002,6 +1004,14 @@ getAllProjects.forEach(project => {
                 digit.style.backgroundImage = `url('img/projects/digital.jpg')`
                 Object.assign(digit.style, jsStyles.projectHover)
                 break
+            case lb:
+                lb.style.backgroundImage = `url('img/projects/leaderboard.jpg')`
+                Object.assign(lb.style, jsStyles.projectHover)
+                break
+            case anim:
+                anim.style.backgroundImage = `url('img/projects/anim.jpg')`
+                Object.assign(anim.style, jsStyles.projectHover)
+                break
         }
 
         project.textContent = ''
@@ -1092,6 +1102,13 @@ const filterProjects = () => {
         if (el.classList.contains('gm-key')) {
             getAllProjects.forEach(project => {
                 if (project.classList.contains('gm')) {
+                    project.style.display = 'flex'
+                }
+            })
+        }
+        if (el.classList.contains('ts-key')) {
+            getAllProjects.forEach(project => {
+                if (project.classList.contains('ts')) {
                     project.style.display = 'flex'
                 }
             })
@@ -1413,7 +1430,7 @@ const osm = (size) => {
             })
             getSkillsWrapper.style.width = '100%'
             getLangsBlock.style.width = '100%'
-    
+
             getSkillsCard.style.padding = '10px'
             getSkillsCard.style.width = '85%'
         }

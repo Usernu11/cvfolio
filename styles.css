@@ -236,7 +236,7 @@
   flex-wrap: wrap;
 }
 .projects__item {
-  width: 30%;
+  width: 20%;
   height: 90px;
   border: 1px solid #003049;
   display: block;
@@ -785,7 +785,7 @@ html, body {
     height: 550px;
   }
   .projects__item {
-    width: 100px;
+    width: 90px;
     height: 100px;
     font-size: 20px;
   }
