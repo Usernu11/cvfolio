@@ -20,6 +20,8 @@ const typo = document.querySelector('#typo')
 const digit = document.querySelector('#digit')
 const lb = document.querySelector('#score')
 const anim = document.querySelector('#anim')
+const fp1 = document.querySelector('#fp1')
+const fp2 = document.querySelector('#fp2')
 // Filter buttons ↓
 const getKeywords = document.querySelectorAll('.projects__key')
 // Search projects input ↓
@@ -1011,6 +1013,14 @@ getAllProjects.forEach(project => {
             case anim:
                 anim.style.backgroundImage = `url('img/projects/anim.jpg')`
                 Object.assign(anim.style, jsStyles.projectHover)
+                break
+            case fp1:
+                fp1.style.backgroundImage = `url('img/projects/fp1.jpg')`
+                Object.assign(fp1.style, jsStyles.projectHover)
+                break
+            case fp2:
+                fp2.style.backgroundImage = `url('img/projects/fp2.jpg')`
+                Object.assign(fp2.style, jsStyles.projectHover)
                 break
         }
 
