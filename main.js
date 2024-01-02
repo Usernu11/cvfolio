@@ -590,17 +590,20 @@ const skillsLoading = () => {
     const gitLevel = document.querySelector('.git-level')
     const jqLevel = document.querySelector('.jq-level')
     const phLevel = document.querySelector('.ph-level')
-    const phpLevel = document.querySelector('.php-level')
-    const ftpLevel = document.querySelector('.ftp-level')
+    const reactLevel = document.querySelector('.react-level')
+    const tsLevel = document.querySelector('.ts-level')
+    // const phpLevel = document.querySelector('.php-level')
+    // const ftpLevel = document.querySelector('.ftp-level')
     const csLevel = document.querySelector('.skills__level--cs')
+    const seoLevel = document.querySelector('.seo-level')
 
     // Langs
     const deLevel = document.querySelector('.de-level')
     const enLevel = document.querySelector('.en-level')
     const uaLevel = document.querySelector('.ua-level')
     const ruLevel = document.querySelector('.ru-level')
-    const skillsLevelArray = [jsLevel, htmlcssLevel, sassLevel, mysqlLevel, gitLevel, deLevel, enLevel, uaLevel, ruLevel]
-    const additionalSkillsArray = [jqLevel, phLevel, phpLevel, ftpLevel, csLevel]
+    const skillsLevelArray = [jsLevel, htmlcssLevel, sassLevel, reactLevel, tsLevel, deLevel, enLevel, uaLevel, ruLevel]
+    const additionalSkillsArray = [jqLevel, phLevel, csLevel, mysqlLevel]
 
     // Create and add load-bars
     skillsLevelArray.forEach(level => {
@@ -619,13 +622,13 @@ const skillsLoading = () => {
 
         setInterval(() => {
             if (
-                (level === jsLevel && curWidth < 90) ||
-                (level === htmlcssLevel && curWidth < 85) ||
-                (level === sassLevel && curWidth < 65) ||
-                (level === mysqlLevel && curWidth < 45) ||
-                (level === gitLevel && curWidth < 70) ||
-                (level === deLevel && curWidth < 20) ||
-                (level === enLevel && curWidth < 70) ||
+                (level === jsLevel && curWidth < 85) ||
+                (level === htmlcssLevel && curWidth < 80) ||
+                (level === sassLevel && curWidth < 70) ||
+                (level === reactLevel && curWidth < 25) ||
+                (level === tsLevel && curWidth < 25) ||
+                (level === deLevel && curWidth < 35) ||
+                (level === enLevel && curWidth < 60) ||
                 (level === uaLevel && curWidth < 90) ||
                 (level === ruLevel && curWidth < 100)
 
@@ -647,10 +650,13 @@ const AdditionalSkillsLoading = () => {
     // Additional Skills
     const jqLevel = document.querySelector('.jq-level')
     const phLevel = document.querySelector('.ph-level')
-    const phpLevel = document.querySelector('.php-level')
-    const ftpLevel = document.querySelector('.ftp-level')
+    // const phpLevel = document.querySelector('.php-level')
+    // const ftpLevel = document.querySelector('.ftp-level')
+    const sqlLevel = document.querySelector('.sql-level')
+    const seoLevel = document.querySelector('.seo-level')
+    const gitLevel = document.querySelector('.git-level')
 
-    const additionalSkillsArray = [jqLevel, phLevel, phpLevel, ftpLevel]
+    const additionalSkillsArray = [jqLevel, phLevel, seoLevel, gitLevel]
 
     // Create and add load-bars
     if (areAdditionalLevelsFilled === false) {
@@ -670,10 +676,10 @@ const AdditionalSkillsLoading = () => {
 
             setInterval(() => {
                 if (
-                    (lvl === jqLevel && curWidth < 60) ||
-                    (lvl === phLevel && curWidth < 55) ||
-                    (lvl === phpLevel && curWidth < 25) ||
-                    (lvl === ftpLevel && curWidth < 35)
+                    (lvl === jqLevel && curWidth < 55) ||
+                    (lvl === phLevel && curWidth < 35) ||
+                    (lvl === seoLevel && curWidth < 60) ||
+                    (lvl === gitLevel && curWidth < 55)
 
                 ) {
                     curWidth += 1
