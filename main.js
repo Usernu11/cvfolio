@@ -627,7 +627,7 @@ const skillsLoading = () => {
                 (level === sassLevel && curWidth < 70) ||
                 (level === reactLevel && curWidth < 25) ||
                 (level === tsLevel && curWidth < 25) ||
-                (level === deLevel && curWidth < 35) ||
+                (level === deLevel && curWidth < 50) ||
                 (level === enLevel && curWidth < 60) ||
                 (level === uaLevel && curWidth < 90) ||
                 (level === ruLevel && curWidth < 100)
