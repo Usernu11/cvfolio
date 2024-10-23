@@ -182,7 +182,7 @@ const loadImg = (section) => {
         }, 10)
 
         // sass
-        sImg.style.backgroundImage = 'url("img/skills/sass.png")'
+        sImg.style.backgroundImage = 'url("img/skills/atom.png")'
         sImg.style.top = '40%'
         sImg.style.left = '30%'
         sImg.style.width = '100px'
@@ -219,7 +219,7 @@ const loadImg = (section) => {
             }
         }, 10);
 
-        // germany
+        // swiss
         foImg.style.backgroundImage = 'url("img/skills/switzerland.png")'
         foImg.style.top = '15%'
         foImg.style.right = '10%'
@@ -238,7 +238,7 @@ const loadImg = (section) => {
             }
         }, 10);
 
-        // ukraine
+        // germany
         fiImg.style.backgroundImage = 'url("img/skills/germany.png")'
         fiImg.style.top = '35%'
         fiImg.style.right = '5%'
@@ -257,8 +257,8 @@ const loadImg = (section) => {
             }
         }, 10);
 
-        // switzerland
-        siImg.style.backgroundImage = 'url("img/skills/ukraine.png")'
+        // uk
+        siImg.style.backgroundImage = 'url("img/skills/uk.png")'
         siImg.style.top = '60%'
         siImg.style.right = '8%'
         siImg.style.width = '100px'
@@ -408,7 +408,7 @@ const loadImgFirst = () => {
                 firstImg.classList.add('img-about')
                 display.appendChild(firstImg)
                 Object.assign(firstImg.style, jsStyles.img)
-                firstImg.style.backgroundImage = 'url("img/about/activism.png")'
+                // firstImg.style.backgroundImage = 'url("img/about/activism.png")'
 
                 // fist
                 let posBot = -40
@@ -431,7 +431,7 @@ const loadImgFirst = () => {
                 secondImg.classList.add('img-about')
                 display.appendChild(secondImg)
                 Object.assign(secondImg.style, jsStyles.img)
-                secondImg.style.backgroundImage = 'url("img/about/swiss.png")'
+                // secondImg.style.backgroundImage = 'url("img/about/swiss.png")'
                 secondImg.style.bottom = '-5%'
                 secondImg.style.right = '1%'
                 secondImg.style.opacity = 0
@@ -625,10 +625,10 @@ const skillsLoading = () => {
                 (level === jsLevel && curWidth < 85) ||
                 (level === htmlcssLevel && curWidth < 80) ||
                 (level === sassLevel && curWidth < 70) ||
-                (level === reactLevel && curWidth < 25) ||
+                (level === reactLevel && curWidth < 40) ||
                 (level === tsLevel && curWidth < 25) ||
-                (level === deLevel && curWidth < 35) ||
-                (level === enLevel && curWidth < 60) ||
+                (level === deLevel && curWidth < 70) ||
+                (level === enLevel && curWidth < 70) ||
                 (level === uaLevel && curWidth < 90) ||
                 (level === ruLevel && curWidth < 100)
 
