@@ -629,7 +629,7 @@ const skillsLoading = () => {
                 (level === tsLevel && curWidth < 25) ||
                 (level === deLevel && curWidth < 70) ||
                 (level === enLevel && curWidth < 70) ||
-                (level === uaLevel && curWidth < 90) ||
+                (level === uaLevel && curWidth < 100) ||
                 (level === ruLevel && curWidth < 100)
 
             ) {
